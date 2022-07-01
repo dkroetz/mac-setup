@@ -1,0 +1,70 @@
+{
+    "workbench.editorAssociations": {
+        "*.ipynb": "jupyter-notebook"
+    },
+    "notebook.cellToolbarLocation": {
+        "default": "right",
+        "jupyter-notebook": "left"
+    },
+    "terminal.integrated.shell.windows": "C:\\Windows\\System32\\cmd.exe",
+    "jupyter.askForKernelRestart": false,
+    "workbench.preferredDarkColorTheme": "Visual Studio Dark",
+    "git.autofetch": true,
+    "explorer.confirmDragAndDrop": false,
+    "git.enableSmartCommit": true,
+    "explorer.confirmDelete": false,
+    "workbench.iconTheme": "material-icon-theme",
+    "git.confirmSync": false,
+    "security.workspace.trust.untrustedFiles": "open",
+    "gitlens.hovers.currentLine.over": "line",
+    "gitlens.currentLine.enabled": false,
+    "gitlens.defaultDateLocale": null,
+    "workbench.startupEditor": "none",
+    "terminal.integrated.defaultProfile.windows": "PowerShell",
+    "workbench.colorTheme": "GitHub Dark Dimmed",
+    "editor.fontFamily": "Hack, 'Courier New', monospace",
+    "terminal.integrated.fontFamily": "monospace",
+    "editor.bracketPairColorization.independentColorPoolPerBracketType": true,
+    "material-icon-theme.hidesExplorerArrows": true,
+    "python.languageServer": "Pylance",
+    "editor.tokenColorCustomizations": {
+        "textMateRules": [
+            {
+                "scope": "variable.other.readwrite",
+                "settings": {
+                    "foreground": "#f3f3d4f1"
+                }
+            },
+            {
+                "scope": [
+                    "comment",
+                    "comment.block",
+                    "comment.block.documentation",
+                    "comment.line",
+                    "comment.line.number-sign.python"
+                ],
+                "settings": {
+                    "foreground": "#2baa04",
+                    "fontStyle": "bold"
+                }
+            },
+            {
+                "scope": ["function", "entity.name.function"],
+                "settings": {
+                    "foreground": "#a96de6",
+                    "fontStyle": "bold"
+                }
+            },
+            {
+                "scope": "source.python",
+                "settings": {
+                    "foreground": "#F69D50",
+                    "fontStyle": "bold"
+                }
+            }
+        ]
+    },
+    "editor.codeActionsOnSave": {
+    
+    }
+}
