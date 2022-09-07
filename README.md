@@ -30,7 +30,21 @@
     },
     "code-runner.clearPreviousOutput": true,
     "git.useEditorAsCommitInput": false,
-    "editor.stickyScroll.enabled": true
+    "editor.stickyScroll.enabled": true,
+    "editor.tokenColorCustomizations": {
+        "[GitHub Dark Dimmed]": {
+            "textMateRules": [
+                {
+                    "scope": "variable.other.readwrite",
+                    "settings": {
+                        "foreground": "#ff00f7",
+                        "fontStyle": "bold"
+                    }
+                }
+            ]
+        }
+    },
+    "git.enableSmartCommit": true
 }
 ```
 
