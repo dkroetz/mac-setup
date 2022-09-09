@@ -2,7 +2,7 @@
 ## Custom settings
 ```json
 {
-    "window.zoomLevel": 1,
+    "window.zoomLevel": 0.5,
     "workbench.startupEditor": "newUntitledFile",
     "workbench.iconTheme": "ayu",
     "workbench.colorTheme": "GitHub Dark Dimmed",

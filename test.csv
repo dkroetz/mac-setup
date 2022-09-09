@@ -1,0 +1,13 @@
+rootId,relatedId,relationType
+a,b,child
+a,c,child
+a,d,child
+b,a,parent
+b,c,child
+b,e,child
+c,a,parent
+c,b,parent
+c,d,child
+d,a,parent
+d,c,parent
+e,b,parent
