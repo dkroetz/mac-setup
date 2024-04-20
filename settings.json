@@ -1,4 +1,5 @@
 {
+    "json.format.keepLines": true,
     "workbench.sideBar.location": "right",
     "editor.formatOnSave": true,
     "editor.suggest.insertMode": "replace",
@@ -48,5 +49,4 @@
         { "before": [ "K" ], "commands": [ "editor.action.moveLinesUpAction" ] },
         // toggle comment selection
     ],
-    "json.format.keepLines": true,
 }
