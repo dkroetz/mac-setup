@@ -1,4 +1,6 @@
 # VSCode Setup
 ## Visual
-Font: Source Code Pro
-https://github.com/adobe-fonts/source-code-pro
+Theme: Ayu Dark Bordered  
+Icon Theme: Fluent Icon
+Font: [SauceCodePro Nerd Font Mono](https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/SourceCodePro.zip)  
+
