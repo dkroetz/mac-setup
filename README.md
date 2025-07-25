@@ -6,7 +6,7 @@ Ghostty is a fast, feature-rich, and cross-platform terminal emulator that uses 
 brew install ghostty
 cp .aliases ~/.aliases
 # Copy + Paste config into cmd + ,
-
+brew install neovim
 ```
 
 ## fish
