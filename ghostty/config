@@ -1,5 +1,4 @@
 keybind = global:ctrl+grave_accent=toggle_quick_terminal
 command = /opt/homebrew/bin/fish
 background-opacity = 0.9
-macos-option-as-alt = true
 font-family = Hack Nerd Font Mono
