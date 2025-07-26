@@ -1,0 +1,14 @@
+{
+  "enabledCssSnippets": [
+    "custom-table",
+    "custom-query",
+    "custom-img",
+    "supercharged-links-gen",
+    "mcs-multi-column"
+  ],
+  "cssTheme": "Border",
+  "translucency": true,
+  "showRibbon": false,
+  "showViewHeader": true,
+  "monospaceFontFamily": "Hack Nerd Font Mono"
+}

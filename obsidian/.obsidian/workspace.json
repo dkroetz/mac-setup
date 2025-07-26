@@ -1,0 +1,235 @@
+{
+  "main": {
+    "id": "5324373015726ba8",
+    "type": "split",
+    "children": [
+      {
+        "id": "4509724f8bf84da7",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "e7a7b303c61786dc",
+            "type": "leaf",
+            "pinned": true,
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Home.md",
+                "mode": "preview",
+                "source": false
+              },
+              "pinned": true,
+              "icon": "lucide-file",
+              "title": "Home"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "587a6194b2e33ffa",
+    "type": "split",
+    "children": [
+      {
+        "id": "e8e188c041dd40fe",
+        "type": "tabs",
+        "dimension": 58.297413793103445,
+        "children": [
+          {
+            "id": "1f2b4b265de1c357",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "2109fc7873505d31",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "tag:#tags",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "8eb8ed9da2e9f381",
+            "type": "leaf",
+            "state": {
+              "type": "calendar",
+              "state": {},
+              "icon": "calendar-with-checkmark",
+              "title": "Calendar"
+            }
+          }
+        ]
+      },
+      {
+        "id": "c28fd704d5db59e9",
+        "type": "tabs",
+        "dimension": 41.702586206896555,
+        "children": [
+          {
+            "id": "32f6562ce9403ce1",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          },
+          {
+            "id": "878fbe67fcfd267a",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 260.5
+  },
+  "right": {
+    "id": "212d3d7949a6352f",
+    "type": "split",
+    "children": [
+      {
+        "id": "9ccba403d7e1ead8",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "8cfbce0479a60272",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "Home Page.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks for Home Page"
+            }
+          },
+          {
+            "id": "31ced38361d4a940",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "Home Page.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links from Home Page"
+            }
+          },
+          {
+            "id": "388029e4d69d6fe4",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "Home Page.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline of Home Page"
+            }
+          }
+        ],
+        "currentTab": 2
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
+      "templater-obsidian:Templater": false,
+      "daily-notes:Open today's daily note": false,
+      "homepage:Open homepage": false
+    }
+  },
+  "active": "e7a7b303c61786dc",
+  "lastOpenFiles": [
+    "00_Inbox/placeholder.md",
+    "01_Daily_Notes/placeholder.md",
+    "02_Projects/placeholder.md",
+    "03_Areas/placeholder.md",
+    "06_Archive/placeholder.md",
+    "04_Resources/Attachments/placeholder.md",
+    "Home.md",
+    "04_Resources/Templates/meeting_note_template.md",
+    "04_Resources/Templates/daily_note_template.md",
+    "04_Resources/Templates/basic_note_template.md",
+    "05_Notes/Obsidian Demo File.md",
+    "02_Projects/New Project.md",
+    "00_Inbox/2025-07-26 - Basic.md",
+    "04_Resources/Attachments/Pasted image 20250726231431.png",
+    "04_Resources/Attachments",
+    "Pasted image 20250726231245.png",
+    "01_Daily_Notes/2025-07-26.md",
+    "00_Inbox/2025-07-26 - Untitled.md",
+    "00_Inbox/2025-07-26 - Meeting.md",
+    "Internal link.md",
+    "04_Resources/Daily Notes MOC.md",
+    "04_Resources/Meetings MOC.md",
+    "00_Inbox/2025-07-26 - asdf.md",
+    "Untitled.md",
+    "New Note.md",
+    "asdf.md",
+    "2025-07-26 Untitled.md",
+    "2025-07-26-Saturday Untitled 1.md",
+    "00_Inbox/2025-07-26 New Meeting.md",
+    "06_Resources/Buttons",
+    "04_Resources/Templates",
+    "06_Resources",
+    "06_Archive",
+    "04_Resources",
+    "05_Notes",
+    "02_Projects",
+    "00_Inbox",
+    "Projects"
+  ]
+}

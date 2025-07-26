@@ -1,0 +1,91 @@
+{
+  "devMode": false,
+  "ignoreCodeBlockRestrictions": false,
+  "preferredDateFormat": "YYYY-MM-DD",
+  "firstWeekday": {
+    "index": 1,
+    "name": "Monday",
+    "shortName": "Mo"
+  },
+  "syncInterval": 200,
+  "enableJs": false,
+  "viewFieldDisplayNullAsEmpty": false,
+  "enableSyntaxHighlighting": true,
+  "enableEditorRightClickMenu": true,
+  "inputFieldTemplates": [],
+  "buttonTemplates": [
+    {
+      "label": "Daily Note",
+      "hidden": false,
+      "id": "daily-note",
+      "style": "default",
+      "actions": [
+        {
+          "type": "command",
+          "command": "daily-notes"
+        }
+      ]
+    },
+    {
+      "label": "Home",
+      "icon": "",
+      "style": "default",
+      "class": "",
+      "cssStyle": "",
+      "backgroundImage": "",
+      "tooltip": "",
+      "id": "home",
+      "hidden": false,
+      "actions": [
+        {
+          "type": "open",
+          "link": "[[Home]]",
+          "newTab": true
+        }
+      ]
+    },
+    {
+      "label": "Basic Note",
+      "icon": "",
+      "style": "default",
+      "class": "",
+      "cssStyle": "",
+      "backgroundImage": "",
+      "tooltip": "",
+      "id": "basic-note",
+      "hidden": false,
+      "actions": [
+        {
+          "type": "templaterCreateNote",
+          "templateFile": "04_Resources/Templates/basic_note_template.md",
+          "folderPath": "00_Inbox",
+          "openNote": true,
+          "openIfAlreadyExists": true
+        }
+      ]
+    },
+    {
+      "label": "Meeting Note",
+      "icon": "",
+      "style": "default",
+      "class": "",
+      "cssStyle": "",
+      "backgroundImage": "",
+      "tooltip": "",
+      "id": "meeting-note",
+      "hidden": false,
+      "actions": [
+        {
+          "type": "templaterCreateNote",
+          "templateFile": "04_Resources/Templates/meeting_note_template.md",
+          "folderPath": "00_Inbox",
+          "openNote": true,
+          "openIfAlreadyExists": true
+        }
+      ]
+    }
+  ],
+  "excludedFolders": [
+    "templates"
+  ]
+}

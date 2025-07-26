@@ -1,0 +1,7 @@
+.markdown-preview-view .internal-query.is-embed .internal-query-header-icon {
+    display: none !important;
+}
+
+.internal-query .internal-query-header {
+    display: none;
+}
