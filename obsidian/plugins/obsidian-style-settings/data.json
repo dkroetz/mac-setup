@@ -1,0 +1,12 @@
+{
+  "Appearance-light@@card-layout-open-light": true,
+  "Appearance-light@@theme-light-style-select": "theme-light-background-default",
+  "Appearance-dark@@card-layout-open-dark": true,
+  "Components@@tab-autohide": false,
+  "Components@@Ribbon-autohide": true,
+  "Appearance-light@@card-border-radius-light": "6px",
+  "Editor@@table-width-select": "table-width-obsidian-default",
+  "Editor@@border-focus-mode": false,
+  "Editor@@editor-grid-background-pattren": false,
+  "Editor@@bold-color@@light": "#000000"
+}

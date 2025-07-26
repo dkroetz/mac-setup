@@ -1,0 +1,28 @@
+/* Make tables responsive and remove bottom scrollbar */
+.markdown-preview-view table,
+.markdown-source-view table {
+    width: 100% !important;
+    max-width: 100% !important;
+    table-layout: auto !important;
+    overflow-x: hidden !important;
+    overflow-y: hidden !important;
+    padding-left: 16px !important;
+}
+
+/* Ensure text wraps properly inside cells */
+.markdown-preview-view th,
+.markdown-preview-view td,
+.markdown-source-view th,
+.markdown-source-view td {
+    word-wrap: break-word !important;
+    overflow-wrap: break-word !important;
+    white-space: normal !important;
+}
+
+/* Remove forced scrolling */
+.markdown-preview-view .table-wrapper,
+.markdown-source-view .table-wrapper {
+    overflow-x: hidden !important;
+    overflow-y: hidden !important;
+    padding-left: 15px !important;
+}

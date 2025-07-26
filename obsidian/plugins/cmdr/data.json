@@ -1,0 +1,67 @@
+{
+  "confirmDeletion": true,
+  "showAddCommand": true,
+  "debug": false,
+  "editorMenu": [],
+  "fileMenu": [],
+  "leftRibbon": [],
+  "rightRibbon": [],
+  "titleBar": [],
+  "statusBar": [],
+  "pageHeader": [
+    {
+      "id": "editor:insert-callout",
+      "icon": "lucide-quote",
+      "name": "Insert callout",
+      "mode": "any",
+      "color": "#000000"
+    },
+    {
+      "id": "daily-notes",
+      "icon": "lucide-calendar-days",
+      "name": "Daily notes: Open today's daily note",
+      "mode": "any"
+    },
+    {
+      "id": "editor:table-row-after",
+      "icon": "lucide-arrow-down",
+      "name": "Table: Add row after",
+      "mode": "any"
+    },
+    {
+      "id": "editor:table-col-after",
+      "icon": "lucide-arrow-right",
+      "name": "Table: Add column after",
+      "mode": "any"
+    },
+    {
+      "id": "workspace:toggle-pin",
+      "icon": "lucide-pin",
+      "name": "Toggle pin",
+      "mode": "any"
+    },
+    {
+      "id": "templater-obsidian:insert-templater",
+      "icon": "templater-icon",
+      "name": "Templater: Open insert template modal",
+      "mode": "any"
+    }
+  ],
+  "macros": [],
+  "explorer": [],
+  "hide": {
+    "statusbar": [],
+    "leftRibbon": []
+  },
+  "spacing": 8,
+  "advancedToolbar": {
+    "rowHeight": 48,
+    "rowCount": 1,
+    "spacing": 0,
+    "buttonWidth": 48,
+    "columnLayout": false,
+    "mappedIcons": [],
+    "tooltips": false,
+    "heightOffset": 0
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "cssTheme": "Border",
+  "theme": "system",
+  "showViewHeader": true,
+  "showRibbon": true,
+  "enabledCssSnippets": [
+    "custom-table",
+    "custom-query",
+    "custom-img",
+    "MCL Multi Column"
+  ],
+  "accentColor": ""
+}

@@ -1,0 +1,13 @@
+{
+  "styleLists": false,
+  "debug": false,
+  "stickCursor": "bullet-and-checkbox",
+  "betterEnter": true,
+  "betterVimO": false,
+  "betterTab": true,
+  "selectAll": true,
+  "listLines": false,
+  "listLineAction": "none",
+  "dnd": false,
+  "previousRelease": null
+}

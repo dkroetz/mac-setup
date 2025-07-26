@@ -1,0 +1,15 @@
+{
+  "showInlineTitle": true,
+  "promptDelete": false,
+  "readableLineLength": false,
+  "alwaysUpdateLinks": true,
+  "newFileLocation": "folder",
+  "newFileFolderPath": "Notes",
+  "attachmentFolderPath": "Resources/Attachments",
+  "userIgnoreFilters": [
+    "Resources/Attachments/"
+  ],
+  "propertiesInDocument": "visible",
+  "showIndentGuide": true,
+  "showLineNumber": false
+}
