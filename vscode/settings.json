@@ -1,0 +1,86 @@
+{
+  "workbench.startupEditor": "none",
+  "workbench.colorTheme": "Best Themes - One Dark Pro",
+  "workbench.iconTheme": "material-icon-theme",
+  "window.zoomLevel": 0.7,
+  "breadcrumbs.enabled": true,
+  "explorer.confirmDelete": false,
+  "git.confirmSync": false,
+  "git.enableSmartCommit": false,
+  "git.useEditorAsCommitInput": true,
+  "json.format.keepLines": true,
+  "security.workspace.trust.untrustedFiles": "open",
+  "update.showReleaseNotes": false,
+  "workbench.sideBar.location": "right",
+  "workbench.statusBar.visible": true,
+  "zenMode.hideLineNumbers": false,
+
+  // Editor Settings
+  "editor.fontLigatures": false,
+  "editor.fontWeight": "500",
+  "editor.fontSize": 13,
+  "editor.lightbulb.enabled": "onCode",
+  "editor.lineNumbers": "relative",
+  "editor.linkedEditing": true,
+  "editor.minimap.enabled": false,
+  "editor.suggest.insertMode": "replace",
+  "editor.formatOnSave": true,
+  "notebook.editorOptionsCustomizations": {
+    "editor.tabSize": 4,
+    "editor.indentSize": 4,
+    "editor.insertSpaces": true
+  },
+
+  // Terminal Settings
+  "terminal.integrated.fontWeight": 550,
+  "workbench.colorCustomizations": {
+    // The background is optional
+    // "terminal.background": "#282a36",
+    "terminalCursor.background": "#282a36",
+    "terminalCursor.foreground": "#97979b",
+    "terminal.selectionBackground": "#97979b33",
+    "terminal.foreground": "#eff0eb",
+    "terminal.ansiBlack": "#282a36",
+    "terminal.ansiRed": "#ff5c57",
+    "terminal.ansiGreen": "#5af78e",
+    "terminal.ansiYellow": "#f3f99d",
+    "terminal.ansiBlue": "#57c7ff",
+    "terminal.ansiMagenta": "#ff6ac1",
+    "terminal.ansiCyan": "#9aedfe",
+    "terminal.ansiWhite": "#f1f1f0",
+    "terminal.ansiBrightBlack": "#686868",
+    "terminal.ansiBrightRed": "#ff5c57",
+    "terminal.ansiBrightGreen": "#5af78e",
+    "terminal.ansiBrightYellow": "#f3f99d",
+    "terminal.ansiBrightBlue": "#57c7ff",
+    "terminal.ansiBrightMagenta": "#ff6ac1",
+    "terminal.ansiBrightCyan": "#9aedfe",
+    "terminal.ansiBrightWhite": "#eff0eb"
+  },
+  "terminal.external.linuxExec": "ghostty",
+  "terminal.integrated.defaultProfile.osx": "zsh",
+  "workbench.productIconTheme": "material-product-icons",
+  "explorer.confirmDragAndDrop": false,
+  "git.autofetch": true,
+  "github.copilot.chat.codeGeneration.useInstructionFiles": false,
+  "github.copilot.chat.codesearch.enabled": true,
+  "editor.accessibilitySupport": "off",
+  "editor.screenReaderAnnounceInlineSuggestion": false,
+  "jupyter.askForKernelRestart": false,
+  "sonarlint.connectedMode.connections.sonarcloud": [
+    {
+      "organizationKey": "ventio",
+      "connectionId": "vent.io",
+      "region": "EU"
+    }
+  ],
+  "python.analysis.typeCheckingMode": "standard",
+  "github.copilot.nextEditSuggestions.enabled": true,
+  "python.analysis.extraPaths": [
+    "src"
+  ],
+  "redhat.telemetry.enabled": true,
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+}
