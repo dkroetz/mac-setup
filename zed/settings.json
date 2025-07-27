@@ -51,7 +51,7 @@
     "dock": "right"
   },
   "terminal": {
-    "dock": "left"
+    "dock": "bottom"
   },
   "chat_panel": {
     "dock": "left"

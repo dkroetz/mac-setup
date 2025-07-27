@@ -53,5 +53,16 @@
     "bindings": {
       "cmd-e": "project_panel::ToggleFocus"
     }
+  },
+  {
+    "context": "Editor",
+    "bindings": {
+      "ctrl-#": [
+        "editor::ToggleComments",
+        {
+          "advance_downwards": false
+        }
+      ]
+    }
   }
 ]
