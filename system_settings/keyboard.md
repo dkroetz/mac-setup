@@ -1,6 +1,7 @@
 # Keyboard
 ## Keyboard Shortcuts
 - Keyboard Navigation off
+- Everything else -> Off except Windows -> General -> Minimize (cmd+M)
 ## Text Input
 - Input Sources
   - German

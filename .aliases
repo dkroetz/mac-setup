@@ -1,3 +1,2 @@
 vim=nvim
 lg=lazygit
-gst=git status
