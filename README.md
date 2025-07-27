@@ -35,8 +35,38 @@ cp fish/starship.toml ~/.config/
 ```
 
 ## lazygit
-A simple terminal UI for git commands
+A simple terminal UI for git commands.
 [lazygit](https://github.com/jesseduffield/lazygit)
 ```sh
 brew install lazygit
 ```
+
+## obsidian
+Note taking and knowledge management application.
+[obsidian](https://obsidian.md/)
+```sh
+mkdir -p MyNewVault
+cp obsidian/ MyNewVault
+```
+
+## raycast
+Raycast is a powerful launcher for macOS that allows you to quickly access your apps, files, and web searches.
+[raycast](https://raycast.com/)
+```sh
+brew install raycast
+```
+
+## vscode
+Visual Studio Code is a code editor redefined and optimized for building and debugging modern web and cloud applications.
+[vscode](https://code.visualstudio.com/)
+```sh
+brew install vscode
+```
+
+## zed
+Zed is a code editor based on rust.
+[zed](https://zed.dev/)
+
+## zen
+Zen is a web browser that is fast, secure, and easy to use.
+[zen](https://zen-browser.app/)
