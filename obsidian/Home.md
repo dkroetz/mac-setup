@@ -7,25 +7,35 @@
 > 
 > >[!Notes] Meeting Note
 > > `BUTTON[meeting-note]`
+>
+> >[!Notes] People Note
+> > `BUTTON[people-note]`
+>
+> >[!Notes] Project Note
+> > `BUTTON[project-note]`
+>
+> >[!Notes] Area Note
+> > `BUTTON[area-note]`
+>
 
->[!Tip] Tasks
+> [!Question] Open Questions
+> ```tasks
+>not done
+>tag include #question
+>```
 
-> [!multi-column]
->> [!Danger] Due today
->> ```tasks
->>due on or before today
->>not done
->
->> [!Example] Due this week
->> ```tasks
->>due in this week
->>due after today
->>not done
->
->> [!Abstract] Open
->> ```tasks
->>not done
->
+> [!Tip] Open Tasks
+> ```tasks
+>not done
+>tags does not include #question
+>```
+
+> [!Danger] Due this week
+> ```tasks
+>tags does not include #question
+>due on or after today
+>due in this week
+>not done
 
 >[!Example] Recently Modified Notes
 > ```dataview
@@ -35,4 +45,3 @@
 > SORT file.mtime desc
 > LIMIT 5
 > ```
-

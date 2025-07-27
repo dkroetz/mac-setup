@@ -1,5 +1,5 @@
 {
-  "template": "04_Resources/Templates/daily_note_template",
+  "template": "06_Resources/Templates/daily_note_template",
   "autorun": false,
   "folder": "01_Daily_Notes"
 }

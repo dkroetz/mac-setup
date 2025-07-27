@@ -57,7 +57,7 @@
       "actions": [
         {
           "type": "templaterCreateNote",
-          "templateFile": "04_Resources/Templates/basic_note_template.md",
+          "templateFile": "06_Resources/Templates/basic_note_template.md",
           "folderPath": "00_Inbox",
           "openNote": true,
           "openIfAlreadyExists": true
@@ -77,8 +77,68 @@
       "actions": [
         {
           "type": "templaterCreateNote",
-          "templateFile": "04_Resources/Templates/meeting_note_template.md",
+          "templateFile": "06_Resources/Templates/meeting_note_template.md",
           "folderPath": "00_Inbox",
+          "openNote": true,
+          "openIfAlreadyExists": true
+        }
+      ]
+    },
+    {
+      "label": "People Note",
+      "icon": "",
+      "style": "default",
+      "class": "",
+      "cssStyle": "",
+      "backgroundImage": "",
+      "tooltip": "",
+      "id": "people-note",
+      "hidden": false,
+      "actions": [
+        {
+          "type": "templaterCreateNote",
+          "templateFile": "06_Resources/Templates/people_note_template.md",
+          "folderPath": "05_People",
+          "openNote": true,
+          "openIfAlreadyExists": true
+        }
+      ]
+    },
+    {
+      "label": "Area Note",
+      "icon": "",
+      "style": "default",
+      "class": "",
+      "cssStyle": "",
+      "backgroundImage": "",
+      "tooltip": "",
+      "id": "area-note",
+      "hidden": false,
+      "actions": [
+        {
+          "type": "templaterCreateNote",
+          "templateFile": "06_Resources/Templates/area_note_template.md",
+          "folderPath": "03_Areas",
+          "openNote": true,
+          "openIfAlreadyExists": true
+        }
+      ]
+    },
+    {
+      "label": "Project Note",
+      "icon": "",
+      "style": "default",
+      "class": "",
+      "cssStyle": "",
+      "backgroundImage": "",
+      "tooltip": "",
+      "id": "project-note",
+      "hidden": false,
+      "actions": [
+        {
+          "type": "templaterCreateNote",
+          "templateFile": "06_Resources/Templates/project_note_template.md",
+          "folderPath": "02_Projects",
           "openNote": true,
           "openIfAlreadyExists": true
         }

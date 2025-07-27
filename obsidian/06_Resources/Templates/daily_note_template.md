@@ -1,23 +1,18 @@
 ---
 tags:
 ---
-Daily Note: [[<% tp.date.now("YYYY-MM-DD") %>]]
-<% await tp.file.rename(tp.date.now("YYYY-MM-DD") + " - Meeting") %>
----
->[!Abstract] Agenda
-## Topic
-- 
-
 ---
 > [! Notes]
 ## Topic
 - 
-
 ---
 > [!Tip] Tasks
 ## Topic
 - [ ]
-
+---
+> [!Question] Questions
+## Topic
+- [ ]
 ---
 > [!multi-column]
 > > [!Notes] Daily Note
@@ -32,7 +27,7 @@ Daily Note: [[<% tp.date.now("YYYY-MM-DD") %>]]
 >[!Example] Recently Modified Notes
 >```dataview
 >TABLE 
->	file.mtime AS modified_on
+>	file.mtime AS "Last Modified"
 >FROM ""
 >SORT file.mtime desc
 >LIMIT 5

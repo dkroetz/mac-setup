@@ -1,17 +1,7 @@
----
-tags:
----
-> [! Notes]
-## Topic
-- 
-
----
-> [!Tip] Tasks
-## Topic
-- [ ]
-
----
 > [!multi-column]
+> > [!Notes] Daily Note
+> > `BUTTON[daily-note]`
+> 
 > > [!Notes] Basic Note
 > > `BUTTON[basic-note]`
 > 
@@ -21,7 +11,7 @@ tags:
 >[!Example] Recently Modified Notes
 >```dataview
 >TABLE 
->	file.mtime AS modified_on
+>	file.mtime AS "Last Modified"
 >FROM ""
 >SORT file.mtime desc
 >LIMIT 5
