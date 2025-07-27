@@ -7,13 +7,59 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "icon_theme": "Catppuccin Macchiato",
+  "agent": {
+    "dock": "left",
+    "default_profile": "ask",
+    "default_model": {
+      "provider": "copilot_chat",
+      "model": "gpt-4.1"
+    }
+  },
+  "features": {
+    "edit_prediction_provider": "copilot"
+  },
+  "base_keymap": "VSCode",
   "vim_mode": true,
+  "relative_line_numbers": true,
+  "vim": {
+    "toggle_relative_line_numbers": true
+  },
   "ui_font_size": 16,
-  "ui_font_family": "Hack Nerd Font Mono",
   "buffer_font_size": 16,
   "theme": {
     "mode": "system",
     "light": "One Light",
-    "dark": "One Dark"
+    "dark": "Catppuccin Macchiato"
+  },
+  "title_bar": {
+    // Whether to show the branch icon beside branch switcher in the titlebar.
+    "show_branch_icon": true,
+    // Whether to show the branch name button in the titlebar.
+    "show_branch_name": true,
+    // Whether to show user picture in the titlebar.
+    "show_user_picture": true,
+    // Whether to show the sign in button in the titlebar.
+    "show_sign_in": false
+  },
+  "scrollbar": null,
+  "project_panel": {
+    "button": true,
+    "dock": "right"
+  },
+  "outline_panel": {
+    "dock": "right"
+  },
+  "terminal": {
+    "dock": "left"
+  },
+  "chat_panel": {
+    "dock": "left"
+  },
+  "collaboration_panel": {
+    "button": false
+  },
+  "notification_panel": {
+    "button": false
   }
 }
