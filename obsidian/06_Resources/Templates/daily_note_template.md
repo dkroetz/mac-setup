@@ -2,15 +2,15 @@
 tags:
 ---
 ---
-> [! Notes]
+# Notes
 ## Topic
 - 
 ---
-> [!Tip] Tasks
+# Tasks
 ## Topic
 - [ ]
 ---
-> [!Question] Questions
+# Questions
 ## Topic
 - [ ]
 ---

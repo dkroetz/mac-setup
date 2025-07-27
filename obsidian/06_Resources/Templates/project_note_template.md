@@ -8,19 +8,15 @@ team:
 Daily Note: [[<% tp.date.now("YYYY-MM-DD") %>]]
 <% await tp.file.rename(tp.date.now("YYYY-MM-DD") + " - Project") %>
 ---
-> [! Notes]
-## Overview
-- 
-## Architecture & Workflow
-- 
-## Usage & Maintenance
+# Notes
+## Topic
 - 
 ---
-> [!Example] Tasks
+# Tasks
 ## Topic
 - [ ]
 ---
-> [!Question] Questions
+# Questions
 ## Topic
 - [ ]
 ---

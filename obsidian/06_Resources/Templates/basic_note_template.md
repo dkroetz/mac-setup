@@ -4,15 +4,15 @@ tags:
 Daily Note: [[<% tp.date.now("YYYY-MM-DD") %>]]
 <% await tp.file.rename(tp.date.now("YYYY-MM-DD") + " - Basic") %>
 ---
-> [! Notes]
+# Notes
 ## Topic
 - 
 ---
-> [!Example] Tasks
+# Tasks
 ## Topic
 - [ ]
 ---
-> [!Question] Questions
+# Questions
 ## Topic
 - [ ]
 ---

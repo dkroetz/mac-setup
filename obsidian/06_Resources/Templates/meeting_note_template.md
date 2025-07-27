@@ -4,19 +4,18 @@ tags: []
 Daily Note: [[<% tp.date.now("YYYY-MM-DD") %>]]
 <% await tp.file.rename(tp.date.now("YYYY-MM-DD") + " - Meeting") %>
 ---
->[!Abstract] Agenda
+# Agenda
+- 
+---
+# Notes
 ## Topic
 - 
 ---
-> [! Notes]
-## Topic
-- 
----
-> [!Tip] Tasks
+# Tasks
 ## Topic
 - [ ]
 ---
-> [!Question] Questions
+# Questions
 ## Topic
 - [ ]
 ---
