@@ -1,3 +1,10 @@
+# Bug from Akko Keyboard
+if < and ^ are swapped
+
+sudo plutil -convert xml1 /Library/Preferences/com.apple.keyboardtype.plist
+
+Edit file /Library/Preferences/com.apple.keyboardtype.plist and change type 43 to 41 (or the other way round)
+
 # Installation
 ## ghostty
 Ghostty is a fast, feature-rich, and cross-platform terminal emulator that uses platform-native UI and GPU acceleration.
