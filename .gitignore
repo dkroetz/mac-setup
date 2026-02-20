@@ -1,4 +1,6 @@
 .venv/
 .env
+.opencode/
+.vscode/
 
 .DS_Store

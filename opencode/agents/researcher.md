@@ -1,7 +1,6 @@
 ---
 description: "Coordinates multi-source research, querying specialized search subagents"
 mode: primary
-model: kilo/google/gemini-2.5-flash
 temperature: 0.3
 color: "#8B5CF6"
 tools:
@@ -41,7 +40,7 @@ Before delegating, classify the query complexity:
 - How-to guides or tutorials
 - Technology comparison (2 items)
 - Specific implementation question
-- Expected: 2-3 subagents, 5-10 tool calls each
+- Expected: 2-3 subagents, 5-7 tool calls each
 - **Action**: Delegate to most relevant 1-2 subagents
 
 **COMPLEX** (3-5 subagents in parallel):
@@ -49,7 +48,7 @@ Before delegating, classify the query complexity:
 - Multi-faceted research across domains
 - Trend analysis or comprehensive overview
 - Requires cross-referencing multiple source types
-- Expected: 3-5 subagents, 10+ tool calls each
+- Expected: 3-5 subagents, 7-10 tool calls each
 - **Action**: Delegate to multiple subagents in parallel
 
 **NEVER spawn more than 5 subagents** for any query. If tempted, reconsider your decomposition strategy.

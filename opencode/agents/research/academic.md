@@ -1,7 +1,6 @@
 ---
 description: "Searches academic sources for research papers and scholarly publications"
 mode: subagent
-model: kilo/deepseek/deepseek-v3.2
 temperature: 0.1
 color: "#8B5CF6"
 tools:

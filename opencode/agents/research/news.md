@@ -1,7 +1,6 @@
 ---
 description: "Searches news sources for current events, announcements, and recent developments"
 mode: subagent
-model: kilo/deepseek/deepseek-v3.2
 temperature: 0.2
 color: "#F97316"
 tools:

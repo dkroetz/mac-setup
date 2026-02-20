@@ -1,7 +1,6 @@
 ---
 description: "Searches blogs for tutorials, opinions, and community content"
 mode: subagent
-model: kilo/anthropic/claude-haiku-4.5
 temperature: 0.3
 color: "#EC4899"
 tools:

@@ -1,7 +1,6 @@
 ---
 description: "Searches for code examples, repositories, and reference implementations"
 mode: subagent
-model: kilo/z-ai/glm-5:free
 temperature: 0.2
 color: "#14B8A6"
 tools:

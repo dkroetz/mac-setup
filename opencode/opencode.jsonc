@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "agent": {
+    // Primary Agents
+    "researcher": {
+      "model": "kilo/moonshotai/kimi-k2.5"
+    },
+
+    // Research Sub Agents
+    "research/academic": {
+      "model": "kilo/deepseek/deepseek-v3.2"
+    },
+    "research/blogs": {
+      "model": "kilo/anthropic/claude-haiku-4.5"
+    },
+    "research/code": {
+      "model": "kilo/z-ai/glm-5:free"
+    },
+    "research/docs": {
+      "model": "kilo/moonshotai/kimi-k2.5"
+    },
+    "research/news": {
+      "model": "kilo/deepseek/deepseek-v3.2"
+    }
+  }
+}

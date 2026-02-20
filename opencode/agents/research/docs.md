@@ -1,7 +1,6 @@
 ---
 description: "Searches official documentation for authoritative references"
 mode: subagent
-model: kilo/moonshotai/kimi-k2.5
 temperature: 0.1
 color: "#3B82F6"
 tools:
