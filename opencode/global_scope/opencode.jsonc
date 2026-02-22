@@ -2,8 +2,17 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "agent": {
     // Primary Agents
-    "researcher": {
-      "model": "kilo/moonshotai/kimi-k2.5"
+    "research": {
+      "model": "kilo/minimax/minimax-m2.5:free"
+    },
+    "architect": {
+      "model": "kilo/z-ai/glm-5:free"
+    },
+    "implement": {
+      "model": "kilo/z-ai/glm-5:free"
+    },
+    "google": {
+      "model": "kilo/minimax/minimax-m2.5:free"
     },
 
     // Research Sub Agents
@@ -21,6 +30,14 @@
     },
     "research/news": {
       "model": "kilo/deepseek/deepseek-v3.2"
+    },
+
+    // Disable Default Agents
+    "build": {
+      "disable": true
+    },
+    "plan": {
+      "disable": true
     }
   }
 }

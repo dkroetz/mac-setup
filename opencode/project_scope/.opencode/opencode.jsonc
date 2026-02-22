@@ -1,0 +1,19 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "agent": {
+        // Primary Agents
+        "research": { },
+        "architect": { },
+        "implement": { },
+        "google": { },
+
+        // Research Sub Agents
+        "research/academic": { },
+        "research/blogs": { },
+        "research/code": { },
+        "research/docs": { },
+        "research/news": { }
+
+        // Custom / Project Specific Agents
+    }
+}

@@ -1,6 +1,7 @@
 .venv/
 .env
-.opencode/
+
 .vscode/
 
 .DS_Store
+.agent_harness_development/
