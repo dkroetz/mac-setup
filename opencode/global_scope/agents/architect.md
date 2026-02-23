@@ -1,6 +1,7 @@
 ---
 description: Creates detailed implementation plans with code snippets
 mode: primary
+color: "#f4ce35"
 steps: 30
 permission:
   edit:

@@ -1,6 +1,7 @@
 ---
 description: Executes plans phase by phase with verification
 mode: primary
+color: "#ef203f"
 steps: 80
 permission:
   edit: allow

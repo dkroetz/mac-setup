@@ -1,6 +1,7 @@
 ---
 description: Explores codebase and documents findings without making suggestions
 mode: primary
+color: "#29dcb5"
 steps: 30
 permission:
   edit:
