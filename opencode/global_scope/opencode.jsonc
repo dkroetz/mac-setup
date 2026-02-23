@@ -18,7 +18,7 @@
 
     // Research Sub Agents
     "research/academic": {
-      "model": "kilo/deepseek/deepseek-v3.2"
+      "model": "kilo/z-ai/glm-5:free"
     },
     "research/blogs": {
       "model": "kilo/anthropic/claude-haiku-4.5"
@@ -30,7 +30,7 @@
       "model": "kilo/moonshotai/kimi-k2.5"
     },
     "research/news": {
-      "model": "kilo/deepseek/deepseek-v3.2"
+      "model": "kilo/z-ai/glm-5:free"
     },
 
     // Disable Default Agents

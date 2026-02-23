@@ -1,0 +1,16 @@
+[project]
+name = "opencode-sync"
+version = "0.1.0"
+description = "Sync opencode global scope between repo and ~/.config/opencode"
+requires-python = ">=3.13"
+dependencies = []
+
+[project.scripts]
+opencode-sync = "opencode_sync.cli:main"
+
+[build-system]
+requires = ["pdm-backend"]
+build-backend = "pdm.backend"
+
+[tool.pdm]
+distribution = true

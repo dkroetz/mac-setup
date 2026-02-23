@@ -80,6 +80,7 @@ project_scope/          # Per-project configuration
 1. Copy `global_scope/` contents to `~/.config/opencode/`
 2. Copy `project_scope/.opencode/` to your project root
 3. Customize `AGENTS.md` with your project's conventions and skills
+4. Optional: install `opencode-sync` for repeatable push/pull/status syncs (see `opencode/sync_cli/README.md`)
 
 ## References
 
