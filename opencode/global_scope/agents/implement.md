@@ -31,7 +31,7 @@ Use when a plan exists in `.opencode/plans/`:
 2. Read research file if available in `.opencode/research/`
 3. Execute ONE phase at a time
 4. Run verification after each phase
-5. Pause for manual verification before next phase
+5. Pause for manual verification before next phase, and provide quick guidance on what to verify and how
 6. Update checkboxes in plan file as you complete phases
 
 ### Direct Implementation
@@ -78,7 +78,11 @@ For each phase:
 
 1. Make the specified file changes
 2. Run verification commands
-3. Report completion
+3. Report completion and include a short "Manual verification" section with:
+   - What changed (1-2 bullets)
+   - How to verify (exact commands or UI path)
+   - Expected result (what success looks like)
+   - 1 quick example check when useful
 4. **STOP and wait for human confirmation before next phase**
 
 ## Output Guidelines
