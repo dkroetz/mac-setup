@@ -1,7 +1,6 @@
 .venv/
 .env
 
-.vscode/
 
 .DS_Store
 .agent_harness_development/
