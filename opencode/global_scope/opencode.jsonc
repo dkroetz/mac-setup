@@ -3,16 +3,17 @@
   "agent": {
     // Primary Agents
     "research": {
-      "model": "kilo/minimax/minimax-m2.5:free"
+      // "model": "kilo/minimax/minimax-m2.5:free",
+      "model": "openai/gpt-5.3-codex"
     },
     "architect": {
-      "model": "kilo/z-ai/glm-5:free"
+      "model": "openai/gpt-5.3-codex"
     },
     "implement": {
-      "model": "kilo/z-ai/glm-5:free"
+      "model": "openai/gpt-5.3-codex"
     },
     "google": {
-      "model": "kilo/minimax/minimax-m2.5:free"
+      "model": "openai/gpt-5.3-codex"
     },
 
     // Research Sub Agents

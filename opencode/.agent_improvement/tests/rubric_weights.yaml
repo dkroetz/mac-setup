@@ -1,0 +1,46 @@
+version: 1
+scope:
+  agents:
+    - research
+    - architect
+tests:
+  - id: small-1-research-skill-loading
+    mandatory_checks:
+      - has_scope_scan_line
+      - has_skills_loaded_and_reason
+      - within_skill_policy_limit
+      - has_file_line_references
+    rubric_weights:
+      citation_quality: 0.35
+      policy_adherence_clarity: 0.35
+      structure_compliance: 0.30
+
+  - id: small-2-architect-policy-dedup
+    mandatory_checks:
+      - has_required_plan_structure
+      - has_skill_loading_report_before_plan
+      - no_bulk_loading_directives
+    rubric_weights:
+      phase_specificity: 0.40
+      verification_quality: 0.30
+      scope_discipline: 0.30
+
+  - id: medium-1-research-paraphrase-robustness
+    mandatory_checks:
+      - has_skill_loading_report_fields_all_runs
+      - has_file_line_references_all_runs
+      - within_skill_policy_limit_all_runs
+    rubric_weights:
+      reference_consistency: 0.40
+      conclusion_consistency: 0.30
+      rationale_stability: 0.30
+
+  - id: medium-2-architect-multisource-synthesis
+    mandatory_checks:
+      - cites_policy_and_research_sources
+      - identifies_minimal_context_principle
+      - keeps_global_vs_project_ownership_split
+    rubric_weights:
+      cross_source_synthesis_quality: 0.35
+      implementation_realism: 0.35
+      conflict_constraint_articulation: 0.30

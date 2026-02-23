@@ -1,0 +1,79 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "AgentBehaviorRunRecord",
+  "type": "object",
+  "required": [
+    "test_id",
+    "agent",
+    "run_id",
+    "mandatory_pass",
+    "mandatory_checks",
+    "rubric",
+    "signals"
+  ],
+  "properties": {
+    "test_id": {
+      "type": "string"
+    },
+    "agent": {
+      "enum": [
+        "research",
+        "architect"
+      ]
+    },
+    "run_id": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "mandatory_pass": {
+      "type": "boolean"
+    },
+    "mandatory_checks": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "boolean"
+      }
+    },
+    "rubric": {
+      "type": "object",
+      "required": [
+        "weighted_total"
+      ],
+      "properties": {
+        "weighted_total": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        }
+      },
+      "additionalProperties": {
+        "type": "number",
+        "minimum": 0,
+        "maximum": 1
+      }
+    },
+    "signals": {
+      "type": "object",
+      "required": [
+        "skills_loaded",
+        "references"
+      ],
+      "properties": {
+        "skills_loaded": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "references": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": false
+}
