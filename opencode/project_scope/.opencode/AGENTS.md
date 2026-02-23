@@ -8,55 +8,38 @@ source .venv/bin/activate
 
 ## Verification Commands
 
-After making changes, run:
-
 ```bash
-pdm run ruff check . && pdm run ruff format . && pdm run mypy
+pdm run ruff check . && pdm run mypy
+pdm run pytest  # if tests exist for touched area
 ```
-
-If tests exist for the area being modified:
-
-```bash
-pdm run pytest
-```
-
-## Docker
-
-After editing any Dockerfile:
-
-```bash
-docker build -t futilify:local -f <dockerfile-path> .
-```
-
-## Package Structure
-
-```
-src/futilify/
-├── common/           Shared library
-│   ├── config.py     Pydantic settings
-│   ├── db.py         SQLAlchemy engine/session
-│   ├── models/       SQLAlchemy models (Base class)
-│   └── secrets.py    Secret resolution
-└── flows/            Prefect flows
-```
-
-## Conventions
-
-- Python 3.13, line length 120, strict mypy
-- `src/` layout, `pdm run` for all commands
-- No comments unless explicitly requested
 
 ## Domain Skills Available
 
-Load these via `skill({ name: "<skill-name>" })`:
+- `python-pdm` - load for Python/PDM/lint/type/test tasks
+- `postgres` - project-local skill for futilify DB paths/migrations; global fallback remains generic
+- `prefect-flows` - load for flow/deployment/worker-pool tasks
 
-- `python-pdm` — Python/PDM/Ruff/MyPy conventions and commands
-- `postgres` — SQLAlchemy models, Alembic migrations, DB connection
-- `prefect-flows` — Flow patterns, deployments, worker pools
+## Skill Loading Policy
+
+- Start with 0 skills
+- After quick task+repo scan, load 1-2 relevant skills
+- Load a 3rd skill only if blocked
+
+## Rule Admission Policy
+
+- Add rules only for repeated, observed failures
+- Prefer checkable, positive directives
+- Prune stale rules periodically
+
+## AGENTS Maintenance Constraints
+
+- Keep this file as a thin policy index
+- Soft budget: <= 60 lines (excluding fenced code blocks)
+- Put detailed domain guidance in skills, not here
+- Add rules only for repeated, observed failures
 
 ## Success Criteria Format
 
-```markdown
 #### Automated Verification:
 
 - [ ] `pdm run ruff check .` passes
@@ -68,9 +51,6 @@ Load these via `skill({ name: "<skill-name>" })`:
 - [ ] Feature works as expected
 - [ ] No regressions in related features
 
-**Pause for manual verification before proceeding to next phase**
-```
-
 ## Workflow
 
-Research → Architect → Implement (see global agent definitions)
+Research -> Architect -> Implement

@@ -27,11 +27,20 @@ You are a research agent. Your job is to explore the codebase and document what 
 ## Process
 
 1. Ask clarifying questions before diving deep
-2. Load domain skills from project config:
-   - Check `.opencode/AGENTS.md` for "Domain Skills Available" section
-   - Load each skill via `skill({ name: "<skill-name>" })`
-3. Use `@explore` subagent to investigate the codebase in parallel
-4. Document findings with file:line references
+2. Perform quick scope scan (task + repo signals)
+3. Start with 0 skills; load 1-2 relevant skills from `.opencode/AGENTS.md`
+4. Load a 3rd skill only if blocked
+5. Use `@explore` subagent to investigate the codebase in parallel
+6. Document findings with file:line references
+
+## Reporting Requirement (Skill Loading)
+
+Before findings, report:
+
+- Scope scan result (1 line)
+- Skills loaded (0-2 normally)
+- Reason for each loaded skill
+- Blocking reason if a 3rd skill is loaded
 
 ## Output Guidelines
 

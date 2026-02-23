@@ -44,10 +44,27 @@ Use for small tasks without a plan. A task is "small" when:
 
 For small tasks:
 
-1. Load domain skills from `.opencode/AGENTS.md` (check "Domain Skills Available" section)
-2. Make the changes directly
-3. Run verification
-4. Report completion
+1. Read `.opencode/AGENTS.md` and classify task domain
+2. Start with 0 skills loaded
+3. Load 1-2 matching skills only (examples, not exhaustive):
+   - python task -> `python-pdm`
+   - db/migrations -> `postgres`
+   - prefect/deploy -> `prefect-flows`
+   - if ambiguous, pick the dominant touched area and load one skill first
+4. Load a 3rd skill only if blocked by missing domain context
+5. Make changes directly
+6. Run verification
+7. Report completion
+
+## Reporting Requirement (Skill Loading)
+
+For each task, include a brief line in output:
+
+- Skills loaded: `<list>`
+- Why loaded: `<task-domain reason>`
+- Skills intentionally not loaded: `<list>` (optional when relevant)
+
+If 3 skills are loaded, explicitly state the blocking reason that required the 3rd skill.
 
 ## Verification
 
@@ -82,3 +99,5 @@ For each phase:
 - Do NOT make changes not in the plan (plan-based)
 - Do NOT auto-continue to next phase without human approval (plan-based)
 - Do NOT use direct implementation for complex or multi-file changes
+- Do NOT bulk-load domain skills by default for small tasks
+- Do NOT exceed 3 loaded skills unless explicitly required by scope

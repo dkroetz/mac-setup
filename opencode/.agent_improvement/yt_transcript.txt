@@ -1,0 +1,891 @@
+Are you really an AI engineer if you 
+ haven't put a ton of time into your 
+ agent MD or Claude MD files or both? 
+ Like really, come on. Everyone's doing 
+ it. It has to be good, right? Well, what 
+ if I told you that a study just came out 
+ all about those Claude MD and Agent MD 
+ files and uh the numbers weren't good. 
+ They were actually quite bad. Here we 
+ see comparisons across Sonet 45, GBD52, 
+ 51 mini, and Quen 3. And when given an 
+ agent MD or Claude MD file, they 
+ actually performed worse consistently. 
+ This is a thing we should probably be 
+ talking about, right? Like, I've been 
+ told so many times that I'm having 
+ prompt issues because I didn't write an 
+ agent MD or CloudMD. They're so 
+ important. Every codebase needs them. 
+ Everybody's publishing their own rule 
+ files and skills and all these things. 
+ It'd be pretty bad if it turned out 
+ those things were making the tools 
+ worse, right? Well, that's a thing we're 
+ going to have to dive into because on 
+ one hand, a lot of people are using 
+ these files wrong and on the other hand, 
+ it is likely that they shouldn't be used 
+ at all for many cases because they steer 
+ models incorrectly. This is going to be 
+ a fun deep dive on context management 
+ and best practices for using AI to code 
+ and build real software. And a lot of 
+ this is coming from my own experience, 
+ which is admittedly subjective, but is 
+ really cool to see it coming out in a 
+ study. It's been awesome to see studies 
+ like this recently popping up. things 
+ like figuring out if these agentmd files 
+ are actually useful. Skills bench 
+ figuring out how useful skills are is a 
+ thing that the models have access to 
+ when they are working and even 
+ benchmarks that are trying to figure out 
+ why models are more likely to get a 
+ question right if you ask them the same 
+ thing twice. There's a lot of fun stuff 
+ to dive into here and it's all about 
+ context management and I do actually 
+ think this video can help you get better 
+ at using AI to code. That all said, I'm 
+ about to do a lot of work for free that 
+ OpenAI Anthropic probably should be 
+ doing. Neither are paying me for this 
+ and the team needs to get paid. So, 
+ we're going to do a quick break for 
+ today's sponsor. If Clawbots, sorry, 
+ OpenClaw has proven anything to be true, 
+ it's that AI is way more powerful when 
+ you give it a computer of its own. Which 
+ is why I'm so excited about today's 
+ sponsor. And no, it's not a Mac Mini. 
+ It's Daytona. So, is it another GPU 
+ cloud? No, it's way better than that. 
+ It's elastic containers for running your 
+ agents in. So, if you want agents that 
+ are able to do things like edit code, 
+ write code, run code, make file changes, 
+ edit things in Git, and all the stuff 
+ that you would do on a computer, Daytona 
+ has you covered and then some. Here's 
+ how easy it is to set up a secure 
+ sandbox with Daytona. You create a 
+ Daytona instance with your API key. You 
+ define a sandbox. Then, this I would 
+ argue optional try catch wrapper. I've 
+ never seen it ever. Sandbox is await 
+ Daytona.create TypeScript response 
+ equals await sandbox.process.coderun. 
+ And then you pass it TypeScript code. It 
+ executes, you get a response, you throw 
+ an error if it failed, and then you show 
+ the result if it didn't. It has never 
+ been easier to set up a remote box for 
+ your code to run in. And don't worry, 
+ they have Python bindings as well for 
+ you Python people. But what about other 
+ languages? Well, I have good news 
+ because the snapshot can be anything. As 
+ long as it runs in Docker or Kubernetes, 
+ it can probably run on Daytona without 
+ issue. As with all their crazy benefits 
+ from the networking to the memory to the 
+ storage, insane. I just learned about 
+ this while filming. Apparently, they now 
+ have full computer use sandboxes with 
+ virtual desktops with all major oss. I 
+ did not know they did this. That's 
+ really cool. It suddenly makes a lot of 
+ sense why all of the companies I talked 
+ to that are doing things like mobile app 
+ deployments suddenly have support for 
+ doing cloud-based builds. They're all 
+ probably using this Mac OS automation. 
+ Crazy, especially when you realize how 
+ absurdly cheap the platform is. We're 
+ talking 5 cents per hour of compute, 1.6 
+ 6 cents per hour of memory and a 
+ basically impossible to measure cost per 
+ hour per gig of storage. And remember, 
+ everything spins up and down instantly. 
+ So, you're only paying for the compute 
+ you're actually using, making the costs 
+ hit the floor really fast. I'm going to 
+ be real with you guys. If you need a 
+ sandbox, you should use Daytona. And if 
+ you don't, you'll probably need one 
+ soon. Check them out now at 
+ soy.link/tona. 
+ Let's dive into this study cuz I'm 
+ actually really excited. A widespread 
+ practice in software development is to 
+ tailor coding agents to repositories 
+ using context files such as an agents MD 
+ by either manually or automatically 
+ generating them. Although this practice 
+ is strongly encouraged by agent 
+ developers, there is currently no 
+ rigorous investigation into whether such 
+ context files are actually effective for 
+ real world tasks. In this work, we study 
+ the question and evaluate coding agents 
+ task completion performance in two 
+ complimentary settings. Establish SW 
+ bench tasks for popular repos with LM 
+ generated context files. And the other 
+ one is a novel collection of issues from 
+ repositories containing developer 
+ committed context files. Interesting. 
+ Should probably give some context on 
+ what an agent MMD is and what they're 
+ talking about with the init. Let's start 
+ with the T3 chat one. This file provides 
+ guidance to cloud code when working in 
+ the repo. We should probably remove that 
+ part cuz this is actually an agent MD 
+ that we sim linked the cloud MD to. You 
+ can tell a lot of this was generated and 
+ probably isn't useful. Always use PMPM 
+ to run scripts. We describe the common 
+ scripts dev lint lint-fix check test 
+ watch vest and pmppm generate. This is 
+ all pretty basic stuff from our package 
+ json. But here you'll see how a little 
+ bit of how I use things leaking. Spoiler 
+ for the future. Do not run pnpm dev 
+ assume already running pnpm build ci 
+ only. Interesting. I wonder why that's 
+ there. We then have an architecture 
+ overview telling it where things are. We 
+ have the front-end folder, the backend 
+ folder, the shared folder, app, and then 
+ the convex folder for all of our convex 
+ stuff. We also describe what services 
+ we're using for what things. And one of 
+ the mistakes we have in here that I need 
+ to change is putting TRPC here confuses 
+ the model a bunch, and it tries to use 
+ TRPC in places where it shouldn't. I 
+ guess I'm doing an audit as well as this 
+ in this video. We have key patterns for 
+ things that we do and how we recommend 
+ doing them. Code style stuff, talking 
+ about how we use effect, stuff like 
+ that. Follow the convex guidelines. Do 
+ not use the filter and convex queries. 
+ Use with index. Always include return 
+ validators on convex functions. Use 
+ internal queries. Also, I don't like 
+ return validators always being included. 
+ I was wondering why this codebase did 
+ that. It's apparently specified in 
+ there. I guess that someone else in the 
+ team likes that. Each their own. Some 
+ additional information. This is the part 
+ I wrote, which we'll talk more about in 
+ a bit. It's probably important to know 
+ what the [ __ ] this file even does, 
+ though, cuz this is just like an 
+ overview of the repo, right? So, the way 
+ that these work is to put it simply, 
+ context management. When you make a 
+ prompt to an AI system of some form, 
+ that prompt is not the only thing the 
+ model is getting. The way most people 
+ think of AI is pretty simple. I guess 
+ I'll do user some question. And this is 
+ the first block that exists in this 
+ context. The user asks some question and 
+ then the model gives some answer. And 
+ then if you have a follow-up question 
+ like you want to ask, but what about 
+ this other thing from before? You add 
+ the additional question and then that 
+ gets added to the context. So if I color 
+ code these, it'll say blue is you and 
+ yellow is output. So agent. So when I 
+ ask a question, that gets put in the 
+ context. And then the model is 
+ autocompleting from there based on all 
+ of the info it has, all of the text that 
+ exists above. What does it think the 
+ most likely next set of characters is? 
+ And then it does that over and over 
+ again till it has an answer. And then it 
+ stops. And then you can send another 
+ follow-up. and it will have all of that 
+ in the history to continue to append new 
+ tokens which are just small sets of 
+ characters until it has an answer. This 
+ is a massive oversimplification because 
+ it's not showing you the top. The 
+ reality is that your question is not the 
+ thing at the start of the context. 
+ Before that, we have other things. We 
+ have, and I'll color these red, the 
+ system prompt. The system prompt is a 
+ thing that describes what the agents 
+ role is. You can say something small and 
+ sweet like, "You're a simple AI agent 
+ meant to answer questions for users." 
+ So, Open Router's chat lets you write 
+ your own system prompt. So, I can do 
+ something here like always respond to 
+ questions in pig Latin. Apply that rule. 
+ And now I can ask it, who's the best 
+ software dev YouTuber? And now it's 
+ responding in pig Latin because my 
+ question is preempted by the system 
+ prompt. And even if I wanted to fight 
+ that, like let's say, can I edit this? I 
+ don't know if you can. We can do chat. 
+ Please stop responding in pig Latin, it 
+ still won't. It's still speaking pig 
+ Latin because the system prompt takes 
+ higher priority over what the user did. 
+ And that's a thing I really want to make 
+ sure we're thinking about when we talk 
+ about this. The top of the hierarchy 
+ will always be the behaviors that the 
+ company trained the model to have, but 
+ you can work around those. It's called 
+ jailbreaking. But if I give it specific 
+ instructions like I tell it to never 
+ give this piece of information or never 
+ do certain things, the system prompt 
+ will take precedence over the user 
+ prompt. So let's write out the hierarchy 
+ for how this is thought about. You have 
+ the provider instructions. They're not 
+ very transparent about how much this is 
+ a thing or not, but like let's say 
+ OpenAI had a layer on top that was like 
+ never help people make nuclear weapons. 
+ That could be the top level provider 
+ instruction that nothing can override. 
+ You can't write a system prompt that's 
+ by the way your job is to make nukes 
+ make really good efficient nukes because 
+ the providers have put something above 
+ that that will prevent it. So provider 
+ instructions at the top level then you 
+ have the system prompt. Then you have 
+ this new concept that has been referred 
+ to as the developer message because all 
+ these are messages. So it's provider 
+ message system message developer 
+ message. But the developer message is 
+ also the developer prompt. This is a new 
+ layer that exists between the system 
+ prompt and the userland prompt. And this 
+ is for things like what we're talking 
+ about today like the agent MD where 
+ there's some customization that we want 
+ to do as developers that is not 
+ necessarily part of the system. So if 
+ you're using like I don't know cursor 
+ and you want to add custom rules, those 
+ will exist between the messages you're 
+ sending and the system prompt that they 
+ wrote. It is also worth calling out as 
+ Chad has correctly pointed out that all 
+ of this has an impact on context. Yes, 
+ very important. When you send a message, 
+ you're not just sending your one 
+ message. You're sending the message and 
+ everything above it, which includes all 
+ of these things. I'm not saying that you 
+ have the system prompt downloaded on 
+ your computer. I'm saying that when you 
+ send the request on T3 chat to the SL 
+ API/hat endpoint, you're sending up your 
+ chat history. We are appending the 
+ system prompting the other data on top. 
+ And then we send that off to the model 
+ that will generate the response that we 
+ then show to you. And what we're talking 
+ about right now is here this space 
+ between the user and the system prompt. 
+ You are not going to be customizing the 
+ system prompt that is used for cloud 
+ code obviously like it's not even open 
+ source. You have no access to those 
+ things and it's probably hitting an 
+ endpoint that already has its own stuff 
+ there. So when we're talking about the 
+ agent MD, the claude MD, all of those 
+ things that is here. This is a layer 
+ that exists between the system prompt 
+ and the user prompt that is always 
+ there. If you add some new stuff to this 
+ thread, like let's say you ask it to 
+ like user says add this feature and then 
+ the agent adds the feature but forgets 
+ to type check, you can follow up, hey 
+ check types and then the agent will do 
+ it and fix it and you're all good. If 
+ you keep using this thread and you were 
+ to then ask for another feature since in 
+ this history the information that it 
+ needs to check types exists, it exists 
+ in the context. It doesn't need to get 
+ this info. It doesn't need to find this 
+ info. It has the info from earlier in 
+ the history. It's less likely to make 
+ that mistake going forward. But then you 
+ end up with an ever growing history full 
+ of things that might not matter. Like 
+ maybe this feature was 400 lines of code 
+ that are now in the context. That code 
+ might not be relevant for the next thing 
+ you ask, but it's all there. It's all 
+ being traversed on every single token. 
+ It's all costing money. And most 
+ importantly, it's distracting the model 
+ from the thing you actually want it to 
+ be doing. And that's a thing I really 
+ want us to think about when we talk 
+ about all of this. Help the model. Don't 
+ distract it. You know how much we all 
+ hate having endless meetings as 
+ developers? We don't need to know all of 
+ the intricate details of the five 
+ versions that the product and design 
+ went back and forth on before we have to 
+ go implement it. We're in the meeting 
+ anyways. Why the [ __ ] do we think the AI 
+ likes it more than us? Why are we giving 
+ them all of this useless information? We 
+ want the AI to do a thing. It should 
+ only have to think about the thing. Part 
+ of this is how we design the systems 
+ that we're using. Part of this is how we 
+ write the prompts, how we handle the 
+ agent MD, how we handle all these 
+ things. But if you tell the agent about 
+ all of these things that exist in your 
+ codebase, it's probably going to think 
+ about those even if you don't want it to 
+ in this case. Like to go to our agent 
+ MD, mentioning that we use TRPC on the 
+ back end is now going to bias it towards 
+ using TRRPC even though we only use it 
+ for a handful of legacy functions. 
+ Almost everything is now on convex. Not 
+ only does it know we have TRPC, we 
+ actually put it in front of the convex 
+ part. So it is much more likely to reach 
+ for TRPC where it might not make sense. 
+ I am going to remove this and make a 
+ separate section that says legacy 
+ technologies that I put it in. But 
+ that's what we want to talk about this 
+ with. The best time to update your Asian 
+ MD isn't when you start a project. It is 
+ certainly not when you claim something 
+ for the first time and then type in 
+ /init where it will initialize the claud 
+ for you and it will choose what it 
+ thinks matters. If the model knows about 
+ it already and can find it quickly, it 
+ probably does not belong in your agent 
+ MD. Great example from chat here. Don't 
+ think about pink elephants. You're all 
+ now thinking about pink elephants. 
+ That's just how it works. Like that's 
+ how brains work and that's how LLM's 
+ work too. If you tell it not to do a 
+ thing, it now is thinking about that 
+ thing. Ideally, you just make it hard to 
+ do the thing. And you certainly don't 
+ want to tell it about things that don't 
+ matter because it will be in context and 
+ whatever you put in context is much more 
+ likely to happen. It's all an 
+ autocomplete machine. So to go back 
+ here, if we want to have the model know 
+ that it needs to check types and we 
+ notice it wasn't doing a good job at 
+ that, there's a couple options we have. 
+ Option one, look through the things it 
+ did and figure out what it did and maybe 
+ attach type checking to one of those 
+ parts. If it ran some command that 
+ doesn't include type checking, maybe 
+ update that command to also include the 
+ type checking. If you try that and it 
+ doesn't work or it doesn't make sense, 
+ that's when you make changes. If you 
+ notice the agent consistently forgets to 
+ do the type checking, put that in the 
+ agent MD. Tell it you should type check 
+ all of your changes. I'm going to run it 
+ a knit on a real project here. This is 
+ lawn. It's my alternative to frame.io 
+ for doing video review stuff. Apparently 
+ it knitted one at some point with all of 
+ the design language. So I'm going to 
+ stop that. Delete that slash newit. 
+ Okay, you know what? We'll come back to 
+ this cuz it's going to take a sec. We'll 
+ go through all the things that should 
+ and shouldn't be in your agent MD in a 
+ bit, but I want to spend a little more 
+ time on the study because you just 
+ listening to me means a lot and all, but 
+ we should probably have numbers to back 
+ this. The work of this paper is to 
+ benchmark context files and their impact 
+ on resolving GitHub issues. They're 
+ investing the effect of actively used 
+ context files on the resolution of real 
+ world coding tasks. Evaluate agents both 
+ in popular and in lessknown repositories 
+ and importantly for context files 
+ provided by repository devs. They tested 
+ three conditions. one where the 
+ developer wrote and provided an 
+ instruction file for that repo. So 
+ they're using this against real repos. 
+ One where they removed it to see how the 
+ agent would do and one where they let 
+ the agent generate its own instruction 
+ file before continuing. And they check 
+ did it succeed at the task or not. In 
+ the things they tested, they observed 
+ that the developer provided files only 
+ marginally improved performance compared 
+ to emitting them entirely, an increase 
+ of 4% on average, while the LLM 
+ generated context files had a small 
+ negative effect, a decrease of 3% on 
+ average. These observations are robust 
+ across different LLMs and prompts used 
+ to generate the context files. In a more 
+ detailed analysis, we observe that 
+ context files lead to increased 
+ exploration, testing, and reasoning by 
+ coding agents and as a result increased 
+ costs by over 20%. We therefore suggest 
+ emitting LLM generated context files for 
+ the time being contrary to agent 
+ developers recommendations and including 
+ only minimal requirements like specific 
+ tooling to use with the repository. I 
+ fully agree. To prove this out, I ran an 
+ innit on a real project that I've been 
+ working on. It's called lawn. It's a 
+ alternative to frame.io. It's going to 
+ be open source soon. Just a way to do 
+ video review for my team. And I had it 
+ init a claude MD. Let's see how it did. 
+ File provides guidance to cloud code. 
+ Cloud.aii when working with code in this 
+ repo. That's the intro it uses on all of 
+ these. It used it on other ones as well. 
+ Lawn's a video review platform for 
+ creative teams. Users upload video, 
+ leave timestamp comments, and manage 
+ review workflows within the team and 
+ project hierarchies. It shows all of 
+ these commands that can run. It shows 
+ the architecture front end tanex start 
+ spa mode react 19 and vit back end 
+ convex functions lived in the /convex 
+ off video pipelines storage all the 
+ usual stuff here has a pile of key 
+ patterns for aliasing route data 
+ offguards convex actions yada yada and a 
+ very vague description of the data model 
+ and video workflow states I don't think 
+ there's anything in here that will 
+ actually help at all straight up to be 
+ more bold with how I think about this if 
+ the info is in the codebase, it probably 
+ doesn't need to be in the agent MD file. 
+ Generally speaking, these models have 
+ all been RL to Helen back on doing bash 
+ calls and using the tools that are 
+ provided to them in really long threads. 
+ These models are good at finding 
+ information in a codebase. If I paste it 
+ a screenshot with some broken UI and say 
+ fix it without even having an agent MD, 
+ it will look for strings in it that are 
+ likely to be specific to that UI. It 
+ will RG until it finds it in the 
+ codebase. It will check to make sure 
+ nothing else is using the thing. It will 
+ make the change. It will tell you it's 
+ done and then you're good. Turns out 
+ these models are really good at doing 
+ things like figuring out what files and 
+ folders matter for their task. They're 
+ really good at figuring out what 
+ commands they can run cuz they check 
+ your package JSON. They're good at 
+ figuring out what dependencies you have 
+ when they check the package JSON as well 
+ as the files that are doing things in 
+ them. Funny enough, this also causes 
+ them to struggle a bit when they don't 
+ have those things. Like when I was 
+ initing a new project and I hadn't even 
+ set up the package JSON yet and I told 
+ it to use environment variables, it 
+ tried importing things that it didn't 
+ have because the project hadn't been 
+ inited yet. There are assumptions these 
+ tools make, but the assumptions that 
+ they're making are based on real world 
+ code bases, which you're probably 
+ working in one of. Thereby, they're good 
+ at this. So, what do you put in? As I 
+ mentioned before, when there are 
+ behaviors the models and agents are 
+ exhibiting that are not ideal, that's 
+ when you spin up the agent MD file and 
+ start steering it in the direction you 
+ want. If it's consistently not running 
+ type checks and you want it to, maybe 
+ that fits in there. If there's a 
+ specific pattern that it's using with 
+ one of your dependencies that is wrong 
+ and it keeps trying to do it over and 
+ over again, tell it to not. Generally 
+ speaking, it's rare I find the agent MD 
+ or quad MD files to be the thing that 
+ you need to reach for. You have to start 
+ building an intuition for what the 
+ models are doing and how long they 
+ should take. If you ask an agent to 
+ complete a task and it is faster than 
+ you expected, you're probably setting 
+ things up well, and that's a good thing 
+ to hear. If you're asking the agent to 
+ do something that is simple and it takes 
+ a long time, that means some changes 
+ need to be made. Generally speaking, the 
+ hierarchy of where I look to go change 
+ things does not start in the agent MD 
+ file. It starts in the codebase itself. 
+ If the models are struggling to find 
+ something, that's probably in a bad 
+ place. You should move it. The agents 
+ are struggling to use a tool properly. 
+ It might not be the right tool for the 
+ job or might be shaped in a way that is 
+ confusing for the model. Fix it. If the 
+ agent is changing files in one place 
+ that are causing other things to break, 
+ you should probably move off of Opus and 
+ give Codeex a shot. But seriously 
+ though, it probably needs better 
+ feedback systems to identify when that 
+ failure occurred so that it knows that 
+ the change here broke the thing over 
+ there. And making sure the agents have 
+ the tools they need to unblock 
+ themselves is essential. I think it 
+ would be a much better use of your time 
+ to make better unit tests, integration 
+ tests, type checks, and those types of 
+ things that you can expose to the model 
+ than it would be to update your agent MD 
+ or quadm file the majority of the time. 
+ If you can make it easier for the model 
+ to do the right thing, make it harder 
+ for it to do the wrong thing, and have 
+ your whole codebase architected to steer 
+ it in the right direction, that's going 
+ to be a much much bigger win. The agent 
+ MD is almost like a band-aid solution, 
+ like you're patching over this problem 
+ with it. If you have tried and failed to 
+ structure the codebase in a way that the 
+ agent can manage, you should probably 
+ pull up the agent MD as an interim 
+ solution until you find better tech that 
+ the agents are better with. And as I was 
+ hinting at before, the biggest thing is 
+ just read the outputs. Like here, I did 
+ the init command. It searched for six 
+ patterns and it read 21 files. Let's see 
+ what the files it read were. It read the 
+ package JSON. It read the read VMD. It 
+ searched around the codebase for star. 
+ Interesting choice. At 100 files, I'm 
+ guessing that that's just to list all 
+ the files. This is its hack for figuring 
+ out the structure of the whole codebase. 
+ Then it searched for files that match 
+ the pattern of app/ts or tsx to find all 
+ of the files there. Did the same for 
+ convex. Did the same for general source. 
+ Found the convex schema. It found the 
+ app routes. Found the vcon config ts 
+ config. It just read all of these 
+ things. And then it after reading all of 
+ that concluded has a good understanding 
+ of the codebase and it wrote this. But 
+ remember what it wrote is based on 
+ things that it already was able to find. 
+ In fact, it found all of that and wrote 
+ all of this in just over a minute. That 
+ means that almost none of this info is 
+ useful. Chad is making some important 
+ points here which is a misconception I 
+ had. But every time it needs to read all 
+ of that, it starts from no memory. Yeah, 
+ kind of. When given the task of 
+ summarize the entire repo, it's going to 
+ touch everything. But here, I'll give 
+ you guys an experiment quick. We are 
+ going to delete that file entirely. The 
+ cloud MD is now gone. We are going to 
+ run cloud code here and we'll ask it a 
+ question about the project. What 
+ optimizations can we make for the video 
+ pipeline in this app and it knows 
+ nothing about this app. There is nothing 
+ being fed into its context ahead of 
+ time. All it knows is it is cloud code. 
+ It is in a project that has files in it. 
+ And I'm asking it this question. Let's 
+ see how it performs. They really add the 
+ cheesy birthday hat that stopped 
+ animating that quickly. Hilarious. And 
+ now it's exploring. We can press control 
+ O to see what it's doing. It looks like 
+ it's exploring pretty damn fast. Explore 
+ the video pipeline in this codebase 
+ thoroughly. I need to understand how 
+ videos are uploaded, processed, and 
+ stored. The schema for videos in the 
+ database, video actions and processing, 
+ all that. And it spun up a sub agent to 
+ go explore and find this information. 
+ Note that this information is different 
+ from the information it would have 
+ gotten from the agent MD. We will see 
+ how long this takes and then we will 
+ rerun this with that file restored. So 
+ that took a minute and 11 seconds and 
+ got some decent answers. So let's try 
+ that again but with the file that it 
+ generated asking the exact same question 
+ and we'll see how it differs. Oh. Huh. 
+ Even though I have this Claude MD file, 
+ it appears to be doing pretty much the 
+ same thing except it specifies the names 
+ of files a little bit earlier. 
+ Interesting. So again, for comparison 
+ here, it said explore the code base for 
+ this, how videos are uploaded, yada 
+ yada. It does know about the schema 
+ file, the video actions in video. Don't 
+ know how it knew about that. Probably 
+ found it in an earlier step that's being 
+ hidden. But once you have the agent MD, 
+ it is much quicker to identify the names 
+ of files. Benefits and negatives there. 
+ We'll talk about both momentarily. Looks 
+ like the timer froze. Cloud code quality 
+ is great. Yeah, this timer freezes 
+ whenever you go to this view and back. 
+ Ah, that's hilarious. When I switch and 
+ go back, it updates, but it's not 
+ updating live. They made some 
+ optimization for performance, and it's 
+ breaking things. Cool. Check that out. 
+ It took more time. The agent MD run took 
+ 1 minute and 29 seconds, and the version 
+ without it only took a minute and 11. 
+ And that is with a brand new freshly 
+ minted from the init command claim MD 
+ file. And now just hypothetically 
+ speaking, let's pretend that this 
+ codebase for for whatever reason 
+ changed. Maybe, just maybe, these video 
+ action files aren't the only place that 
+ matters anymore. And maybe, just maybe, 
+ somebody forgot to update that MD file. 
+ Now, not only is it not helping, it's 
+ probably actively hurting because just 
+ like all other docs, agent MD files will 
+ go out of date. So, what would you 
+ prefer? Letting the agent do it itself 
+ or steering it at a 25% penalty at time 
+ with the likelihood of that going out of 
+ date. Yeah, not good. It's quite simple 
+ to just do one try. You could ask the LM 
+ the same thing 10 times and I get 
+ different times without changing 
+ anything. Now, if only somebody had 
+ published a study that showed the exact 
+ same results consistently. You know, the 
+ increase of cost by over 20%. It's 
+ almost like cost, context, and time 
+ spent have a lot of overlap. And the 20% 
+ number I saw in my one-off test happens 
+ to, for whatever reason, line up really 
+ well with the 20% that the study had. 
+ Crazy. Definitely a one-off thing I just 
+ experienced and not the consistent 
+ reality that I just managed to 
+ demonstrate in one shot. Definitely not 
+ that. Here's another great example from 
+ chat from Lincoln. I had issues with 
+ project structures being outdated in the 
+ Agent MD file. The models were 
+ consistently placing files in the wrong 
+ location. Yep, I've had so many problems 
+ that turned out to be something in the 
+ CloudMD or Agent MD that should have 
+ been changed forever ago. Happens all 
+ the time. And remember, all of these 
+ tests were with freshly generated 
+ context files that the agents made right 
+ before doing the task. So there was no 
+ way it could be out ofd. Outdated 
+ context files are going to cause you way 
+ more problems. So how do I use these? 
+ What is my philosophy? Well, the core of 
+ it is I use these files to steer the 
+ model away from things that is 
+ consistently doing wrong. I am surprised 
+ at how rare that is nowadays. I find 
+ with every new model release, I can 
+ delete more and more of the agent MD. 
+ I'll sometimes when trying a new model 
+ just delete it entirely and see what 
+ changes and then bring back the parts 
+ that matter. My little hack I recommend 
+ and I brought this up in other agent 
+ decoding videos. I'll just show you it. 
+ I'm going to delete all of this cuz it's 
+ garbage. The role of this file is to 
+ describe common mistakes and confusion 
+ points that agents might encounter as 
+ they work in this project. If you ever 
+ encounter something in the project that 
+ surprises you, please alert the 
+ developer working with you and indicate 
+ that this is the case in the agent MD 
+ file to help prevent future agents from 
+ having the same issue. To be very clear 
+ about this, the instruction I'm giving 
+ here is not what I actually want it to 
+ do. I don't want the agents constantly 
+ changing the claude MD or agent MD 
+ files. What I do want them to do is try 
+ to change the thing when it gets stuck. 
+ Because most of the time the agent gets 
+ stuck on something or thinks something 
+ surprising or confusing, it's not 
+ something I want it to know about. It's 
+ something that I want to go fix. So, I 
+ try to sneak this into all of the agent 
+ MDs for all of the projects I'm actively 
+ working on, especially in the earlier 
+ stages to figure out what the agent does 
+ and doesn't understand. And then when I 
+ learn about those things that it's 
+ struggling with and I see the mistakes 
+ that it's making and the things it 
+ thinks are confusing, I will adjust the 
+ codebase accordingly. But the 
+ instruction I'm giving the model here to 
+ change the file is not actually the 
+ thing I want it to do. I want it to try 
+ and change the file so I can take that 
+ information and then go fix something 
+ else with it. If I see what it's 
+ struggling with or what it thinks is 
+ struggling with, I can then go make 
+ better decisions about how I architect 
+ the codebase. I merge less than a fifth 
+ of the changes it proposes. But the 
+ other four out of five I use to make the 
+ codebase better. Generally speaking, I 
+ feel like developers don't understand 
+ how powerful it is to lie or 
+ intentionally mislead the agents in ways 
+ that set both you and the agent up for 
+ more success. Another example of this 
+ that I do a lot is I'll tell the agent, 
+ "Hey, this app has no users. There's no 
+ real data yet. Make whatever changes you 
+ want and don't worry about it. We'll 
+ figure it out when we ship, even if the 
+ project's already live, because I don't 
+ want it spending a ton of time on weird 
+ backfill data patterns and [ __ ] unless I 
+ actually want it to do that." So I'll 
+ often put in the agent or cloudmd. This 
+ project is super green field. It's okay 
+ if you change the schema entirely. We're 
+ trying to get it in the right shape. 
+ Those are the types of things I put in 
+ the quad MD or agent MD files. I'm 
+ effectively lying to the agents to steer 
+ them the way I want, but it works really 
+ well. Another example of this that I run 
+ into a lot is if I'm trying to build 
+ something that takes multiple steps and 
+ I'm asking it to do step two over and 
+ over and it keeps failing. Instead, I'll 
+ ask it for step three because then it 
+ will try step two to get there. it won't 
+ work and it will be able to often fix 
+ itself. If you're struggling to get the 
+ agent to do step two of a three-step 
+ process, tell it to do step three and it 
+ will unblock itself for step two pretty 
+ consistently. Like like these types of 
+ things, these are the the clever 
+ engineering hacks that I'm genuinely 
+ enjoying discovering and playing around 
+ with. And you just it's one of those 
+ time in the saddle things. You start to 
+ build an intuition for how they behave 
+ and what context matters. But if you're 
+ filling the context with all of these 
+ giant Claude MD files with piles of 
+ skills you downloaded from the internet, 
+ a bunch of MCP servers you're not using, 
+ and a bunch of cursor rules somebody 
+ told you about on GitHub, you'll never 
+ be able to diagnose why the model's 
+ doing things wrong. If all you have is 
+ your code base, your prompt, and a 
+ minimal agent MD file, you've 
+ meaningfully reduced the places where 
+ the agent can be misled. Everything the 
+ agents do exists because of one of the 
+ sources it has. And if you can reduce 
+ those sources, you can make it much more 
+ likely that it behaves. Speaking of 
+ which, I'm going to have to do a long 
+ rant about skills in the very near 
+ future. Let me know if that's exciting 
+ to you, and let me know if this video is 
+ helpful at all. I know all of this stuff 
+ is very different and new and kind of 
+ crazy, but it is genuinely really fun. 
+ I've been enjoying it a ton, and I hope 
+ that these rants and lessons are helpful 
+ to those who are trying to figure it out 
+ as they go. In the end, you need to just 
+ experiment a bunch. This is so different 
+ from how coding used to look and you'll 
+ find certain skills end up more 
+ important than ever and others are just 
+ new things you're going to have to build 
+ as you go. I've been enjoying it a ton. 
+ I hope that comes across in the content 
+ I've been making and I hope that maybe, 
+ just maybe, this can help you out, too. 
+ Let me know how you feel. And until next 
+ time, peace nerds.
