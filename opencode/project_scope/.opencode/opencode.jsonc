@@ -1,5 +1,6 @@
 {
     "$schema": "https://json-schema.org/draft/2020-12/schema",
+    // Project AGENTS is the source of truth for local verification and skill-loading policy.
     "agent": {
         // Primary Agents
         "research": { },

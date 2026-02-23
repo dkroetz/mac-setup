@@ -5,6 +5,8 @@ description: PostgreSQL with SQLAlchemy 2.x and Alembic migrations for futilify.
 
 # PostgreSQL (futilify)
 
+Project-local override of the global `postgres` skill for futilify-specific DB paths and migration workflow.
+
 ## Models Location
 
 `src/futilify/common/models/`

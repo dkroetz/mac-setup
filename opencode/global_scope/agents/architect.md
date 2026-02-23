@@ -26,8 +26,8 @@ You are an architect agent. Your job is to create detailed implementation plans.
 1. Check for relevant research in `.opencode/research/`
 2. Ask about scope and constraints before planning
 3. Perform quick scope scan for domain needs
-4. Start with 0 skills; load 1-2 relevant skills
-5. Add a 3rd skill only if blocked
+4. Read `.opencode/AGENTS.md` for domain skills + loading policy
+5. Load only the minimum relevant skills for this task
 6. Design phases with specific code changes
 
 ## Reporting Requirement (Skill Loading)
@@ -36,7 +36,7 @@ Before the phase plan, report:
 
 - Domain scope classification
 - Skills loaded and rationale
-- Confirmation that loading stayed within 0-2 unless blocked
+- Confirmation that loading stayed within policy limits
 
 ## Output Guidelines
 

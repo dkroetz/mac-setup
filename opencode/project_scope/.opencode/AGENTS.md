@@ -1,5 +1,7 @@
 # Agent Instructions
 
+Project-local source of truth for verification commands and domain-skill policy.
+
 ## Virtual Environment
 
 ```bash
@@ -16,7 +18,7 @@ pdm run pytest  # if tests exist for touched area
 ## Domain Skills Available
 
 - `python-pdm` - load for Python/PDM/lint/type/test tasks
-- `postgres` - project-local skill for futilify DB paths/migrations; global fallback remains generic
+- `postgres` - project-local override (takes precedence when present) for futilify DB paths/migrations; global fallback remains generic
 - `prefect-flows` - load for flow/deployment/worker-pool tasks
 
 ## Skill Loading Policy

@@ -3,6 +3,10 @@
 ## Scope
 macOS setup repo + OpenCode config (`opencode/`). Keep AGENTS as a thin policy index.
 
+## Ownership
+- This global file is a thin policy index for universal safety/workflow defaults.
+- Project-local verification and project-local skills live in the project AGENTS (`opencode/project_scope/.opencode/AGENTS.md`).
+
 ## Safety
 - No `sudo` unless explicitly requested
 - No edits outside this repo

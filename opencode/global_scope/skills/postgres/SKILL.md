@@ -19,3 +19,4 @@ class MyModel(Base):
 
 - Create migration: `<project migration command>`
 - Apply migrations: `<project migration command>`
+- Keep migration invocation generic here; project-local skills define concrete commands/paths.

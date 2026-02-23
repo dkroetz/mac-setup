@@ -44,14 +44,10 @@ Use for small tasks without a plan. A task is "small" when:
 
 For small tasks:
 
-1. Read `.opencode/AGENTS.md` and classify task domain
-2. Start with 0 skills loaded
-3. Load 1-2 matching skills only (examples, not exhaustive):
-   - python task -> `python-pdm`
-   - db/migrations -> `postgres`
-   - prefect/deploy -> `prefect-flows`
-   - if ambiguous, pick the dominant touched area and load one skill first
-4. Load a 3rd skill only if blocked by missing domain context
+1. Read `.opencode/AGENTS.md` for domain skills + loading policy
+2. Classify task domain and load only the minimum relevant skills
+3. If ambiguous, pick the dominant touched area and load one skill first
+4. If blocked, load additional skills only within AGENTS policy limits
 5. Make changes directly
 6. Run verification
 7. Report completion
