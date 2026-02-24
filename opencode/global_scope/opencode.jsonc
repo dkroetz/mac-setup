@@ -15,6 +15,9 @@
     "google": {
       "model": "openai/gpt-5.3-codex"
     },
+    "review": {
+      "model": "openai/gpt-5.3-codex"
+    },
 
     // Research Sub Agents
     "research/academic": {

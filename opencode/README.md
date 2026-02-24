@@ -75,6 +75,20 @@ project_scope/          # Per-project configuration
    - Runs verification after each phase
    - Pauses for human approval
 
+### Optional Quality Gate: Review
+
+Use `/review-diff` before merge to catch correctness, security, and maintainability risks.
+Use `/review` for broader architectural consistency checks.
+Use `/review-pr <context>` for PR-style review from supplied context and referenced files.
+
+This does not replace the core workflow:
+
+```
+Research -> Architect -> Implement
+```
+
+It complements it with a focused read-only review pass.
+
 ## Setup
 
 1. Copy `global_scope/` contents to `~/.config/opencode/`

@@ -7,6 +7,7 @@
         "architect": { },
         "implement": { },
         "google": { },
+        "review": { },
 
         // Research Sub Agents
         "research/academic": { },
