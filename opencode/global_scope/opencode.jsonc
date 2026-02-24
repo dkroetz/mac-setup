@@ -12,6 +12,9 @@
     "implement": {
       "model": "openai/gpt-5.3-codex"
     },
+    "orchestrator": {
+      "model": "openai/gpt-5.3-codex"
+    },
     "google": {
       "model": "openai/gpt-5.3-codex"
     },
@@ -21,19 +24,19 @@
 
     // Research Sub Agents
     "research/academic": {
-      "model": "kilo/z-ai/glm-5:free"
+      "model": "openai/gpt-5.3-codex"
     },
     "research/blogs": {
-      "model": "kilo/anthropic/claude-haiku-4.5"
+      "model": "openai/gpt-5.1-codex-mini"
     },
     "research/code": {
-      "model": "kilo/z-ai/glm-5:free"
+      "model": "openai/gpt-5.3-codex"
     },
     "research/docs": {
-      "model": "kilo/moonshotai/kimi-k2.5"
+      "model": "openai/gpt-5.3-codex"
     },
     "research/news": {
-      "model": "kilo/z-ai/glm-5:free"
+      "model": "openai/gpt-5.1-codex-mini"
     },
 
     // Disable Default Agents

@@ -1,6 +1,7 @@
 ---
 description: Review code changes or codebase scope
 agent: review
+subtask: true
 ---
 Review target:
 $ARGUMENTS

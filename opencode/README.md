@@ -30,6 +30,7 @@ global_scope/           # Shared across all projects (~/.config/opencode/)
 │   ├── research.md     # Documents findings, no suggestions
 │   ├── architect.md    # Creates plans, no code edits
 │   ├── implement.md    # Executes plans with verification
+│   ├── orchestrator.md # Single-context workflow coordinator
 │   ├── google.md       # External research coordinator
 │   └── research/       # Specialized research subagents
 ├── commands/           # Slash commands for quick access
@@ -42,8 +43,14 @@ project_scope/          # Per-project configuration
 └── .opencode/
     ├── AGENTS.md       # Project conventions, verification commands
     ├── research/       # Research output files
-    └── plans/          # Implementation plans
+    ├── plans/          # Implementation plans
+    └── memory/         # Orchestrator session summaries
 ```
+
+### Workflow Options
+
+- Manual staged flow: `/research` -> `/architect` -> `/implement`
+- Orchestrated flow: switch to `@orchestrator` for single-context coordination with default 3 stages and optional extra gates (for example `review`)
 
 ### Key Design Decisions
 

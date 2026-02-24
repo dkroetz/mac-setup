@@ -1,6 +1,7 @@
 ---
 description: Review current git diff
 agent: review
+subtask: true
 ---
 Review the current branch changes using:
 

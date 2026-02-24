@@ -1,6 +1,7 @@
 ---
 description: Review PR-style context from arguments
 agent: review
+subtask: true
 ---
 Review this PR context:
 $ARGUMENTS

@@ -1,6 +1,7 @@
 ---
 description: Execute implementation plan phase by phase
 agent: implement
+subtask: true
 ---
 
 Execute the implementation plan:
