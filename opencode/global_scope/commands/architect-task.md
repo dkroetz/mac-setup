@@ -1,7 +1,7 @@
 ---
-description: Create implementation plan for a feature (same session)
+description: Create implementation plan in isolated child task
 agent: architect
-subtask: false
+subtask: true
 ---
 
 Create a detailed implementation plan for:
@@ -17,5 +17,5 @@ $ARGUMENTS
 - When a plan is persisted, return the artifact path and include: `/implement <artifact-path>`
 
 ## Execution Mode
-- Default: same session (no forced child task)
-- For isolation: use `/architect-task <args>`
+- Forced isolated child task
+- Use `/architect` for same-session execution

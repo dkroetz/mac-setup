@@ -1,7 +1,7 @@
 ---
-description: Execute implementation plan phase by phase (same session)
+description: Execute plan in isolated child task
 agent: implement
-subtask: false
+subtask: true
 ---
 
 Execute the implementation plan:
@@ -16,5 +16,5 @@ $ARGUMENTS
 - Report changed files and manual verification guidance for the current phase.
 
 ## Execution Mode
-- Default: same session (no forced child task)
-- For isolation: use `/implement-task <plan-path>`
+- Forced isolated child task
+- Use `/implement` for same-session execution

@@ -30,15 +30,14 @@ Default stages: `research -> architect -> implement`.
 
 Optional stages are supported. User-requested extras (for example `review`) can be inserted explicitly or appended.
 
-Execute each stage using that stage's native slash-command contract:
+Routing policy:
 
-- `/research ...`
-- `/architect ...`
-- `/implement ...`
+- Default route: `/research`, `/architect`, `/implement` (same-session commands)
+- Isolation route (only when requested): `/research-task`, `/architect-task`, `/implement-task`
+- Optional stages use their native slash command (for example `/review ...`)
+- Do not rely on Tab/key switching for critical mode transitions
 
-When an optional stage is requested, delegate with its native command as well (for example `/review ...`).
-
-If delegation is performed via the `task` tool, pass a prompt equivalent to the corresponding slash command invocation.
+If delegation is performed via the `task` tool, pass a prompt equivalent to the exact slash command invocation selected above.
 
 Unless the user requests a different order, start with the default 3-stage flow.
 
@@ -63,7 +62,7 @@ For each stage handoff:
 
 1. Restate the shared objective and acceptance criteria.
 2. Include relevant artifacts from prior stages.
-3. Give clear boundaries for what the stage should and should not do.
+3. State selected route (`same-session` or `forced-subtask`) and the exact slash command used.
 4. Request output in a format suitable for the next stage.
 
 For each stage result:

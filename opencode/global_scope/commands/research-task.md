@@ -1,7 +1,7 @@
 ---
-description: Start research phase on a topic (same session)
+description: Run research in isolated child task
 agent: research
-subtask: false
+subtask: true
 ---
 
 Research the following topic:
@@ -16,5 +16,5 @@ $ARGUMENTS
 - When research is persisted, return the artifact path and include: `/architect <artifact-path>`
 
 ## Execution Mode
-- Default: same session (no forced child task)
-- For isolation: use `/research-task <topic>`
+- Forced isolated child task
+- Use `/research` for same-session execution
