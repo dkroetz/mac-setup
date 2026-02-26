@@ -1,24 +1,31 @@
 {
+  // UI & workspace controls
   "workbench.startupEditor": "none",
   "workbench.colorTheme": "Catppuccin Alt Mocha",
   "workbench.iconTheme": "catppuccin-perfect-latte",
+  "workbench.productIconTheme": "a-file-icon-vscode-product-icon-theme",
+  "workbench.sideBar.location": "right",
+  "workbench.statusBar.visible": true,
   "window.zoomLevel": 1.5,
   "breadcrumbs.enabled": true,
   "explorer.confirmDelete": false,
   "explorer.confirmDragAndDrop": false,
+  "security.workspace.trust.untrustedFiles": "open",
+  "update.showReleaseNotes": false,
+  "files.associations": {
+    "*.jinja": "jinja"
+  },
+
+  // Version control preferences
   "git.confirmSync": false,
   "git.enableSmartCommit": false,
   "git.useEditorAsCommitInput": true,
   "git.autofetch": true,
   "git.enableCommitSigning": true,
-  "json.format.keepLines": true,
-  "security.workspace.trust.untrustedFiles": "open",
-  "update.showReleaseNotes": false,
-  "workbench.sideBar.location": "right",
-  "workbench.statusBar.visible": true,
-  "zenMode.hideLineNumbers": false,
+  "git.openRepositoryInParentFolders": "always",
+  "githubPullRequests.pullBranch": "never",
 
-  // Editor Settings
+  // Editor defaults
   "editor.fontLigatures": false,
   "editor.fontWeight": "500",
   "editor.fontSize": 13,
@@ -30,9 +37,14 @@
   "editor.formatOnSave": false,
   "editor.accessibilitySupport": "off",
   "editor.screenReaderAnnounceInlineSuggestion": false,
+  "editor.defaultFormatter": "charliermarsh.ruff",
+  "editor.codeActionsOnSave": {},
 
-  // Terminal Settings
+  // Terminal + theming
   "terminal.integrated.fontWeight": 550,
+  "terminal.integrated.defaultProfile.osx": "fish",
+  "terminal.external.linuxExec": "ghostty",
+  "terminal.external.osxExec": "Ghostty.app",
   "workbench.colorCustomizations": {
     // The background is optional
     // "terminal.background": "#282a36",
@@ -57,10 +69,8 @@
     "terminal.ansiBrightCyan": "#9aedfe",
     "terminal.ansiBrightWhite": "#eff0eb"
   },
-  "terminal.integrated.defaultProfile.osx": "fish",
-  "workbench.productIconTheme": "a-file-icon-vscode-product-icon-theme",
 
-  // GitHub Copilot Settings
+  // GitHub Copilot
   "github.copilot.enable": {
     "*": true,
     "plaintext": false,
@@ -71,21 +81,15 @@
   "github.copilot.chat.codeGeneration.useInstructionFiles": false,
   "github.copilot.chat.codesearch.enabled": true,
 
-  // Python Settings
-  "[python]": {
-    "editor.codeActionsOnSave": {
-      "source.organizeImports.ruff": "explicit"
-    },
-    "editor.defaultFormatter": "charliermarsh.ruff",
-    "editor.defaultFoldingRangeProvider": "charliermarsh.ruff"
-  },
-  // Ruff configuration
-  "ruff.organizeImports": true,
-  "ruff.fixAll": true,
+  "chat.viewSessions.orientation": "stacked",
 
+  // Python & notebook tooling
+  "python.analysis.typeCheckingMode": "standard",
   "python.analysis.autoFormatStrings": true,
   "python.analysis.autoImportCompletions": false,
   "python.terminal.activateEnvInCurrentTerminal": true,
+  "ruff.organizeImports": true,
+  "ruff.fixAll": true,
   "jupyter.runStartupCommands": ["%load_ext autoreload", "%autoreload 2"],
   "jupyter.askForKernelRestart": false,
   "notebook.output.textLineLimit": 40,
@@ -96,45 +100,20 @@
     "editor.insertSpaces": true
   },
 
-  // Other Extensions Settings
-  "redhat.telemetry.enabled": true,
-  "githubLocalActions.dockerDesktopPath": "/Applications/Docker.app",
-
-  // Detaulf Formatter Settings
+  // Formatter overrides
+  "[python]": {
+    "editor.codeActionsOnSave": {
+      "source.organizeImports.ruff": "explicit"
+    },
+    "editor.defaultFormatter": "charliermarsh.ruff",
+    "editor.defaultFoldingRangeProvider": "charliermarsh.ruff"
+  },
   "[json]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[jsonc]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "prettier.trailingComma": "none",
-  "python.analysis.typeCheckingMode": "standard",
-  "[terraform]": {
-    "editor.formatOnSave": true,
-    "editor.defaultFormatter": "hashicorp.terraform"
-  },
-  "[terraform-vars]": {
-    "editor.formatOnSave": true,
-    "editor.defaultFormatter": "hashicorp.terraform"
-  },
-  "python.venvFolders": [
-    "~/Repos/ds-uc10-automatic-company-profiles/packages/webcrawler",
-    "~/Repos/uc16-sales-navigator/packages/app/backend",
-    "~/Repos/bhi/packages/cn_extract",
-    "~/Repos/streamio_databricks/packages/company_name_matching",
-    "~/Repos/streamio_databricks/packages/dummy_bundle",
-    // "~/Repos/stuff/serve_data",
-    // "~/Repos/poc-streamio-orchestrators/packages/dummy_bundle",
-    // "~/Repos/poc-streamio-orchestrators/packages/northdata_processing",
-    // "~/Repos/poc-streamio-orchestrators/packages/streamio",
-    // "~/Library/Application Support/pdm/venvs/",
-    "~/dev/python/pdm/venvs/"
-  ],
-  "python.analysis.extraPaths": [
-    "./packages/dummy_bundle/src",
-    "./packages/dummy_bundle"
-  ],
-  "chat.agent.maxRequests": 50,
   "[dockercompose]": {
     "editor.insertSpaces": true,
     "editor.tabSize": 4,
@@ -149,33 +128,18 @@
   "[github-actions-workflow]": {
     "editor.defaultFormatter": "redhat.vscode-yaml"
   },
-  "python.defaultInterpreterPath": "/Users/denis.kroetz/Repos/streamio-databricks/packages/dummy_bundle/.venv",
   "[javascript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[typescript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "terminal.external.linuxExec": "ghostty",
-  "terminal.external.osxExec": "Ghostty.app",
-  "sonarlint.connectedMode.connections.sonarcloud": [
-    {
-      "organizationKey": "ventio",
-      "connectionId": "ventio",
-      "region": "EU"
-    }
-  ],
-  "sonarlint.focusOnNewCode": false,
-  "sonarlint.automaticAnalysis": false,
   "[yaml]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "editor.codeActionsOnSave": {},
-  "git.openRepositoryInParentFolders": "always",
-  "files.associations": {
-    "*.jinja": "jinja"
-  },
-  "githubPullRequests.pullBranch": "never",
-  "editor.defaultFormatter": "charliermarsh.ruff",
-  "chat.viewSessions.orientation": "stacked"
+  "prettier.trailingComma": "none",
+
+  // Other tooling
+  "redhat.telemetry.enabled": true,
+  "githubLocalActions.dockerDesktopPath": "/Applications/Docker.app"
 }
