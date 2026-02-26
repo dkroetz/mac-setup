@@ -1,0 +1,118 @@
+name: AI Task Spec
+description: Define a bounded engineering task for staged AI-agent execution.
+title: "[AI Task]: "
+labels:
+  - ai
+  - task
+  - needs-triage
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this form for scoped implementation work that is not a net-new feature and not a bug fix.
+        Provide concrete boundaries so agents can execute Research -> Architect -> Implement efficiently.
+
+  - type: dropdown
+    id: execution_mode
+    attributes:
+      label: Execution mode
+      description: Choose how this work should be executed.
+      options:
+        - orchestrator auto
+        - manual slash commands
+        - isolated *-task
+    validations:
+      required: true
+
+  - type: textarea
+    id: problem_outcome
+    attributes:
+      label: Task objective and expected outcome
+      description: Explain why this task is needed and what concrete result should exist when done.
+      placeholder: |
+        Objective:
+        Expected outcome:
+    validations:
+      required: true
+
+  - type: textarea
+    id: in_scope
+    attributes:
+      label: In scope
+      description: List required actions and touched components.
+      placeholder: |
+        - Refactor module X
+        - Add telemetry for event Y
+        - Update docs for command Z
+    validations:
+      required: true
+
+  - type: textarea
+    id: out_of_scope
+    attributes:
+      label: Out of scope
+      description: List explicit exclusions for this task.
+      placeholder: |
+        - No behavior changes outside module X
+        - No schema migrations
+    validations:
+      required: true
+
+  - type: textarea
+    id: context_references
+    attributes:
+      label: Context and references
+      description: Link related design docs, code locations, and tracking issues.
+      placeholder: |
+        - docs/architecture/task-area.md
+        - src/subsystem/
+        - Related issue #99
+    validations:
+      required: true
+
+  - type: textarea
+    id: constraints
+    attributes:
+      label: Constraints
+      description: State limits such as timebox, compatibility, dependencies, and security requirements.
+      placeholder: |
+        - Complete within one sprint
+        - Preserve CLI flags and defaults
+    validations:
+      required: true
+
+  - type: textarea
+    id: acceptance_criteria
+    attributes:
+      label: Measurable acceptance criteria
+      description: Provide objective pass/fail checks for completion.
+      placeholder: |
+        - [ ] Refactor reduces duplicated logic in listed files
+        - [ ] Existing tests remain green
+        - [ ] New docs reflect updated behavior
+    validations:
+      required: true
+
+  - type: textarea
+    id: verification_commands
+    attributes:
+      label: Verification commands
+      description: Provide exact commands required to validate completion.
+      render: bash
+      placeholder: |
+        make lint
+        make test
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected_deliverables
+    attributes:
+      label: Expected deliverables and artifacts
+      description: List concrete outputs for handoff and review.
+      placeholder: |
+        - Notes or findings in .opencode/research/
+        - Plan in .opencode/plans/
+        - Code/docs updates with verification output
+    validations:
+      required: true

@@ -1,0 +1,130 @@
+name: AI Bug Spec
+description: Define a bug report for staged AI-agent diagnosis and fix.
+title: "[AI Bug]: "
+labels:
+  - ai
+  - bug
+  - needs-triage
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this form for defects, regressions, and incorrect behavior.
+        Be precise and reproducible so agents can execute Research -> Architect -> Implement without guessing.
+
+  - type: dropdown
+    id: execution_mode
+    attributes:
+      label: Execution mode
+      description: Choose how this work should be executed.
+      options:
+        - orchestrator auto
+        - manual slash commands
+        - isolated *-task
+    validations:
+      required: true
+
+  - type: textarea
+    id: problem_outcome
+    attributes:
+      label: Problem and desired outcome
+      description: Describe the observed bug and the corrected behavior expected after the fix.
+      placeholder: |
+        Observed:
+        Desired outcome:
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Reproduction details
+      description: Provide deterministic steps, inputs, and environment details.
+      placeholder: |
+        1. Run command X with flags Y
+        2. Send payload Z
+        3. Observe error E
+    validations:
+      required: true
+
+  - type: textarea
+    id: in_scope
+    attributes:
+      label: In scope
+      description: Define the fix boundary and required updates.
+      placeholder: |
+        - Fix root cause in parser
+        - Add regression test
+        - Update error handling message
+    validations:
+      required: true
+
+  - type: textarea
+    id: out_of_scope
+    attributes:
+      label: Out of scope
+      description: List non-goals to avoid broad refactors during bug resolution.
+      placeholder: |
+        - No dependency upgrade sweep
+        - No unrelated cleanup
+    validations:
+      required: true
+
+  - type: textarea
+    id: context_references
+    attributes:
+      label: Context and references
+      description: Link failing logs, stack traces, dashboards, code paths, and related issues.
+      placeholder: |
+        - logs/job-123.txt
+        - src/core/validator.ts:88
+        - Related issue #42
+    validations:
+      required: true
+
+  - type: textarea
+    id: constraints
+    attributes:
+      label: Constraints
+      description: Capture release constraints, risk limits, compatibility needs, and rollback limits.
+      placeholder: |
+        - Must be safe for patch release
+        - Do not change API contract
+    validations:
+      required: true
+
+  - type: textarea
+    id: acceptance_criteria
+    attributes:
+      label: Measurable acceptance criteria
+      description: Define objective criteria proving the bug is fixed and stable.
+      placeholder: |
+        - [ ] Reproduction steps no longer fail
+        - [ ] Regression test fails before fix and passes after
+        - [ ] No increase in error rate for endpoint X
+    validations:
+      required: true
+
+  - type: textarea
+    id: verification_commands
+    attributes:
+      label: Verification commands
+      description: Provide exact commands for reproducing and validating the fix.
+      render: bash
+      placeholder: |
+        make test TEST=tests/path/to_regression_test.py
+        make lint
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected_deliverables
+    attributes:
+      label: Expected deliverables and artifacts
+      description: List outputs expected from each stage.
+      placeholder: |
+        - Root cause notes in .opencode/research/
+        - Fix plan in .opencode/plans/
+        - Patch + regression test + verification notes
+    validations:
+      required: true

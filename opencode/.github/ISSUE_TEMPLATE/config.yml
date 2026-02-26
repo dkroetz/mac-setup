@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: AI-agent workflow guidance
+    url: https://github.com/OWNER/REPO/blob/main/README.md
+    about: Review workflow expectations before opening an issue.
