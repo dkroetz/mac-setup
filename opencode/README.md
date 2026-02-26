@@ -1,110 +1,105 @@
 # Harness Engineering Workflow for OpenCode
 
-A structured agent workflow inspired by [Dex's "Context Engineering" talk](https://www.youtube.com/watch?v=rmvDxxNubIg) at AI Engineer World's Fair.
+A practical OpenCode setup that applies a minimal-context, staged workflow inspired by Dex's context engineering talks and HumanLayer prompt patterns.
 
-## The Problem
-
-Most AI coding assistants create excessive code churn and rework, especially in brownfield codebases. The talk identifies that developers spend significant time fixing "slop" shipped in previous AI-assisted sessions.
-
-## The Solution
-
-A 3-phase workflow where each agent has specific constraints:
-
-```
-Research → Architect → Implement
-```
-
-| Phase | Role | Constraint |
-|-------|------|------------|
-| Research | Explore & document | Cannot suggest changes |
-| Architect | Design implementation plan | Cannot modify code |
-| Implement | Execute plan phase-by-phase | Cannot proceed without verification |
-
-## Implementation
-
-### Directory Structure
-
-```
-global_scope/           # Shared across all projects (~/.config/opencode/)
-├── agents/             # Primary + subagent definitions
-│   ├── research.md     # Documents findings, no suggestions
-│   ├── architect.md    # Creates plans, no code edits
-│   ├── implement.md    # Executes plans with verification
-│   ├── orchestrator.md # Single-context workflow coordinator
-│   ├── google.md       # External research coordinator
-│   └── research/       # Specialized research subagents
-├── commands/           # Slash commands for quick access
-├── skills/             # Domain knowledge modules
-│   ├── python-pdm/     # Python/PDM conventions
-│   └── postgres/       # SQLAlchemy/Alembic patterns
-└── opencode.jsonc      # Model assignments per agent
-
-project_scope/          # Per-project configuration
-└── .opencode/
-    ├── AGENTS.md       # Project conventions, verification commands
-    ├── research/       # Research output files
-    ├── plans/          # Implementation plans
-    └── memory/         # Orchestrator session summaries
-```
-
-### Workflow Options
-
-- Manual staged flow: `/research` -> `/architect` -> `/implement`
-- Orchestrated flow: switch to `@orchestrator` for single-context coordination with default 3 stages and optional extra gates (for example `review`)
-
-### Key Design Decisions
-
-1. **Permission-based constraints** - Agents use `permission:` blocks to enforce what they can/cannot do:
-   - Research: `edit: deny` everywhere except `.opencode/research/`
-   - Architect: `edit: deny` everywhere except `.opencode/plans/`
-   - Implement: `bash: ask` for destructive operations
-
-2. **Built-in subagent** - Uses OpenCode's `@explore` instead of custom exploration subagents (leaner setup)
-
-3. **Domain skills** - Project-specific knowledge loaded via `skill({ name: "python-pdm" })`
-
-4. **Verification gates** - Each implementation phase requires manual approval before proceeding
-
-### Workflow Example
-
-1. **Research**: `/research authentication flow`
-   - Agent explores codebase using `@explore`
-   - Documents findings in `.opencode/research/2024-01-15-authentication.md`
-   - No suggestions, only facts
-
-2. **Architect**: Review research, then `/architect add OAuth`
-   - Creates detailed plan with code snippets
-   - Persists to `.opencode/plans/2024-01-15-oauth.md`
-   - Explicit scope boundaries ("What We're NOT Doing")
-
-3. **Implement**: `/implement .opencode/plans/2024-01-15-oauth.md`
-   - Executes one phase at a time
-   - Runs verification after each phase
-   - Pauses for human approval
-
-### Optional Quality Gate: Review
-
-Use `/review-diff` before merge to catch correctness, security, and maintainability risks.
-Use `/review` for broader architectural consistency checks.
-Use `/review-pr <context>` for PR-style review from supplied context and referenced files.
-
-This does not replace the core workflow:
+## Core Workflow
 
 ```
 Research -> Architect -> Implement
 ```
 
-It complements it with a focused read-only review pass.
+| Phase | Role | Constraint |
+|-------|------|------------|
+| Research | Explore and document current state | No implementation suggestions |
+| Architect | Produce executable phase plan | No code edits |
+| Implement | Execute one phase at a time | Verify and pause between phases |
+
+## Current Runtime Topology
+
+### Global Scope (`~/.config/opencode/`)
+
+```
+global_scope/
+├── agents/
+│   ├── research.md         # Primary research agent
+│   ├── architect.md        # Primary planning agent
+│   ├── implement.md        # Primary implementation agent
+│   ├── orchestrator.md     # Single-context stage coordinator
+│   ├── review.md           # Read-only review agent
+│   ├── google.md           # Web-research coordinator
+│   └── research/
+│       ├── docs.md         # Source-specific web research subagents
+│       ├── code.md
+│       ├── blogs.md
+│       ├── news.md
+│       └── academic.md
+├── commands/
+│   ├── research.md         # same-session staged command
+│   ├── architect.md
+│   ├── implement.md
+│   ├── research-task.md    # forced subtask/isolation variants
+│   ├── architect-task.md
+│   ├── implement-task.md
+│   ├── review.md
+│   ├── review-diff.md
+│   ├── review-pr.md
+│   └── google.md
+├── skills/
+│   ├── python-pdm/
+│   └── postgres/
+└── opencode.jsonc
+```
+
+### Project Scope (`<repo>/.opencode/`)
+
+```
+project_scope/.opencode/
+├── AGENTS.md               # Project-local verification + skill policy source of truth
+├── research/               # Research artifacts
+├── plans/                  # Implementation plans
+├── memory/                 # Orchestrator summaries
+├── verification/           # Lightweight drift checklists
+└── skills/                 # Optional project-local skill overrides
+```
+
+## How to Run It
+
+- Staged, same-session: `/research ...` -> `/architect ...` -> `/implement <plan-path>`
+- Staged, isolated: `/research-task ...` -> `/architect-task ...` -> `/implement-task <plan-path>`
+- Coordinated flow: use `@orchestrator` to route stages while preserving shared objective and artifact handoff
+
+## Optional Quality Gates
+
+- `/review-diff` for local staged/unstaged change review
+- `/review` for broader scoped review
+- `/review-pr <context>` for PR-style context review
+
+Review is complementary to (not a replacement for) the core staged workflow.
+
+## Minimal-Context Operating Principles
+
+- Keep `AGENTS.md` thin; put detailed guidance in skills
+- Load skills on demand; avoid bulk-loading policy text
+- Prefer explicit artifact handoffs (`.opencode/research/...`, `.opencode/plans/...`)
+- Use same-session commands by default; use `-task` variants for isolation when needed
+- Treat prompt/config files as living docs and prune stale rules regularly
 
 ## Setup
 
 1. Copy `global_scope/` contents to `~/.config/opencode/`
-2. Copy `project_scope/.opencode/` to your project root
-3. Customize `AGENTS.md` with your project's conventions and skills
-4. Optional: install `opencode-sync` for repeatable push/pull/status syncs (see `opencode/sync_cli/README.md`)
+2. Copy `project_scope/.opencode/` into each project that should use this workflow
+3. Update project `.opencode/AGENTS.md` verification commands and skill-loading policy
+4. Optional: install `opencode-sync` for repeatable push/pull/status syncs (`opencode/sync_cli/README.md`)
+
+## Supporting Workdirs
+
+- `opencode/.agent_harness_development/` contains planning artifacts and transcript context used to evolve this setup
+- `opencode/.agent_improvement/` contains behavior test fixtures, rubrics, and schemas
+
+See each directory's local README for operational details.
 
 ## References
 
-- [YouTube Video](https://www.youtube.com/watch?v=rmvDxxNubIg) - Original talk on context engineering
-- [humanlayer/humanlayer](https://github.com/humanlayer/humanlayer) - Speaker's agent application (source of prompt patterns)
-- [OpenCode Docs](https://opencode.ai/docs) - Agent framework documentation
+- [OpenCode Docs](https://opencode.ai/docs)
+- [Dex Context Engineering talk](https://www.youtube.com/watch?v=rmvDxxNubIg)
+- [humanlayer/humanlayer](https://github.com/humanlayer/humanlayer)
