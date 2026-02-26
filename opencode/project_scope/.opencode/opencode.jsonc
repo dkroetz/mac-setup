@@ -1,5 +1,6 @@
 {
-    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$schema": "https://opencode.ai/config.json",
+    // OpenCode schema keeps editor validation/autocomplete accurate.
     // Project AGENTS is the source of truth for local verification and skill-loading policy.
     "agent": {
         // Primary Agents
