@@ -3,7 +3,7 @@
 Inputs:
 - `archive/reviews/global-setup-findings.md`
 - `archive/reviews/cross-layer-consistency-matrix.md`
-- `~/Projects/futilify/.opencode/context/plans/active/futilify-opencode-audit-findings.md`
+- `~/Projects/futilify/.agents/context/plans/active/futilify-opencode-audit-findings.md`
 
 Review date: 2026-03-03
 
@@ -18,7 +18,7 @@ Review date: 2026-03-03
    - Rollback: restore original `instructions` entry if retrieval quality unexpectedly drops.
 
 2. **Replace placeholder project architecture document with real architecture**
-   - Target: `~/Projects/futilify/.opencode/context/architecture.md`
+   - Target: `~/Projects/futilify/.agents/context/architecture.md`
    - Why: current template text can mislead agent reasoning when architecture context is loaded.
    - Expected impact: better cross-module planning accuracy.
    - Effort: Medium

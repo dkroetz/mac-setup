@@ -4,16 +4,16 @@ Preferences that apply across all projects.
 
 ## Navigation
 
-- Project intelligence: `.opencode/context/project-intelligence.md`
-- Active plans: `.opencode/context/plans/active/`
-- Completed plans: `.opencode/context/plans/completed/`
-- Decisions: `.opencode/context/decisions/`
-- Wisdom: `.opencode/context/wisdom/`
+- Project intelligence: `.agents/context/project-intelligence.md`
+- Active plans: `.agents/context/plans/active/`
+- Completed plans: `.agents/context/plans/completed/`
+- Decisions: `.agents/context/decisions/`
+- Wisdom: `.agents/context/wisdom/`
 
 ## Context Strategy
 
 - Keep this file lean and pointer-based.
-- Put stable project facts in `.opencode/context/project-intelligence.md`.
+- Put stable project facts in `.agents/context/project-intelligence.md`.
 - Put repeatable procedures in skills and commands, not in this file.
 - Prefer loading a few focused artifacts over one large instruction block.
 

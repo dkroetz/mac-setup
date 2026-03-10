@@ -10,7 +10,7 @@
 - Ground each change set in explicit references from official docs, practitioner writing, or academic research.
 
 ### Phase 1: Establish the evidence baseline and decide primary-agent topology
-- **Files**: `agents/scout.md`, `agents/engineer.md`, `agents/auto.md`, `README.md`, `.opencode/research/2026-03-09-ai-coding-agent-harnesses.md`, `.opencode/context/wisdom/patterns.md`, `.opencode/context/decisions/2026-03-09-agent-topology.md` (new, if needed)
+- **Files**: `agents/scout.md`, `agents/engineer.md`, `agents/auto.md`, `README.md`, `.opencode/research/2026-03-09-ai-coding-agent-harnesses.md`, `.agents/context/wisdom/patterns.md`, `.agents/context/decisions/2026-03-09-agent-topology.md` (new, if needed)
 - **Changes**:
   - Compare the current `scout` + `engineer` split against the research-backed patterns for minimal "ask" agents, autonomous agents, and role separation.
   - Decide whether to keep two primary agents, add a third minimal ask-style agent, enable/reshape `auto`, or keep autonomy as a profile/mode rather than a new primary agent.
@@ -42,7 +42,7 @@
   - Risk: Prompt edits drift away from actual permissions. Mitigation: validate prompt claims against `opencode.jsonc` and frontmatter before finalizing wording.
 
 ### Phase 4: Audit and reshape memory management and durable context flows
-- **Files**: `AGENTS.md`, `commands/add-context.md`, `commands/context.md`, `commands/capture.md`, `.opencode/context/wisdom/patterns.md`, `.opencode/context/wisdom/mistakes.md`, `.opencode/context/wisdom/decisions.md`, `.opencode/context/project-intelligence.md` (new or updated), `MAINTENANCE.md`
+- **Files**: `AGENTS.md`, `commands/add-context.md`, `commands/context.md`, `commands/capture.md`, `.agents/context/wisdom/patterns.md`, `.agents/context/wisdom/mistakes.md`, `.agents/context/wisdom/decisions.md`, `.agents/context/project-intelligence.md` (new or updated), `MAINTENANCE.md`
 - **Changes**:
   - Map the current memory surfaces: global `AGENTS.md`, optional `project-intelligence.md`, wisdom files, plans, and capture/harvest flows.
   - Compare that setup to the research-backed pattern of narrow repo instructions, explicit durable state, and memory artifacts that avoid context collapse.
@@ -64,7 +64,7 @@
 - **Human checkpoint**: None.
 
 ### Phase 6: Validate cross-file coherence and close the loop with references
-- **Files**: `README.md`, `MAINTENANCE.md`, `commands/plan.md`, `agents/scout.md`, `agents/engineer.md`, `AGENTS.md`, `.opencode/research/2026-03-09-ai-coding-agent-harnesses.md`, `.opencode/context/decisions/2026-03-09-agent-topology.md` (if created)
+- **Files**: `README.md`, `MAINTENANCE.md`, `commands/plan.md`, `agents/scout.md`, `agents/engineer.md`, `AGENTS.md`, `.opencode/research/2026-03-09-ai-coding-agent-harnesses.md`, `.agents/context/decisions/2026-03-09-agent-topology.md` (if created)
 - **Changes**:
   - Run a final coherence pass so docs, prompts, commands, and maintenance guidance describe the same harness model.
   - Ensure each researched question has an explicit answer captured either in code/docs or in a decision artifact.

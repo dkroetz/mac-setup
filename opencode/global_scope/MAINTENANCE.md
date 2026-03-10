@@ -12,8 +12,8 @@ Run the `/audit` command weekly to check for context staleness:
 
 Review the output and update:
 - AGENTS.md if project description is outdated
-- .opencode/context/architecture.md if architecture has changed
-- .opencode/context/wisdom/ if entries are no longer applicable
+- .agents/context/architecture.md if architecture has changed
+- .agents/context/wisdom/ if entries are no longer applicable
 
 ## Progressive Autonomy Playbook
 
@@ -81,11 +81,11 @@ The system uses a **frontmatter-based permission model** with per-agent permissi
 Keep persistent context separated by purpose:
 
 - `AGENTS.md` - short global preferences and navigation
-- `.opencode/context/project-intelligence.md` - durable project facts and canonical operating patterns
-- `.opencode/context/plans/active/` - current execution plans
-- `.opencode/context/plans/completed/` - historical plans
-- `.opencode/context/wisdom/` - reusable lessons, patterns, and non-obvious mistakes
-- `.opencode/context/decisions/` - explicit architecture decisions when rationale matters
+- `.agents/context/project-intelligence.md` - durable project facts and canonical operating patterns
+- `.agents/context/plans/active/` - current execution plans
+- `.agents/context/plans/completed/` - historical plans
+- `.agents/context/wisdom/` - reusable lessons, patterns, and non-obvious mistakes
+- `.agents/context/decisions/` - explicit architecture decisions when rationale matters
 
 Guidelines:
 
@@ -422,7 +422,7 @@ Watch for these signs of context problems:
 
 ### Agent Seems Confused
 1. Check AGENTS.md gotchas - is this a known issue?
-2. Review .opencode/context/ - is information outdated?
+2. Review .agents/context/ - is information outdated?
 3. Consider: is this a codebase clarity problem?
 4. Run `/audit` to identify stale context
 

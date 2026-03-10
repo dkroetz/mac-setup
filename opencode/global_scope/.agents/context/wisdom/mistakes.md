@@ -322,7 +322,7 @@ bash:
 
 **Fix**:
 1. Keep `AGENTS.md` short and pointer-based.
-2. Move stable project facts into `.opencode/context/project-intelligence.md`.
+2. Move stable project facts into `.agents/context/project-intelligence.md`.
 3. Move repeatable workflows into commands and focused skills.
 
 **Prevention**:
@@ -398,7 +398,7 @@ bash:
 
 ## See Also
 
-- **Patterns**: `.opencode/context/wisdom/patterns.md` - Permission profile patterns
-- **Decisions**: `.opencode/context/wisdom/decisions.md` - Architecture decisions
+- **Patterns**: `.agents/context/wisdom/patterns.md` - Permission profile patterns
+- **Decisions**: `.agents/context/wisdom/decisions.md` - Architecture decisions
 - **Documentation**: `MAINTENANCE.md` - Permission Model Architecture
 - **Validation**: MAINTENANCE.md - Validation Checklist

@@ -10,9 +10,9 @@ For a new project:
 # Copy AGENTS.md template to your project root
 cp ~/.config/opencode/templates/AGENTS.md /path/to/your/project/AGENTS.md
 
-# Copy context structure to .opencode/context
-mkdir -p /path/to/your/project/.opencode
-cp -r ~/.config/opencode/templates/project-opencode/context /path/to/your/project/.opencode/
+# Copy context structure to .agents/context
+mkdir -p /path/to/your/project/.agents /path/to/your/project/.opencode
+cp -r ~/.config/opencode/templates/project-opencode/.agents/context /path/to/your/project/.agents/
 
 # Copy .opencode config
 cp ~/.config/opencode/templates/project-opencode/opencode.json /path/to/your/project/.opencode/
@@ -39,7 +39,7 @@ cp ~/.config/opencode/templates/project-opencode/opencode.json /path/to/your/pro
 - Generic patterns (agent already knows them)
 - Detailed architecture (that goes in docs/architecture.md)
 
-### .opencode/context/architecture.md
+### .agents/context/architecture.md
 
 **Purpose**: The "why" behind architectural decisions
 
@@ -55,7 +55,7 @@ cp ~/.config/opencode/templates/project-opencode/opencode.json /path/to/your/pro
 - Detailed implementation (that's in the code)
 - File-by-file descriptions (agent can read code)
 
-### .opencode/context/project-intelligence.md
+### .agents/context/project-intelligence.md
 
 **Purpose**: Human-harvested implementation patterns (6-question intake)
 
@@ -71,15 +71,15 @@ cp ~/.config/opencode/templates/project-opencode/opencode.json /path/to/your/pro
 - Run `/add-context --update` when patterns evolve
 - Run `/context harvest` to import external `.tmp/*.md` notes
 
-### .opencode/context/decisions/
+### .agents/context/decisions/
 
 **Purpose**: Architecture Decision Records (ADRs)
 
 Store numbered ADRs: `001-database-choice.md`, `002-api-design.md`, etc.
 
-Use the template: `.opencode/context/decisions/000-template.md`
+Use the template: `.agents/context/decisions/000-template.md`
 
-### .opencode/context/plans/
+### .agents/context/plans/
 
 **Structure**:
 - `active/` - Current work in progress
@@ -87,7 +87,7 @@ Use the template: `.opencode/context/decisions/000-template.md`
 
 Store implementation plans here for complex features.
 
-### .opencode/context/wisdom/
+### .agents/context/wisdom/
 
 **Purpose**: Accumulated learnings across tasks
 
@@ -107,7 +107,7 @@ The `instructions` array loads files into agent context:
 ```json
 {
   "instructions": [
-    ".opencode/context/architecture.md"
+    ".agents/context/architecture.md"
   ]
 }
 ```
@@ -121,10 +121,10 @@ The `instructions` array loads files into agent context:
 ## Progressive Disclosure Flow
 
 1. **Agent starts** → Reads AGENTS.md (table of contents)
-2. **Agent needs context** → Follows pointer to .opencode/context/architecture.md
+2. **Agent needs context** → Follows pointer to .agents/context/architecture.md
 3. **Agent needs specifics** → Reads relevant code files
-4. **Agent needs project patterns** → Reads .opencode/context/project-intelligence.md
-5. **Agent encounters issues** → Checks .opencode/context/wisdom/ for learnings
+4. **Agent needs project patterns** → Reads .agents/context/project-intelligence.md
+5. **Agent encounters issues** → Checks .agents/context/wisdom/ for learnings
 6. **Agent confused** → Adds entry to AGENTS.md Gotchas (you review and merge ~20%)
 
 ## Maintenance
@@ -133,7 +133,7 @@ The `instructions` array loads files into agent context:
 
 Run `/audit` command (Phase 9) to check:
 - Is AGENTS.md still accurate?
-- Does .opencode/context/architecture.md reflect current state?
+- Does .agents/context/architecture.md reflect current state?
 - Are wisdom entries still applicable?
 
 ### Feedback Hierarchy
@@ -163,19 +163,19 @@ After setup, the agent workflow looks like:
 User: Add user authentication to the API
 
 Engineer: 
-1. Reads AGENTS.md → sees .opencode/context/architecture.md pointer
-2. Reads .opencode/context/architecture.md → understands API layer, security requirements
+1. Reads AGENTS.md → sees .agents/context/architecture.md pointer
+2. Reads .agents/context/architecture.md → understands API layer, security requirements
 3. Uses @explore to find existing auth patterns
-4. Creates plan in .opencode/context/plans/active/2026-03-04-auth-feature-a1b2c3.md
+4. Creates plan in .agents/context/plans/active/2026-03-04-auth-feature-a1b2c3.md
 5. Implements step by step
-6. Updates .opencode/context/wisdom/ with any new patterns discovered
+6. Updates .agents/context/wisdom/ with any new patterns discovered
 ```
 
 ## Success Criteria
 
 - [ ] AGENTS.md is under 100 lines
 - [ ] AGENTS.md contains zero discoverable information
-- [ ] .opencode/context/architecture.md describes the "why" not the "what"
+- [ ] .agents/context/architecture.md describes the "why" not the "what"
 - [ ] .opencode/opencode.json instructions array is minimal
-- [ ] Agent navigates to .opencode/context/ from AGENTS.md pointers
+- [ ] Agent navigates to .agents/context/ from AGENTS.md pointers
 - [ ] Running same task with/without AGENTS.md shows similar or better performance with lean version

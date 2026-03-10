@@ -901,7 +901,7 @@ Phase 4: Context Files (Minimal)
 Duration: 1-2 days  
 Learning Goal: What to include (and exclude) based on research
 Step 4.1: Create Security Context
-File: .opencode/contexts/security.md
+File: .agents/contexts/security.md
  Security Rules
 These are non-negotiable security requirements.
  Input Validation
@@ -927,7 +927,7 @@ Why this works:
 - No project-specific details (those are discoverable)
 - Short enough to not bloat context
 Step 4.2: Create Python Patterns Context (Optional)
-File: .opencode/contexts/python-patterns.md
+File: .agents/contexts/python-patterns.md
  Python Patterns
  Project Structure
 - Use `src/` layout for packages

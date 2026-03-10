@@ -41,20 +41,20 @@ fcae338ce6e6  skills/code-quality/SKILL.md
 - Git HEAD: `c6751d2`
 - Git status: clean
 - Project AGENTS mandates broad preflight context loading (all non-trivial tasks)
-- Project opencode config injects `.opencode/context/architecture.md`
+- Project opencode config injects `.agents/context/architecture.md`
 - Context assets present: `project-intelligence`, `architecture`, wisdom docs, decisions template, plan READMEs
 
 ### File Integrity Snapshot (SHA-256 short)
 
 ```
-10723a83f66f  .opencode/context/architecture.md
-8815ef333dd4  .opencode/context/decisions/000-template.md
-92fbb4c0304d  .opencode/context/plans/active/README.md
-2e995a59b4e7  .opencode/context/plans/completed/README.md
-bab34b2d231f  .opencode/context/project-intelligence.md
-3df3d17d3835  .opencode/context/wisdom/decisions.md
-bd694bc36fbb  .opencode/context/wisdom/mistakes.md
-62a13c269775  .opencode/context/wisdom/patterns.md
+10723a83f66f  .agents/context/architecture.md
+8815ef333dd4  .agents/context/decisions/000-template.md
+92fbb4c0304d  .agents/context/plans/active/README.md
+2e995a59b4e7  .agents/context/plans/completed/README.md
+bab34b2d231f  .agents/context/project-intelligence.md
+3df3d17d3835  .agents/context/wisdom/decisions.md
+bd694bc36fbb  .agents/context/wisdom/mistakes.md
+62a13c269775  .agents/context/wisdom/patterns.md
 e256ab7e1c33  .opencode/opencode.json
 68b107402a35  AGENTS.md
 ```

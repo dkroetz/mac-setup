@@ -47,7 +47,7 @@ Target project mix: global `~/.config/opencode` and `~/Projects/futilify`
    - Success criteria: prompts stay role-specific; shared rules have one source.
 
 9. **CTX-HEAVY-01** (`futilify`)
-   - Prompt: Implement a change that must follow `.opencode/context/project-intelligence.md` and wisdom patterns for persistence contracts.
+   - Prompt: Implement a change that must follow `.agents/context/project-intelligence.md` and wisdom patterns for persistence contracts.
    - Success criteria: output references consulted context and applies existing conventions correctly.
 
 10. **CTX-HEAVY-02** (`futilify`)

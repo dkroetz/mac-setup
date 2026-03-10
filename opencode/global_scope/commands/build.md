@@ -7,13 +7,13 @@ Resolve the plan input, then implement it step by step.
 
 Plan path resolution rules:
 - If the argument is an explicit path, use it as-is.
-- If the argument is a bare filename without extension, resolve to `.opencode/context/plans/active/<name>.md`.
-- If the argument is a bare filename ending in `.md`, resolve to `.opencode/context/plans/active/<name>.md`.
+- If the argument is a bare filename without extension, resolve to `.agents/context/plans/active/<name>.md`.
+- If the argument is a bare filename ending in `.md`, resolve to `.agents/context/plans/active/<name>.md`.
 - Never append `.md` twice.
 - Never duplicate path segments.
 
 Use this command when:
-- A plan already exists in `.opencode/context/plans/active/`
+- A plan already exists in `.agents/context/plans/active/`
 - You want stepwise implementation with validation gates
 
 Do not use this command when:
@@ -38,7 +38,7 @@ For each phase:
 
 After all steps are complete:
 1. Run full validation suite
-2. Move the plan to .opencode/context/plans/completed/
+2. Move the plan to `.agents/context/plans/completed/`
 3. Summarize what was done
 
 Execution notes:

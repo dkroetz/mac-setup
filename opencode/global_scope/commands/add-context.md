@@ -14,7 +14,7 @@ Do not use this command when:
 - You only need context validation or inventory (`/context validate`, `/context map`)
 
 Goal:
-- Capture stable project patterns in `.opencode/context/project-intelligence.md`
+- Capture stable project patterns in `.agents/context/project-intelligence.md`
 - Keep the file concise and scannable (target: <=180 lines)
 - Preserve concrete code patterns from user examples
 - Keep task-local history, one-off incidents, and implementation logs out of `project-intelligence.md`
@@ -24,7 +24,7 @@ Arguments:
 
 Workflow:
 
-1. Check whether `.opencode/context/project-intelligence.md` exists.
+1. Check whether `.agents/context/project-intelligence.md` exists.
 2. If it exists and `--replace` is not provided:
    - Summarize current sections briefly.
    - Ask the user whether to: update specific sections, replace all, or cancel.
@@ -45,16 +45,16 @@ Workflow:
    - Context Harvest Metadata (date, mode: create/update/replace)
    - Codebase References
 5. Ask for one final confirmation before writing.
-6. Write the file and ensure `.opencode/context/` exists.
+6. Write the file and ensure `.agents/context/` exists.
 7. If project `AGENTS.md` exists and does not already link this file, add:
-   - `Project intelligence: .opencode/context/project-intelligence.md`
+   - `Project intelligence: .agents/context/project-intelligence.md`
    under the Navigation section.
 
 Formatting rules for the file:
 - Prefer short bullets and compact examples.
 - Keep examples real (from user input) and avoid generic boilerplate.
 - If user pasted long snippets, trim to the smallest representative slice.
-- Do not duplicate content already present in `.opencode/context/architecture.md`.
+- Do not duplicate content already present in `.agents/context/architecture.md`.
 - Do not move reusable lessons into this file if they belong in `wisdom/` instead.
 
 When done:

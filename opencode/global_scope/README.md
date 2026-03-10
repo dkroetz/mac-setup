@@ -52,14 +52,14 @@ Your global OpenCode configuration is ready:
 cp ~/.config/opencode/templates/AGENTS.md /path/to/project/AGENTS.md
 
 # 2. Copy context structure
-mkdir -p /path/to/project/.opencode
-cp -r ~/.config/opencode/templates/project-opencode/context /path/to/project/.opencode/
+mkdir -p /path/to/project/.agents /path/to/project/.opencode
+cp -r ~/.config/opencode/templates/project-opencode/.agents/context /path/to/project/.agents/
 
 # 3. Copy config
 cp ~/.config/opencode/templates/project-opencode/opencode.json /path/to/project/.opencode/
 
 # 4. Edit AGENTS.md for your project
-# 5. Fill in .opencode/context/architecture.md
+# 5. Fill in .agents/context/architecture.md
 ```
 
 ## Agents
@@ -130,7 +130,7 @@ cp ~/.config/opencode/templates/project-opencode/opencode.json /path/to/project/
 Progressive disclosure with minimal front-loading:
 
 1. **AGENTS.md** (~80 lines) - Table of contents, not encyclopedia
-2. **.opencode/context/** - Deep context (architecture, wisdom, plans)
+2. **.agents/context/** - Deep context (architecture, wisdom, plans)
 3. **Agent navigates** - Follows pointers as needed
 4. **Skills load dynamically** - Small procedural skills beat broad static guidance
 5. **Wisdom accumulates** - Learnings captured via `/capture`
@@ -179,11 +179,11 @@ Based on findings from:
 
 ## Harness Review Outcomes
 
-- **Primary agents** - Keep `scout` + `engineer` as the active primary pair and keep `auto` as an explicit experiment; see `.opencode/context/decisions/2026-03-09-agent-topology.md`
+- **Primary agents** - Keep `scout` + `engineer` as the active primary pair and keep `auto` as an explicit experiment; see `.agents/context/decisions/2026-03-09-agent-topology.md`
 - **Planning guidance** - Use concrete, validation-aware phased plans in `commands/plan.md` and `agents/subagents/planner.md`
 - **Plan/build handoff** - Keep per-phase fields stable so `commands/build.md` can execute plans mechanically with validation and checkpoint gates
 - **Agent prompts** - Keep `scout` ask-oriented and `engineer` implementation-oriented; see `agents/scout.md` and `agents/engineer.md`
-- **Memory model** - Split durable context across `AGENTS.md`, `.opencode/context/project-intelligence.md`, `plans/`, `wisdom/`, and `decisions/`; see `MAINTENANCE.md`
+- **Memory model** - Split durable context across `AGENTS.md`, `.agents/context/project-intelligence.md`, `plans/`, `wisdom/`, and `decisions/`; see `MAINTENANCE.md`
 - **AGENTS.md strategy** - Keep `AGENTS.md` lean, pointer-based, and free of procedural bulk; see `AGENTS.md` and `templates/AGENTS.md`
 - **Skill loading** - Keep skills focused, procedural, and metadata-first; see `skills/code-quality/SKILL.md`, `skills/project-setup/SKILL.md`, and `MAINTENANCE.md`
 - **New skills** - Add a new skill only for recurring workflows with a clear boundary, not for one-off procedures; see `MAINTENANCE.md`
@@ -231,7 +231,7 @@ All files created across 9 phases:
 - [x] Scout escalates complex tasks
 - [x] Engineer delegates to subagents
 - [x] AGENTS.md under 100 lines
-- [x] Context in .opencode/context/ (not docs/)
+- [x] Context in .agents/context/ (not docs/)
 - [x] 2 global skills plus agent-specific review skills
 - [x] 10 custom commands
 - [x] 2 lightweight plugins

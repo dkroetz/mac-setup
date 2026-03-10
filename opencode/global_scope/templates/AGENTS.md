@@ -4,16 +4,16 @@
 
 ## Navigation
 
-- Architecture overview: `.opencode/context/architecture.md`
-- Project intelligence: `.opencode/context/project-intelligence.md`
-- Active plans: `.opencode/context/plans/active/`
-- Decision records: `.opencode/context/decisions/`
-- Accumulated wisdom: `.opencode/context/wisdom/`
+- Architecture overview: `.agents/context/architecture.md`
+- Project intelligence: `.agents/context/project-intelligence.md`
+- Active plans: `.agents/context/plans/active/`
+- Decision records: `.agents/context/decisions/`
+- Accumulated wisdom: `.agents/context/wisdom/`
 
 ## Context Strategy
 
 - Keep this file lean and pointer-based.
-- Put stable project facts in `.opencode/context/project-intelligence.md`.
+- Put stable project facts in `.agents/context/project-intelligence.md`.
 - Put repeatable procedures in skills and commands, not in this file.
 - Prefer loading a few focused artifacts over one large instruction block.
 

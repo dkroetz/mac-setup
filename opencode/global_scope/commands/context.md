@@ -3,7 +3,7 @@ description: Manage and harvest project context files
 agent: scout
 ---
 
-Manage `.opencode/context/` with a focus on harvesting external notes into stable project intelligence.
+Manage `.agents/context/` with a focus on harvesting external notes into stable project intelligence.
 
 Use this command when:
 - You want to harvest or validate file-based context artifacts
@@ -30,7 +30,7 @@ If no mode is provided, show concise help and suggest:
 
 Goal:
 - Convert temporary/external context into durable, concise project context.
-- Do not re-harvest curated context from `.opencode/context/wisdom/` or `.opencode/context/decisions/`.
+- Do not re-harvest curated context from `.agents/context/wisdom/` or `.agents/context/decisions/`.
 
 Default inputs to scan:
 - `.tmp/*.md`
@@ -44,7 +44,7 @@ Notes:
 - `project-intelligence.md` should hold stable project facts and canonical patterns, not transient task history.
 
 Harvest workflow:
-1. Ensure `.opencode/context/` exists (create if missing).
+1. Ensure `.agents/context/` exists (create if missing).
 2. Discover candidate source files from defaults plus optional argument path.
 3. If none found, report and stop with a suggestion to run `/add-context`.
 4. Extract only durable signals:
@@ -54,16 +54,16 @@ Harvest workflow:
     - naming conventions
     - quality and security rules
     - stable operating model details that will matter across future tasks
-5. Build a merge preview for `.opencode/context/project-intelligence.md`:
+5. Build a merge preview for `.agents/context/project-intelligence.md`:
     - keep existing content unless conflicting
     - prefer explicit examples over abstract statements
     - deduplicate repeated points
     - exclude temporary plans, one-off incidents, and task-local notes
 6. Ask once for confirmation before writing.
-7. Write/update `.opencode/context/project-intelligence.md`.
+7. Write/update `.agents/context/project-intelligence.md`.
 8. Move processed source files to `.tmp/harvested/` (preserve filenames) instead of deleting.
 9. If project `AGENTS.md` exists and lacks a pointer, add:
-   - `Project intelligence: .opencode/context/project-intelligence.md`
+   - `Project intelligence: .agents/context/project-intelligence.md`
    under Navigation.
 
 Memory contract:
@@ -82,12 +82,12 @@ Output requirements:
 ## map
 
 Print a compact map of known context files if they exist:
-- `.opencode/context/architecture.md`
-- `.opencode/context/project-intelligence.md`
-- `.opencode/context/wisdom/*.md`
-- `.opencode/context/decisions/*.md`
-- `.opencode/context/plans/active/`
-- `.opencode/context/plans/completed/`
+- `.agents/context/architecture.md`
+- `.agents/context/project-intelligence.md`
+- `.agents/context/wisdom/*.md`
+- `.agents/context/decisions/*.md`
+- `.agents/context/plans/active/`
+- `.agents/context/plans/completed/`
 
 For each path, report: `PRESENT` or `MISSING`.
 

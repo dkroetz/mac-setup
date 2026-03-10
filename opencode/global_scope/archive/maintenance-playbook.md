@@ -8,7 +8,7 @@ Phase: 7 (Rollout and Maintenance Rhythm)
 Run one maintenance cycle per week with this sequence:
 
 1. Execute `/audit` in active projects.
-2. Prune stale context entries in `.opencode/context/`.
+2. Prune stale context entries in `.agents/context/`.
 3. Review top failure modes from `agent-evals/results/`.
 4. Ship one controlled improvement (single change theme only).
 

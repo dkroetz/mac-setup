@@ -43,7 +43,7 @@ Be concise and direct.
 
 - Project-level `AGENTS.md` is the source of truth for required preflight and overrides these heuristics when stricter.
 - Use minimal exploration first: prefer targeted reads in likely source files over broad scans.
-- If `.opencode/context/project-intelligence.md` exists, read it before exploring many files.
+- If `.agents/context/project-intelligence.md` exists, read it before exploring many files.
 - Do not read template/process files (for example context decision templates or plan README files) for code implementation questions.
 - For code examples, gather just enough representative references, answer quickly, then deepen only if requested.
 - When a small edit is clearly self-contained, complete it directly; otherwise escalate early instead of stretching the role.

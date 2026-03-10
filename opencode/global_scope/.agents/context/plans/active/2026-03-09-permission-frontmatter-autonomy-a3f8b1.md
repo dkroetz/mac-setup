@@ -222,8 +222,8 @@ permission:
 **Description**: Document the new permission model and capture lessons learned in project wisdom files.
 
 **Files to modify/create**:
-- `.opencode/context/wisdom/patterns.md` (if exists)
-- `.opencode/context/wisdom/decisions.md` (if exists)
+- `.agents/context/wisdom/patterns.md` (if exists)
+- `.agents/context/wisdom/decisions.md` (if exists)
 - `README.md` or `MAINTENANCE.md` (permission model documentation)
 
 **Exit criterion**:

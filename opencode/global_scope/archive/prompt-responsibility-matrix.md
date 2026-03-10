@@ -12,7 +12,7 @@ Phase: 1 (Prompt Surface Reduction)
 | Engineer role behavior (complex implementation workflow, delegation policy) | `~/.config/opencode/agents/engineer.md` | Role-specific orchestration guidance only. |
 | Scout role behavior (quick exploration, escalation threshold) | `~/.config/opencode/agents/scout.md` | Lightweight read-mostly behavior only. |
 | Project-specific mandatory preflight rules | `<project>/AGENTS.md` | Project rules override generic agent heuristics when stricter. |
-| Project architecture description | `<project>/.opencode/context/architecture.md` | Architecture content only; no duplicated operating contract. |
+| Project architecture description | `<project>/.agents/context/architecture.md` | Architecture content only; no duplicated operating contract. |
 | Context harvesting workflow | `~/.config/opencode/commands/context.md` + `commands/add-context.md` | Command procedures own operational steps. |
 | Planning/execution command procedures | `~/.config/opencode/commands/plan.md` + `commands/build.md` | Commands own step-by-step runbooks. |
 | Python quality execution procedure | `~/.config/opencode/skills/code-quality/SKILL.md` | Procedural command sequence lives in skill. |

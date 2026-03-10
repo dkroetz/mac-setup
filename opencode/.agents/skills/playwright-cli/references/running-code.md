@@ -223,7 +223,7 @@ playwright-cli run-code "async page => {
 playwright-cli run-code "async page => {
   const results = [];
   for (let i = 1; i <= 3; i++) {
-    await page.goto(`https://example.com/page/${i}`);
+    await page.goto(\`https://example.com/page/\${i}\`);
     const items = await page.locator('.item').allTextContents();
     results.push(...items);
   }

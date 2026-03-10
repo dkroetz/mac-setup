@@ -30,7 +30,7 @@ Final criteria status:
   - `agents/engineer.md`
   - `agents/scout.md`
   - `~/Projects/futilify/AGENTS.md`
-  - `~/Projects/futilify/.opencode/context/architecture.md`
+  - `~/Projects/futilify/.agents/context/architecture.md`
 
 ### Phase 2: Subagent Normalization
 
@@ -47,7 +47,7 @@ Final criteria status:
 ### Phase 4: Context Strategy Realignment
 
 - Updated `~/Projects/futilify/AGENTS.md`
-- `~/Projects/futilify/.opencode/context/context-migration-notes.md`
+- `~/Projects/futilify/.agents/context/context-migration-notes.md`
 
 ### Phase 5: Skills and Commands Hardening
 

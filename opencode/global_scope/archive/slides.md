@@ -82,7 +82,7 @@ Speaker notes:
 
 **Project layer (`~/Projects/futilify`):**
 - Lean project AGENTS contract.
-- `.opencode/context/project-intelligence.md` as high-signal baseline.
+- `.agents/context/project-intelligence.md` as high-signal baseline.
 - Architecture context loaded conditionally, not by default.
 
 Speaker notes:
@@ -260,7 +260,7 @@ Speaker notes:
 - `agent-evals/results/comparison.json`
 - `agent-evals/results/release-gate-result.json`
 - `~/Projects/futilify/AGENTS.md`
-- `~/Projects/futilify/.opencode/context/project-intelligence.md`
+- `~/Projects/futilify/.agents/context/project-intelligence.md`
 
 **External references used in plan/research docs:**
 - SkillsBench: https://arxiv.org/abs/2602.12670

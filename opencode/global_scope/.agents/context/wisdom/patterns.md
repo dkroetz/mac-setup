@@ -15,10 +15,10 @@ Reusable patterns and best practices discovered through experience.
 **Implementation**:
 
 1. Keep `AGENTS.md` short and navigational.
-2. Store durable project facts in `.opencode/context/project-intelligence.md`.
-3. Keep in-flight work in `.opencode/context/plans/active/`.
-4. Store reusable lessons in `.opencode/context/wisdom/`.
-5. Record architecture tradeoffs in `.opencode/context/decisions/` when the rationale matters.
+2. Store durable project facts in `.agents/context/project-intelligence.md`.
+3. Keep in-flight work in `.agents/context/plans/active/`.
+4. Store reusable lessons in `.agents/context/wisdom/`.
+5. Record architecture tradeoffs in `.agents/context/decisions/` when the rationale matters.
 
 **Benefits**:
 - Preserves progressive disclosure
@@ -266,7 +266,7 @@ bash:
 
 **Implementation**:
 1. Keep `AGENTS.md` limited to navigation, stable preferences, and a few global defaults.
-2. Put durable project facts in `.opencode/context/project-intelligence.md`.
+2. Put durable project facts in `.agents/context/project-intelligence.md`.
 3. Put repeatable workflows in command files like `commands/plan.md` and `commands/commit.md`.
 4. Keep skills metadata-first and procedural so agents load them only when the task actually matches.
 
@@ -302,9 +302,9 @@ bash:
 **Solution**: Keep plans in `plans/active/` while work is in flight, then move them to `plans/completed/` when the work lands.
 
 **Implementation**:
-1. Create phase-based plan artifacts under `.opencode/context/plans/active/`.
+1. Create phase-based plan artifacts under `.agents/context/plans/active/`.
 2. Reference those plans from commits, decisions, or maintenance docs while the work is ongoing.
-3. Move finished plans into `.opencode/context/plans/completed/` instead of deleting them.
+3. Move finished plans into `.agents/context/plans/completed/` instead of deleting them.
 
 **Benefits**:
 - Keeps active planning surfaces truthful
@@ -343,10 +343,10 @@ bash:
 
 **Benefits**:
 - Makes the prevailing strategy discoverable without hunting through every doc.
-- Aligns the README with the richer guidance in `MAINTENANCE.md` and `.opencode/context/`.
+- Aligns the README with the richer guidance in `MAINTENANCE.md` and `.agents/context/`.
 - Signals which decisions are stable defaults for contributors.
 
-**References**: `README.md: Harness Review Outcomes`, `MAINTENANCE.md`, `.opencode/context/project-intelligence.md`
+**References**: `README.md: Harness Review Outcomes`, `MAINTENANCE.md`, `.agents/context/project-intelligence.md`
 
 ### Pattern: Contract-Driven Plan Execution
 
@@ -447,6 +447,6 @@ bash:
 
 ## See Also
 
-- **Architecture Decision**: `.opencode/context/wisdom/decisions.md` - Frontmatter-Based Permission Model
+- **Architecture Decision**: `.agents/context/wisdom/decisions.md` - Frontmatter-Based Permission Model
 - **Implementation**: `agents/engineer.md`, `agents/scout.md`, `agents/ci-auto.md`
 - **Documentation**: `MAINTENANCE.md` - Permission Model Architecture

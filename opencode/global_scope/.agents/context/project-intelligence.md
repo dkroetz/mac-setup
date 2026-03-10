@@ -17,14 +17,14 @@ stable project facts and canonical operating patterns.
 Use these files for distinct kinds of memory:
 
 - `AGENTS.md` - global preferences and navigation pointers; short and stable
-- `.opencode/context/project-intelligence.md` - durable project facts,
+- `.agents/context/project-intelligence.md` - durable project facts,
   operating model, and canonical harness patterns for this repo
-- `.opencode/context/plans/active/` - in-flight implementation plans
-- `.opencode/context/plans/completed/` - completed plans kept for history
-- `.opencode/context/decisions/` - architecture decisions and durable tradeoffs
-- `.opencode/context/wisdom/patterns.md` - reusable patterns that worked well
-- `.opencode/context/wisdom/mistakes.md` - non-obvious failure modes to avoid
-- `.opencode/context/wisdom/decisions.md` - durable decisions without a full
+- `.agents/context/plans/active/` - in-flight implementation plans
+- `.agents/context/plans/completed/` - completed plans kept for history
+- `.agents/context/decisions/` - architecture decisions and durable tradeoffs
+- `.agents/context/wisdom/patterns.md` - reusable patterns that worked well
+- `.agents/context/wisdom/mistakes.md` - non-obvious failure modes to avoid
+- `.agents/context/wisdom/decisions.md` - durable decisions without a full
   ADR-style writeup
 
 ## Canonical Harness Patterns

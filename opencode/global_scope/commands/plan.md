@@ -54,7 +54,7 @@ Required closing sections:
 
 Keep the wording concrete. Prefer file paths, explicit deliverables, and short verifiable checkpoints over generic advice.
 
-If `.opencode/context/plans/active/` exists, write the plan there using this filename format:
+If `.agents/context/plans/active/` exists, write the plan there using this filename format:
 - `YYYY-MM-DD-short-slug-hash.md`
 - Build `short-slug` from the task (3-6 words, lowercase, hyphenated, sanitized)
 - Add a short hash/suffix for uniqueness

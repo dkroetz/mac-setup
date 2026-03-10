@@ -112,7 +112,7 @@ permission: allow
 
 ### References
 
-- Plan: `.opencode/context/plans/completed/2026-03-09-permission-frontmatter-autonomy-a3f8b1.md`
+- Plan: `.agents/context/plans/completed/2026-03-09-permission-frontmatter-autonomy-a3f8b1.md`
 - Engineer agent: `agents/engineer.md`
 - Global config: `opencode.json`
 - Documentation: `MAINTENANCE.md` - Permission Model Architecture section
@@ -134,7 +134,7 @@ Keep `scout` and `engineer` as the only active primary agents, and keep `auto` a
 - Higher-autonomy behavior is safer as an explicit opt-in mode
 
 ### References
-- `.opencode/context/decisions/2026-03-09-agent-topology.md`
+- `.agents/context/decisions/2026-03-09-agent-topology.md`
 - `agents/scout.md`
 - `agents/engineer.md`
 - `agents/auto.md`
@@ -209,4 +209,4 @@ The harness review revealed that `/build` often had to guess validation steps an
 - `commands/plan.md`
 - `commands/build.md`
 - `MAINTENANCE.md`
-- `.opencode/context/plans/completed/2026-03-09-skill-routing-build-handoff-c3d9f1.md`
+- `.agents/context/plans/completed/2026-03-09-skill-routing-build-handoff-c3d9f1.md`

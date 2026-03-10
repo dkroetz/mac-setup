@@ -27,7 +27,7 @@
   - Risk: Over-tuning descriptions makes routing brittle. Mitigation: prefer short, concrete boundary language over keyword stuffing.
 
 ### Phase 3: Define a stronger `/plan` output contract for `/build`
-- **Files**: `commands/plan.md`, `agents/subagents/planner.md`, `commands/build.md`, `.opencode/context/project-intelligence.md`
+- **Files**: `commands/plan.md`, `agents/subagents/planner.md`, `commands/build.md`, `.agents/context/project-intelligence.md`
 - **Changes**:
   - Specify the exact plan elements that `/build` should be able to rely on, such as per-phase `Changes`, `Validation`, `Human checkpoint`, and strict dependencies.
   - Make phase boundaries and exit criteria more machine-actionable so `/build` can consume plans with less interpretation.
@@ -49,7 +49,7 @@
   - Risk: More structure can make `/build` too rigid for smaller plans. Mitigation: keep required fields minimal and reserve extra detail for material checkpoints and dependencies.
 
 ### Phase 5: Run a coherence pass and capture the new workflow pattern
-- **Files**: `README.md`, `MAINTENANCE.md`, `.opencode/context/project-intelligence.md`, `.opencode/context/wisdom/patterns.md`, `.opencode/context/wisdom/decisions.md` (if a durable decision is warranted)
+- **Files**: `README.md`, `MAINTENANCE.md`, `.agents/context/project-intelligence.md`, `.agents/context/wisdom/patterns.md`, `.agents/context/wisdom/decisions.md` (if a durable decision is warranted)
 - **Changes**:
   - Ensure the skill-routing guidance and the `/plan`→`/build` contract tell one consistent story across top-level docs and durable context.
   - Capture any new durable pattern or decision only if it adds guidance that will matter across future harness changes.
