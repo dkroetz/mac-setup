@@ -11,6 +11,7 @@ from typing import Literal
 HOME = Path.home()
 HOME_SCOPE = HOME / ".config" / "opencode"
 HOME_AGENTS = HOME / ".agents"
+GLOBAL_SCOPE_DIR = Path("global_scope")
 DEFAULT_REPO_SCOPE = Path.home() / "Repos" / "mac-setup" / "opencode" / "global_scope"
 
 
@@ -27,49 +28,43 @@ SYNC_ENTRIES = (
         name="plugins",
         source_kind="dir",
         home_path=HOME_SCOPE / "plugins",
-        repo_relative_path=Path("global_scope") / "plugins",
+        repo_relative_path=GLOBAL_SCOPE_DIR / "plugins",
     ),
     SyncEntry(
         name="agents",
         source_kind="dir",
         home_path=HOME_SCOPE / "agents",
-        repo_relative_path=Path("global_scope") / "agents",
+        repo_relative_path=GLOBAL_SCOPE_DIR / "agents",
     ),
     SyncEntry(
         name="commands",
         source_kind="dir",
         home_path=HOME_SCOPE / "commands",
-        repo_relative_path=Path("global_scope") / "commands",
+        repo_relative_path=GLOBAL_SCOPE_DIR / "commands",
     ),
     SyncEntry(
         name="skills",
         source_kind="dir",
         home_path=HOME_SCOPE / "skills",
-        repo_relative_path=Path("global_scope") / "skills",
+        repo_relative_path=GLOBAL_SCOPE_DIR / "skills",
     ),
     SyncEntry(
         name="opencode-config",
         source_kind="file",
         home_path=HOME_SCOPE / "opencode.jsonc",
-        repo_relative_path=Path("global_scope") / "opencode.jsonc",
+        repo_relative_path=GLOBAL_SCOPE_DIR / "opencode.jsonc",
     ),
     SyncEntry(
         name="global-agents-guide",
         source_kind="file",
         home_path=HOME_SCOPE / "AGENTS.md",
-        repo_relative_path=Path("global_scope") / "AGENTS.md",
+        repo_relative_path=GLOBAL_SCOPE_DIR / "AGENTS.md",
     ),
     SyncEntry(
         name="agent-skills",
         source_kind="dir",
         home_path=HOME_AGENTS / "skills",
-        repo_relative_path=Path(".agents") / "skills",
-    ),
-    SyncEntry(
-        name="agent-skill-lock",
-        source_kind="file",
-        home_path=HOME_AGENTS / ".skill-lock.json",
-        repo_relative_path=Path(".agents") / ".skill-lock.json",
+        repo_relative_path=GLOBAL_SCOPE_DIR / ".agents" / "skills",
     ),
 )
 
@@ -111,6 +106,17 @@ def repo_path(repo_root: Path, entry: SyncEntry) -> Path:
     return repo_root / entry.repo_relative_path
 
 
+def validate_repo_entry(repo_root: Path, entry: SyncEntry) -> str | None:
+    if entry.repo_relative_path.parts[:1] != GLOBAL_SCOPE_DIR.parts:
+        return f"[{entry.name}] repo path must stay within {GLOBAL_SCOPE_DIR}: {entry.repo_relative_path}"
+
+    repo_entry_path = repo_path(repo_root, entry)
+    if not repo_entry_path.exists():
+        return f"[{entry.name}] repo path must already exist in {GLOBAL_SCOPE_DIR}: {repo_entry_path}"
+
+    return None
+
+
 def rsync_arg(path: Path, source_kind: Literal["dir", "file"]) -> str:
     if source_kind == "dir":
         return f"{path}/"
@@ -148,6 +154,12 @@ def resolve_entry_paths(
 def sync_entry(
     entry: SyncEntry, repo_root: Path, direction: Literal["push", "pull", "status"], delete: bool, dry_run: bool
 ) -> int:
+    validation_error = validate_repo_entry(repo_root, entry)
+    if validation_error is not None:
+        stream = sys.stdout if direction == "status" else sys.stderr
+        print(validation_error, file=stream)
+        return 0 if direction == "status" else 1
+
     src, dst = resolve_entry_paths(entry, repo_root, direction)
     entry_dry_run = dry_run or direction == "status"
     entry_delete = delete and direction != "status"

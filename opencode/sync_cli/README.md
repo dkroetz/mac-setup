@@ -51,10 +51,9 @@ The CLI syncs these paths as one explicit manifest:
 | `~/.config/opencode/skills` | `global_scope/skills` |
 | `~/.config/opencode/opencode.jsonc` | `global_scope/opencode.jsonc` |
 | `~/.config/opencode/AGENTS.md` | `global_scope/AGENTS.md` |
-| `~/.agents/skills` | `.agents/skills` |
-| `~/.agents/.skill-lock.json` | `.agents/.skill-lock.json` |
+| `~/.agents/skills` | `global_scope/.agents/skills` |
 
-The extra `skills` and `.skill-lock.json` entries are included so the repository mirror covers both OpenCode's config-local skills and the separate shared agent skills install.
+Every synced repo path must already exist under `global_scope`, so pull operations cannot recreate stray top-level folders outside the curated mirror.
 
 ## Optional destructive mirror
 

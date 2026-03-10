@@ -3,6 +3,7 @@ description: "Coordinates multi-source research, querying specialized search sub
 mode: primary
 temperature: 0.3
 color: "#8B5CF6"
+hidden: true
 tools:
   write: false
   edit: false

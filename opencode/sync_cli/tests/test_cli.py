@@ -17,8 +17,7 @@ def test_sync_manifest_covers_expected_entries() -> None:
         ("skills", "dir", Path("global_scope/skills")),
         ("opencode-config", "file", Path("global_scope/opencode.jsonc")),
         ("global-agents-guide", "file", Path("global_scope/AGENTS.md")),
-        ("agent-skills", "dir", Path(".agents/skills")),
-        ("agent-skill-lock", "file", Path(".agents/.skill-lock.json")),
+        ("agent-skills", "dir", Path("global_scope/.agents/skills")),
     }
     actual = {(entry.name, entry.source_kind, entry.repo_relative_path) for entry in cli.SYNC_ENTRIES}
     assert actual == expected
@@ -92,25 +91,33 @@ def test_resolve_entry_paths_switches_direction(tmp_path: Path) -> None:
     )
 
 
-def test_status_reports_missing_source_without_failing(tmp_path: Path, capsys) -> None:
+def test_status_uses_dry_run_for_existing_repo_source(tmp_path: Path, monkeypatch) -> None:
     repo_root = tmp_path / "repo"
-    repo_root.mkdir()
+    repo_entry = repo_root / "global_scope" / "tracked-dir"
+    repo_entry.mkdir(parents=True)
     entry = cli.SyncEntry(
-        name="missing-dir",
+        name="tracked-dir",
         source_kind="dir",
-        home_path=tmp_path / "home" / "missing-dir",
-        repo_relative_path=Path("global_scope/missing-dir"),
+        home_path=tmp_path / "home" / "tracked-dir",
+        repo_relative_path=Path("global_scope/tracked-dir"),
     )
+    calls: list[tuple[Path, Path, str, bool, bool]] = []
+
+    def fake_run_rsync(src: Path, dst: Path, source_kind: str, delete: bool, dry_run: bool) -> int:
+        calls.append((src, dst, source_kind, delete, dry_run))
+        return 0
+
+    monkeypatch.setattr(cli, "run_rsync", fake_run_rsync)
 
     result = cli.sync_entry(entry, repo_root, "status", delete=False, dry_run=False)
 
     assert result == 0
-    assert "missing source" in capsys.readouterr().out
+    assert calls == [(repo_entry, entry.home_path, "dir", False, True)]
 
 
-def test_push_missing_source_fails(tmp_path: Path, capsys) -> None:
+def test_push_missing_repo_path_fails(tmp_path: Path, capsys) -> None:
     repo_root = tmp_path / "repo"
-    repo_root.mkdir()
+    (repo_root / "global_scope").mkdir(parents=True)
     entry = cli.SyncEntry(
         name="missing-file",
         source_kind="file",
@@ -121,10 +128,10 @@ def test_push_missing_source_fails(tmp_path: Path, capsys) -> None:
     result = cli.sync_entry(entry, repo_root, "push", delete=False, dry_run=False)
 
     assert result == 1
-    assert "missing source" in capsys.readouterr().err
+    assert "repo path must already exist" in capsys.readouterr().err
 
 
-def test_sync_entry_creates_file_parent_for_pull(tmp_path: Path, monkeypatch) -> None:
+def test_pull_fails_when_repo_target_is_not_already_in_global_scope(tmp_path: Path, capsys) -> None:
     home_file = tmp_path / "home" / "config.json"
     home_file.parent.mkdir(parents=True)
     home_file.write_text("{}")
@@ -136,27 +143,26 @@ def test_sync_entry_creates_file_parent_for_pull(tmp_path: Path, monkeypatch) ->
         home_path=home_file,
         repo_relative_path=Path("global_scope/opencode.jsonc"),
     )
-    calls: list[tuple[Path, Path, str, bool, bool]] = []
-
-    def fake_run_rsync(src: Path, dst: Path, source_kind: str, delete: bool, dry_run: bool) -> int:
-        calls.append((src, dst, source_kind, delete, dry_run))
-        return 0
-
-    monkeypatch.setattr(cli, "run_rsync", fake_run_rsync)
 
     result = cli.sync_entry(entry, repo_root, "pull", delete=False, dry_run=False)
 
-    assert result == 0
-    assert (repo_root / "global_scope").is_dir()
-    assert calls == [
-        (
-            home_file,
-            repo_root / "global_scope/opencode.jsonc",
-            "file",
-            False,
-            False,
-        )
-    ]
+    assert result == 1
+    assert "repo path must already exist" in capsys.readouterr().err
+
+
+def test_validate_repo_entry_rejects_paths_outside_global_scope(tmp_path: Path) -> None:
+    repo_root = tmp_path / "repo"
+    repo_root.mkdir()
+    entry = cli.SyncEntry(
+        name="bad-entry",
+        source_kind="dir",
+        home_path=tmp_path / "home" / "skills",
+        repo_relative_path=Path(".agents/skills"),
+    )
+
+    assert cli.validate_repo_entry(repo_root, entry) == (
+        "[bad-entry] repo path must stay within global_scope: .agents/skills"
+    )
 
 
 def test_sync_all_entries_returns_last_non_zero_result(tmp_path: Path, monkeypatch) -> None:
