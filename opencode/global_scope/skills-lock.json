@@ -1,0 +1,10 @@
+{
+  "version": 1,
+  "skills": {
+    "code-review-quality": {
+      "source": "proffesor-for-testing/agentic-qe",
+      "sourceType": "github",
+      "computedHash": "ff887427e5fe914f9b35c3e95af8a2b06e8938dc60f932c032ce4a9800454179"
+    }
+  }
+}

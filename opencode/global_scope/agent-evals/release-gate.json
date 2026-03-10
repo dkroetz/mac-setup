@@ -1,0 +1,5 @@
+{
+  "no_success_regression": true,
+  "max_token_growth_percent": 10.0,
+  "intervention_reduced_or_stable": true
+}

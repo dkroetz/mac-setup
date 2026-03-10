@@ -20,6 +20,7 @@ Research -> Architect -> Implement
 
 ```
 global_scope/
+├── AGENTS.md               # Global preferences mirrored from ~/.config/opencode/AGENTS.md
 ├── agents/
 │   ├── research.md         # Primary research agent
 │   ├── architect.md        # Primary planning agent
@@ -44,10 +45,24 @@ global_scope/
 │   ├── review-diff.md
 │   ├── review-pr.md
 │   └── google.md
+├── plugins/
+│   ├── env-protection.ts
+│   └── session-notify.ts
 ├── skills/
 │   ├── python-pdm/
 │   └── postgres/
 └── opencode.jsonc
+```
+
+### Shared Agent Skills (`~/.agents/`)
+
+```
+.agents/
+├── .skill-lock.json
+└── skills/
+    ├── find-skills/
+    ├── github-projects/
+    └── playwright-cli/
 ```
 
 ### Project Scope (`<repo>/.opencode/`)

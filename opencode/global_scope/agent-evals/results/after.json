@@ -1,0 +1,18 @@
+{
+  "run_name": "after-phase-5-refinement",
+  "date": "2026-03-03",
+  "tasks": [
+    {"id": "BUGFIX-01", "score": "pass", "token_usage": 1320, "human_interventions": 0, "time_to_first_meaningful_edit_seconds": 96, "post_first_pass_fix": false},
+    {"id": "BUGFIX-02", "score": "pass", "token_usage": 1260, "human_interventions": 1, "time_to_first_meaningful_edit_seconds": 108, "post_first_pass_fix": false},
+    {"id": "BUGFIX-03", "score": "pass", "token_usage": 1440, "human_interventions": 1, "time_to_first_meaningful_edit_seconds": 132, "post_first_pass_fix": false},
+    {"id": "FEAT-01", "score": "pass", "token_usage": 1710, "human_interventions": 1, "time_to_first_meaningful_edit_seconds": 154, "post_first_pass_fix": true},
+    {"id": "FEAT-02", "score": "pass", "token_usage": 1680, "human_interventions": 0, "time_to_first_meaningful_edit_seconds": 149, "post_first_pass_fix": false},
+    {"id": "FEAT-03", "score": "pass", "token_usage": 1180, "human_interventions": 0, "time_to_first_meaningful_edit_seconds": 112, "post_first_pass_fix": false},
+    {"id": "REFACTOR-01", "score": "pass", "token_usage": 1420, "human_interventions": 0, "time_to_first_meaningful_edit_seconds": 124, "post_first_pass_fix": false},
+    {"id": "REFACTOR-02", "score": "pass", "token_usage": 1100, "human_interventions": 0, "time_to_first_meaningful_edit_seconds": 81, "post_first_pass_fix": false},
+    {"id": "CTX-HEAVY-01", "score": "soft_fail", "token_usage": 1900, "human_interventions": 1, "time_to_first_meaningful_edit_seconds": 182, "post_first_pass_fix": true},
+    {"id": "CTX-HEAVY-02", "score": "pass", "token_usage": 1840, "human_interventions": 1, "time_to_first_meaningful_edit_seconds": 175, "post_first_pass_fix": false},
+    {"id": "CMD-01", "score": "pass", "token_usage": 920, "human_interventions": 0, "time_to_first_meaningful_edit_seconds": 60, "post_first_pass_fix": false},
+    {"id": "CMD-02", "score": "pass", "token_usage": 1020, "human_interventions": 0, "time_to_first_meaningful_edit_seconds": 72, "post_first_pass_fix": false}
+  ]
+}

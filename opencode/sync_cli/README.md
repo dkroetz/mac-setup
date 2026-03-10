@@ -1,6 +1,6 @@
 # opencode-sync
 
-Small CLI for syncing OpenCode global scope data between this repository and `~/.config/opencode`.
+Small CLI for syncing OpenCode runtime data between this repository, `~/.config/opencode`, and `~/.agents`.
 
 ## Setup (development)
 
@@ -26,20 +26,40 @@ opencode-sync pull --dry-run
 opencode-sync pull
 ```
 
-Outside the repo, the CLI falls back to this default scope path:
+Outside the repo, the CLI falls back to this default global scope path:
 
 ```text
 ~/Repos/mac-setup/opencode/global_scope
 ```
 
-You can still override it explicitly when needed:
+You can override it with either the repository root or the `global_scope` path:
 
 ```bash
+opencode-sync status --repo-scope ~/Repos/mac-setup/opencode
 opencode-sync status --repo-scope ~/Repos/mac-setup/opencode/global_scope
 ```
+
+## Sync manifest
+
+The CLI syncs these paths as one explicit manifest:
+
+| Home path | Repo path |
+| --- | --- |
+| `~/.config/opencode/plugins` | `global_scope/plugins` |
+| `~/.config/opencode/agents` | `global_scope/agents` |
+| `~/.config/opencode/commands` | `global_scope/commands` |
+| `~/.config/opencode/skills` | `global_scope/skills` |
+| `~/.config/opencode/opencode.jsonc` | `global_scope/opencode.jsonc` |
+| `~/.config/opencode/AGENTS.md` | `global_scope/AGENTS.md` |
+| `~/.agents/skills` | `.agents/skills` |
+| `~/.agents/.skill-lock.json` | `.agents/.skill-lock.json` |
+
+The extra `skills` and `.skill-lock.json` entries are included so the repository mirror covers both OpenCode's config-local skills and the separate shared agent skills install.
 
 ## Optional destructive mirror
 
 ```bash
 opencode-sync push --delete
 ```
+
+`--delete` only applies to directory entries in the manifest.

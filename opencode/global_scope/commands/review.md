@@ -1,20 +1,20 @@
 ---
-description: Review code changes or codebase scope
-agent: review
+description: Review recent changes for quality
+agent: scout
 subtask: true
 ---
-Review target:
-$ARGUMENTS
 
-If no target is provided:
-1. Detect unstaged changes with `git diff`
-2. Detect staged changes with `git diff --cached`
-3. If no diff exists in either scope, perform a scoped full-codebase review
+Review the following changes:
 
-Use severity labels:
-- Critical (block merge)
-- High (fix before merge)
-- Medium (should fix)
-- Low/Nit (optional)
+!`git diff --stat`
 
-Include file:line references and concrete fixes.
+!`git diff`
+
+Check for:
+- Correctness and edge cases
+- Type safety
+- Test coverage (are new paths tested?)
+- Security issues
+- Style consistency with existing code
+
+Provide a verdict: PASS, NEEDS_FIX (list specific issues), or MAJOR_ISSUES (list blockers).

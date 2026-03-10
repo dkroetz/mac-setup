@@ -1,0 +1,15 @@
+{
+  "passed": true,
+  "checks": {
+    "no_success_regression": true,
+    "token_growth_within_limit": true,
+    "intervention_reduced_or_stable": true
+  },
+  "observed": {
+    "before_success_rate": 0.8333333333333334,
+    "after_success_rate": 0.9166666666666666,
+    "token_growth_percent": -5.99104143337066,
+    "before_human_intervention_total": 10,
+    "after_human_intervention_total": 5
+  }
+}

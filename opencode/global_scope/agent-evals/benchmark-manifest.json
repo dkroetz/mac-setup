@@ -1,0 +1,25 @@
+{
+  "version": 1,
+  "date": "2026-03-03",
+  "tasks": [
+    {"id": "BUGFIX-01", "category": "bugfix"},
+    {"id": "BUGFIX-02", "category": "bugfix"},
+    {"id": "BUGFIX-03", "category": "bugfix"},
+    {"id": "FEAT-01", "category": "feature"},
+    {"id": "FEAT-02", "category": "feature"},
+    {"id": "FEAT-03", "category": "feature"},
+    {"id": "REFACTOR-01", "category": "refactor"},
+    {"id": "REFACTOR-02", "category": "refactor"},
+    {"id": "CTX-HEAVY-01", "category": "context-heavy"},
+    {"id": "CTX-HEAVY-02", "category": "context-heavy"},
+    {"id": "CMD-01", "category": "command-driven"},
+    {"id": "CMD-02", "category": "command-driven"}
+  ],
+  "required_categories": [
+    "bugfix",
+    "feature",
+    "refactor",
+    "context-heavy",
+    "command-driven"
+  ]
+}

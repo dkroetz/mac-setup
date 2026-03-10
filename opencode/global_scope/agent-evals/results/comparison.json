@@ -1,0 +1,27 @@
+{
+  "before_run": "baseline-before-refinement",
+  "after_run": "after-phase-5-refinement",
+  "metrics": {
+    "before": {
+      "success_rate": 0.8333333333333334,
+      "token_total": 17860,
+      "human_intervention_total": 10,
+      "avg_time_to_first_meaningful_edit_seconds": 137.08333333333334,
+      "post_first_pass_fix_rate": 0.4166666666666667
+    },
+    "after": {
+      "success_rate": 0.9166666666666666,
+      "token_total": 16790,
+      "human_intervention_total": 5,
+      "avg_time_to_first_meaningful_edit_seconds": 120.41666666666667,
+      "post_first_pass_fix_rate": 0.16666666666666666
+    },
+    "delta": {
+      "success_rate": 0.08333333333333326,
+      "token_total": -1070,
+      "human_intervention_total": -5,
+      "avg_time_to_first_meaningful_edit_seconds": -16.66666666666667,
+      "post_first_pass_fix_rate": -0.25
+    }
+  }
+}
