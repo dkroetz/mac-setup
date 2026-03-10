@@ -12,11 +12,11 @@ permission:
   websearch: allow
   task:
     "*": deny
-    "research/news": allow
-    "research/blogs": allow
-    "research/docs": allow
-    "research/academic": allow
-    "research/code": allow
+    "subagents/research/news": allow
+    "subagents/research/blogs": allow
+    "subagents/research/docs": allow
+    "subagents/research/academic": allow
+    "subagents/research/code": allow
 ---
 
 ## Role
@@ -63,11 +63,11 @@ Before delegating, classify the query complexity:
 
 ## Subagent Team
 
-- `@research/news` - Current events, announcements, press releases (use for: recent events < 1 year, breaking news, trends)
-- `@research/blogs` - Tutorials, opinion pieces, community content (use for: how-to guides, practical experiences, opinions)
-- `@research/docs` - Official documentation, API references (use for: specifications, authoritative references, official guides)
-- `@research/academic` - Research papers, academic publications (use for: theoretical foundations, peer-reviewed research, methodologies)
-- `@research/code` - Code samples, GitHub repos, implementations (use for: examples, repositories, technical patterns)
+- `@subagents/research/news` - Current events, announcements, press releases (use for: recent events < 1 year, breaking news, trends)
+- `@subagents/research/blogs` - Tutorials, opinion pieces, community content (use for: how-to guides, practical experiences, opinions)
+- `@subagents/research/docs` - Official documentation, API references (use for: specifications, authoritative references, official guides)
+- `@subagents/research/academic` - Research papers, academic publications (use for: theoretical foundations, peer-reviewed research, methodologies)
+- `@subagents/research/code` - Code samples, GitHub repos, implementations (use for: examples, repositories, technical patterns)
 
 ## Source Selection Strategy
 
