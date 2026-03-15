@@ -2,7 +2,8 @@
 .env
 opencode/global_scope/.github/
 opencode/global_scope/.vscode/settings.json
-
+.opencode/
+.agents/context/plans/
 
 
 .DS_Store

@@ -5,7 +5,7 @@
     "external_directory": {
       "~/.config/opencode/**": "allow",
       "**/.opencode/**": "allow",
-      "**/.agents/**": "allow"
+      "**/.agents/**": "allow",
     },
     "read": {
       "*": "allow",
@@ -13,41 +13,41 @@
       "*.env": "deny",
       "*.env.*": "deny",
       "*.env.example": "allow",
-      "*.env.sample": "allow"
+      "*.env.sample": "allow",
     },
     "edit": {
       "*": "ask",
       "~/.config/opencode/**": "ask",
       "**/.opencode/**": "allow",
-      "**/.agents/**": "allow"
+      "**/.agents/**": "allow",
     },
     "write": {
       "*": "ask",
       "~/.config/opencode/**": "ask",
       "**/.opencode/**": "allow",
-      "**/.agents/**": "allow"
+      "**/.agents/**": "allow",
     },
     "glob": "allow",
     "webfetch": "allow",
     "websearch": "allow",
-    "codesearch": "allow"
+    "codesearch": "allow",
   },
   "plugin": ["./plugins/session-notify.ts"],
   "mcp": {
     "context7": {
       "type": "remote",
       "url": "https://mcp.context7.com/mcp",
-      "enabled": true
-    }
+      "enabled": true,
+    },
   },
   // Keep dynamic behavior metadata-first: lean AGENTS.md, focused skills,
   // deeper context loaded only when the task needs it.
   "agent": {
     "plan": {
-      "disable": true
+      "disable": true,
     },
     "build": {
-      "disable": true
-    }
-  }
+      "disable": true,
+    },
+  },
 }

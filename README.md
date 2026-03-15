@@ -10,7 +10,7 @@ Edit file /Library/Preferences/com.apple.keyboardtype.plist and change type 43 t
 Ghostty is a fast, feature-rich, and cross-platform terminal emulator that uses platform-native UI and GPU acceleration.
 [ghostty](https://ghostty.org/)
 ```sh
-brew install ghostty
+brew install --cask ghostty
 cp .aliases ~/.aliases
 # Copy + Paste config into cmd + ,
 brew install neovim
@@ -23,6 +23,21 @@ fish is a smart and user-friendly command line shell for Linux, macOS, and the r
 brew install fish
 cp fish/config.fish ~/.config/fish/
 ```
+
+### fisher
+fisher is a plugin manager for fish shell.
+[fisher](https://github.com/jorgebucaran/fisher)
+```sh
+curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher
+```
+
+## autoenv.fish
+A Fish Shell plugin that automatically loads environment variables from a .env file in the current project.
+[autoenv.fish](https://github.com/SpaceShaman/autoenv.fish)
+```sh
+fisher install SpaceShaman/autoenv.fish
+```
+
 
 ## zoxide
 zoxide is a smarter cd command, inspired by z and autojump.

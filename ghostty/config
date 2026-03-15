@@ -1,4 +1,15 @@
-keybind = global:ctrl+grave_accent=toggle_quick_terminal
+# Use Fish shell as default shell
 command = /opt/homebrew/bin/fish
-background-opacity = 0.9
-font-family = Hack Nerd Font Mono
+
+# Keybinds
+## Get terminal focus with `Ctrl + <` key
+keybind = global:ctrl+grave_accent=toggle_quick_terminal
+
+# Auto-update settings (stable = stable releases, tip = nightly builds)
+auto-update = check
+auto-update-channel = tip
+
+# Style settings
+background-opacity = 1
+theme = Material Darker
+font-family = Sauce Code Pro Font Mono

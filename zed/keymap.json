@@ -1,4 +1,5 @@
 // Zed keymap
+
 //
 // For information on binding keys, see the Zed
 // documentation: https://zed.dev/docs/key-bindings
@@ -10,49 +11,13 @@
     "context": "Workspace",
     "bindings": {
       // "shift shift": "file_finder::Toggle"
-    }
+    },
   },
   {
-    "context": "Editor && vim_mode == insert && !menu",
+    "context": "Editor && vim_mode == insert",
     "bindings": {
-      // "j k": "vim::SwitchToNormalMode"
-    }
-  },
-  {
-    "context": "Workspace",
-    "bindings": {
-      "fn-cmd-u": "workspace::ToggleLeftDock"
-    }
-  },
-  {
-    "context": "Workspace",
-    "bindings": {
-      "cmd-b": "workspace::ToggleRightDock"
-    }
-  },
-  {
-    "context": "Workspace",
-    "bindings": {
-      "alt-b": "workspace::ToggleLeftDock"
-    }
-  },
-  {
-    "context": "MessageEditor > Editor",
-    "bindings": {
-      "cmd-i": "agent::ToggleProfileSelector"
-    }
-  },
-  {
-    "context": "AgentPanel",
-    "bindings": {
-      "cmd-i": "agent::ToggleProfileSelector"
-    }
-  },
-  {
-    "context": "Workspace",
-    "bindings": {
-      "cmd-e": "project_panel::ToggleFocus"
-    }
+      // "j k": "vim::NormalBefore"
+    },
   },
   {
     "context": "Editor",
@@ -60,9 +25,28 @@
       "ctrl-#": [
         "editor::ToggleComments",
         {
-          "advance_downwards": false
-        }
-      ]
-    }
-  }
+          "advance_downwards": false,
+        },
+      ],
+    },
+  },
+  {
+    "context": "VimControl && vim_mode == normal",
+    "bindings": {
+      "space space": "file_finder::Toggle",
+      "space o": "outline::Toggle",
+    },
+  },
+  {
+    "context": "Workspace",
+    "bindings": {
+      "alt-b": "workspace::ToggleLeftDock",
+    },
+  },
+  {
+    "context": "Workspace",
+    "bindings": {
+      "cmd-b": "workspace::ToggleRightDock",
+    },
+  },
 ]
