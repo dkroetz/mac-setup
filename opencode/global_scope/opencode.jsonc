@@ -39,15 +39,27 @@
       "url": "https://mcp.context7.com/mcp",
       "enabled": true,
     },
+    "duckdb": {
+      "type": "local",
+      "command": [
+        "uvx",
+        "mcp-server-motherduck",
+        "--db-path",
+        "/Users/denis/.local/share/opencode/opencode.db",
+      ],
+      "enabled": true,
+    },
   },
   // Keep dynamic behavior metadata-first: lean AGENTS.md, focused skills,
   // deeper context loaded only when the task needs it.
   "agent": {
     "plan": {
-      "disable": true,
+      "disable": false,
+      "hidden": true,
     },
     "build": {
-      "disable": true,
+      "disable": false,
+      "hidden": true,
     },
   },
 }

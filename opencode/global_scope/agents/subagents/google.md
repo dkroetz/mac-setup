@@ -1,9 +1,9 @@
 ---
 description: "Coordinates multi-source research, querying specialized search subagents"
-mode: primary
+mode: subagent
 temperature: 0.3
 color: "#8B5CF6"
-hidden: true
+hidden: false
 tools:
   write: false
   edit: false

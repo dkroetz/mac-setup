@@ -12,8 +12,8 @@ Run the `/audit` command weekly to check for context staleness:
 
 Review the output and update:
 - AGENTS.md if project description is outdated
-- .agents/context/architecture.md if architecture has changed
-- .agents/context/wisdom/ if entries are no longer applicable
+- .opencode/context/architecture.md if architecture has changed
+- .opencode/context/wisdom/ if entries are no longer applicable
 
 ## Progressive Autonomy Playbook
 
@@ -81,11 +81,11 @@ The system uses a **frontmatter-based permission model** with per-agent permissi
 Keep persistent context separated by purpose:
 
 - `AGENTS.md` - short global preferences and navigation
-- `.agents/context/project-intelligence.md` - durable project facts and canonical operating patterns
-- `.agents/context/plans/active/` - current execution plans
-- `.agents/context/plans/completed/` - historical plans
-- `.agents/context/wisdom/` - reusable lessons, patterns, and non-obvious mistakes
-- `.agents/context/decisions/` - explicit architecture decisions when rationale matters
+- `.opencode/context/project-intelligence.md` - durable project facts and canonical operating patterns
+- `.opencode/context/plans/active/` - current execution plans
+- `.opencode/context/plans/completed/` - historical plans
+- `.opencode/context/wisdom/` - reusable lessons, patterns, and non-obvious mistakes
+- `.opencode/context/decisions/` - explicit architecture decisions when rationale matters
 
 Guidelines:
 
@@ -106,15 +106,15 @@ Keep dynamic skill loading narrow and metadata-first:
 - Prefer adding a new skill only after a workflow recurs often enough to justify it.
 - Prefer sharper frontmatter metadata and caller-owned routing cues over adding more in-file routing prose.
 
-## Plan and Build Contract
+## Plan and Implement Contract
 
-Keep `/plan` and `/build` aligned through a stable per-phase contract:
+Keep `/plan` and `/implement` aligned through a stable per-phase contract:
 
 - Every phase should include `Files`, `Changes`, `Exit criterion`, `Validation`, and `Human checkpoint`.
 - Use `Validation: None` explicitly when a phase has no meaningful command to run.
 - Use `Human checkpoint: None` unless a real approval boundary exists.
 - Put strict sequencing only in `Dependencies Between Phases`.
-- Keep phases small enough that `/build` can execute one phase at a time without guessing where later work belongs.
+- Keep phases small enough that `/implement` can execute one phase at a time without guessing where later work belongs.
 
 ### Architecture Decision
 
@@ -422,7 +422,7 @@ Watch for these signs of context problems:
 
 ### Agent Seems Confused
 1. Check AGENTS.md gotchas - is this a known issue?
-2. Review .agents/context/ - is information outdated?
+2. Review .opencode/context/ - is information outdated?
 3. Consider: is this a codebase clarity problem?
 4. Run `/audit` to identify stale context
 

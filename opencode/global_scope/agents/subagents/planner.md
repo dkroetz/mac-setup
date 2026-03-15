@@ -29,7 +29,7 @@ Given discovery findings, create a minimal, adaptive implementation plan.
   - architecture-changing decisions
 - Do not add routine human checkpoints outside critical points.
 - Add risks only when they are material.
-- Keep the phase field order stable so `/build` can consume plans with minimal interpretation.
+- Keep the phase field order stable so `/implement` can consume plans with minimal interpretation.
 
 ## Output Format
 
@@ -55,9 +55,9 @@ Given discovery findings, create a minimal, adaptive implementation plan.
 ### Dependencies Between Phases
 - Note strict ordering constraints only.
 
-Build handoff rules:
+Implement handoff rules:
 - Treat `Files`, `Changes`, `Exit criterion`, `Validation`, and `Human checkpoint` as required for every phase.
 - Keep phases independently executable once listed dependencies are satisfied.
-- If a phase needs human approval, state the exact reason so `/build` knows when to pause.
+- If a phase needs human approval, state the exact reason so `/implement` knows when to pause.
 
 Do not write code. Focus on planning only.
