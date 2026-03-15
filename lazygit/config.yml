@@ -1,0 +1,35 @@
+os:
+  edit: "zed {{filename}}"
+  editAtLine: "zed {{filename}}:{{line}}"
+  openDirInEditor: "zed {{dir}}"
+gui:
+  showIcons: true
+  nerdFontsVersion: "3"
+  showRandomTip: false
+  theme:
+    activeBorderColor:
+      - "#BE95FF" # magenta
+      - bold
+    inactiveBorderColor:
+      - "#7b7c7e" # fg3
+    searchingActiveBorderColor:
+      - "#33B1FF" # cyan
+      - bold
+    optionsTextColor:
+      - "#78A9FF" # blue
+    selectedLineBgColor:
+      - "#2a2a2a" # sel0
+    inactiveViewSelectedLineBgColor:
+      - "#525253" # sel1
+    cherryPickedCommitBgColor:
+      - "#2a2a2a"
+    cherryPickedCommitFgColor:
+      - "#3DDBD9" # orange/cyan
+    markedBaseCommitBgColor:
+      - "#25be6a" # green
+    markedBaseCommitFgColor:
+      - "#161616" # bg1 (dark text on green)
+    unstagedChangesColor:
+      - "#EE5396" # red
+    defaultFgColor:
+      - "#f2f4f8" # fg1

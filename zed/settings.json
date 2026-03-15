@@ -7,59 +7,35 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
-  "icon_theme": "Catppuccin Macchiato",
-  "agent": {
-    "dock": "left",
-    "default_profile": "ask",
-    "default_model": {
-      "provider": "copilot_chat",
-      "model": "gpt-4.1"
-    }
+  "outline_panel": {
+    "dock": "right",
   },
-  "features": {
-    "edit_prediction_provider": "copilot"
+  "buffer_line_height": "standard",
+  "buffer_font_weight": 400.0,
+  "agent_ui_font_size": 16.0,
+  "ui_font_weight": 500.0,
+  "buffer_font_family": "SauceCodePro Nerd Font",
+  "context_servers": {},
+  "project_panel": {
+    "dock": "right",
   },
-  "base_keymap": "VSCode",
   "vim_mode": true,
-  "relative_line_numbers": true,
-  "vim": {
-    "toggle_relative_line_numbers": true
-  },
-  "ui_font_size": 16,
-  "buffer_font_size": 16,
+  "ui_font_size": 18.0,
+  "ui_font_family": ".SystemUIFont",
+  "buffer_font_size": 18.0,
   "theme": {
     "mode": "system",
     "light": "One Light",
-    "dark": "Catppuccin Macchiato"
+    "dark": "Carbonfox - blurred",
   },
-  "title_bar": {
-    // Whether to show the branch icon beside branch switcher in the titlebar.
-    "show_branch_icon": true,
-    // Whether to show the branch name button in the titlebar.
-    "show_branch_name": true,
-    // Whether to show user picture in the titlebar.
-    "show_user_picture": true,
-    // Whether to show the sign in button in the titlebar.
-    "show_sign_in": false
+  "experimental.theme_overrides": {
+    "background": "#161616ff",
+    "surface.background": "#1f1f1fff",
+    "editor.background": "#161616ff",
+    "title_bar.background": "#0d0d0dff",
+    "panel.background": "#1f1f1fff",
+    "status_bar.background": "#0d0d0dff",
+    "tab_bar.background": "#0d0d0dff",
+    "toolbar.background": "#161616ff",
   },
-  "scrollbar": null,
-  "project_panel": {
-    "button": true,
-    "dock": "right"
-  },
-  "outline_panel": {
-    "dock": "right"
-  },
-  "terminal": {
-    "dock": "bottom"
-  },
-  "chat_panel": {
-    "dock": "left"
-  },
-  "collaboration_panel": {
-    "button": false
-  },
-  "notification_panel": {
-    "button": false
-  }
 }
