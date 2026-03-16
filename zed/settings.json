@@ -7,26 +7,83 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
-  "outline_panel": {
-    "dock": "right",
-  },
-  "buffer_line_height": "standard",
-  "buffer_font_weight": 400.0,
-  "agent_ui_font_size": 16.0,
-  "ui_font_weight": 500.0,
-  "buffer_font_family": "SauceCodePro Nerd Font",
-  "context_servers": {},
-  "project_panel": {
-    "dock": "right",
+  "edit_predictions": {
+    "provider": "",
   },
   "vim_mode": true,
+  "icon_theme": "Material Icon Theme",
+  "base_keymap": "VSCode",
+  "relative_line_numbers": "enabled",
+  "vim": {
+    "toggle_relative_line_numbers": true,
+  },
   "ui_font_size": 18.0,
+  "ui_font_weight": 500.0,
   "ui_font_family": ".SystemUIFont",
   "buffer_font_size": 18.0,
+  "buffer_font_weight": 400.0,
+  "buffer_line_height": "standard",
+  "agent_ui_font_size": 16.0,
   "theme": {
     "mode": "system",
     "light": "One Light",
     "dark": "Carbonfox - blurred",
+  },
+  "title_bar": {
+    // Whether to show the branch icon beside branch switcher in the titlebar.
+    "show_branch_icon": true,
+    // Whether to show the branch name button in the titlebar.
+    "show_branch_name": true,
+    // Whether to show user picture in the titlebar.
+    "show_user_picture": true,
+    // Whether to show the sign in button in the titlebar.
+    "show_sign_in": false,
+  },
+  "project_panel": {
+    "button": true,
+    "dock": "right",
+  },
+  "outline_panel": {
+    "dock": "right",
+  },
+  "terminal": {
+    "dock": "bottom",
+  },
+  "collaboration_panel": {
+    "button": false,
+  },
+  "notification_panel": {
+    "button": false,
+  },
+  "languages": {
+    "Python": {
+      "language_servers": [
+        "ruff",
+        "!pylsp",
+        "!python-refactoring",
+        "!basedpyright",
+        "!pyright",
+      ],
+      "format_on_save": "on",
+      "formatter": [
+        {
+          "code_action": "source.organizeImports.ruff",
+        },
+        {
+          "code_action": "source.fixAll.ruff",
+        },
+        {
+          "language_server": {
+            "name": "ruff",
+          },
+        },
+      ],
+    },
+  },
+  "jupyter": {
+    "kernel_selections": {
+      "python": ".venv",
+    },
   },
   "experimental.theme_overrides": {
     "background": "#161616ff",

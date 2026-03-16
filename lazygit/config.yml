@@ -1,7 +1,5 @@
 os:
-  edit: "zed {{filename}}"
-  editAtLine: "zed {{filename}}:{{line}}"
-  openDirInEditor: "zed {{dir}}"
+  editPreset: "zed"
 gui:
   showIcons: true
   nerdFontsVersion: "3"

@@ -11,13 +11,13 @@
     "context": "Workspace",
     "bindings": {
       // "shift shift": "file_finder::Toggle"
-    },
+    }
   },
   {
     "context": "Editor && vim_mode == insert",
     "bindings": {
       // "j k": "vim::NormalBefore"
-    },
+    }
   },
   {
     "context": "Editor",
@@ -25,28 +25,34 @@
       "ctrl-#": [
         "editor::ToggleComments",
         {
-          "advance_downwards": false,
-        },
-      ],
-    },
+          "advance_downwards": false
+        }
+      ]
+    }
   },
   {
     "context": "VimControl && vim_mode == normal",
     "bindings": {
       "space space": "file_finder::Toggle",
-      "space o": "outline::Toggle",
-    },
+      "space o": "outline::Toggle"
+    }
   },
   {
     "context": "Workspace",
     "bindings": {
-      "alt-b": "workspace::ToggleLeftDock",
-    },
+      "alt-b": "workspace::ToggleLeftDock"
+    }
   },
   {
     "context": "Workspace",
     "bindings": {
-      "cmd-b": "workspace::ToggleRightDock",
-    },
+      "cmd-b": "workspace::ToggleRightDock"
+    }
   },
+  {
+    "context": "Editor",
+    "bindings": {
+      "alt-space": "editor::ShowCompletions"
+    }
+  }
 ]
