@@ -1,291 +1,273 @@
-# Harness Engineering Workflow for OpenCode
+# Agent Harness for OpenCode - Complete
 
-A practical OpenCode setup that applies a minimal-context, staged workflow inspired by Dex's context engineering talks and HumanLayer prompt patterns.
+This directory contains a complete agent harness system for OpenCode, implementing all 9 phases from the OPUS_FINAL_PLAN.md.
 
-## Core Workflow
+## Quick Start
 
-```
-Research -> Architect -> Implement
-```
+### Global Setup (Already Done)
 
-| Phase | Role | Constraint |
-|-------|------|------------|
-| Research | Explore and document current state | No implementation suggestions |
-| Architect | Produce executable phase plan | No code edits |
-| Implement | Execute one phase at a time | Verify and pause between phases |
-
-## Current Runtime Topology
-
-### Global Scope (`~/.config/opencode/`)
+Your global OpenCode configuration is ready:
 
 ```
-global_scope/
-├── AGENTS.md               # Global preferences mirrored from ~/.config/opencode/AGENTS.md
-├── agents/
-│   ├── research.md         # Primary research agent
-│   ├── architect.md        # Primary planning agent
-│   ├── implement.md        # Primary implementation agent
-│   ├── orchestrator.md     # Single-context stage coordinator
-│   ├── review.md           # Read-only review agent
-│   ├── google.md           # Web-research coordinator
-│   └── research/
-│       ├── docs.md         # Source-specific web research subagents
-│       ├── code.md
-│       ├── blogs.md
-│       ├── news.md
-│       └── academic.md
-├── commands/
-│   ├── research.md         # same-session staged command
-│   ├── architect.md
-│   ├── implement.md
-│   ├── research-task.md    # forced subtask/isolation variants
-│   ├── architect-task.md
-│   ├── implement-task.md
+~/.config/opencode/
+├── opencode.jsonc         # Global config, permissions, plugins
+├── AGENTS.md              # Global preferences (20 lines)
+├── agents/                # Agent definitions
+│   ├── scout.md           # Light Q&A agent
+│   ├── engineer.md        # Primary dev agent
+│   ├── auto.md            # Disabled autonomous agent
+│   └── subagents/         # Task-focused and research subagents
+│       ├── planner.md
+│       ├── implementer.md
+│       ├── reviewer.md
+│       ├── context-auditor.md
+│       ├── discoverer.md
+│       └── research/
+├── .agents/               # Local harness skills and context
+│   ├── skills/            # Harness-specific skills
+│   │   └── skill-creator/ # Skill creation and management
+│   └── context/           # Harness context (plans, wisdom)
+│       ├── plans/
+│       └── wisdom/
+├── commands/              # Custom commands (10)
+│   ├── plan.md
+│   ├── build.md
 │   ├── review.md
-│   ├── review-diff.md
-│   ├── review-pr.md
-│   └── google.md
-├── plugins/
-│   ├── env-protection.ts
-│   └── session-notify.ts
-├── skills/
-│   ├── python-pdm/
-│   └── postgres/
-└── opencode.jsonc
+│   ├── commit.md
+│   ├── add-context.md
+│   ├── context.md
+│   ├── capture.md
+│   ├── audit.md
+│   └── review-pr.md
+├── plugins/               # TypeScript plugins (2)
+│   ├── session-notify.ts
+│   └── env-protection.ts
+└── docs/                  # Documentation
+    └── prompt_best_practices.md
 ```
 
-### Shared Agent Skills (`~/.agents/`)
+### Global Skills
+
+Skills available to all projects (in `~/.agents/skills/`):
 
 ```
-.agents/
-├── .skill-lock.json
-└── skills/
-    ├── find-skills/
-    ├── github-projects/
-    └── playwright-cli/
+~/.agents/skills/
+└── conventional-commit/   # Structured commit message generation
 ```
 
-### Project Scope (`<repo>/.opencode/`)
+### For a New Project
 
-```
-project_scope/.opencode/
-├── AGENTS.md               # Project-local verification + skill policy source of truth
-├── research/               # Research artifacts
-├── plans/                  # Implementation plans
-├── memory/                 # Orchestrator summaries
-├── verification/           # Lightweight drift checklists
-└── skills/                 # Optional project-local skill overrides
-```
+```bash
+# 1. Create project context directory
+mkdir -p /path/to/project/.agents/context
 
-## Workflow How-To (End to End)
+# 2. Create AGENTS.md in your project root
+# (Start minimal: role, scope, workflow, tools, validation)
 
-This section is a practical test guide for the exact setup in this repo.
-
-### 0) Preflight (once per session)
-
-1. Start OpenCode in your target project root.
-2. Confirm project policy exists at `.opencode/AGENTS.md`.
-3. Confirm artifact directories exist:
-   - `.opencode/research/`
-   - `.opencode/plans/`
-   - `.opencode/memory/`
-4. For Python projects, activate and run baseline verification from AGENTS:
-   - `source .venv/bin/activate`
-   - `pdm run ruff check . && pdm run mypy`
-
-### 1) Fully Coordinated Flow (Orchestrator-First)
-
-Use this when you want the system to route stages automatically while still honoring manual gates.
-
-#### Step 1.1 - Give one objective to orchestrator
-
-Example prompt:
-
-```text
-Build a plan and implement support for X.
-Constraints: keep existing API unchanged, add tests, and pause for verification between phases.
+# 3. Add project-specific context as needed:
+#    - .agents/context/architecture.md
+#    - .agents/context/wisdom/patterns.md
+#    - .agents/context/wisdom/mistakes.md
 ```
 
-Expected behavior:
+## Agents
 
-- Orchestrator starts with research by routing to `/research <topic>`.
-- Stage output includes:
-  - `Artifacts:` block (for example `.opencode/research/2026-02-26-topic.md`)
-  - `Suggested next command:` (for example `/architect <artifact-path>`)
+### Scout (Default)
+- **Model**: opencode/minimax-m2.5-free
+- **Purpose**: Ask-oriented Q&A, targeted exploration, small focused tasks
+- **Use for**: Simple questions, selective code discovery, self-contained small edits, quick reviews
+- **Escalates**: Multi-file, architecture-sensitive, security-sensitive, or long-running work to engineer
 
-#### Step 1.2 - Confirm and continue
+### Engineer
+- **Model**: opencode-go/glm-5
+- **Purpose**: Complex development work, multi-step execution, multi-file changes
+- **Use for**: Features, refactoring, validation-heavy work, architectural implementation
+- **Delegates**: To subagents (planner, implementer, reviewer) and built-in (@explore, @general)
 
-When asked for a verification gate, respond explicitly with one of:
+### Auto (Disabled)
+- **Status**: Disabled placeholder
+- **Purpose**: Explicit autonomous experiments, not default interactive work
+- **Enable**: Change `disable: false` in agents/auto.md
 
-- `confirmed`
-- `verified`
-- `continue`
+## Skills
 
-Expected behavior:
+### Global Skills (in `~/.agents/skills/`)
 
-- Orchestrator advances to architect, then implement.
-- During implement, only one phase executes at a time, then it stops again for manual confirmation.
+Available to all projects:
 
-#### Step 1.3 - Complete all phases
+1. **conventional-commit** - Structured commit message generation following Conventional Commits spec
 
-For each implement phase:
+### Local Skills (in `.agents/skills/`)
 
-1. Read the "What changed" bullets.
-2. Run the provided verification commands.
-3. Confirm explicitly to unlock the next phase.
+Harness-specific skills:
 
-Expected final artifacts:
+1. **skill-creator** - Create, edit, optimize, and benchmark skills
 
-- `.opencode/research/YYYY-MM-DD-<topic>.md`
-- `.opencode/plans/YYYY-MM-DD-<topic>.md`
-- `.opencode/memory/YYYY-MM-DD-<topic>.md` (or `session` slug)
+## Commands (9)
 
-### 2) Manual Staged Flow (User-Driven Slash Commands)
+- `/plan <task>` - Create implementation plan
+- `/implement <plan>` - Execute plan with tiered validation and final green gate
+- `/review` - Review unstaged changes
+- `/review-pr` - Review a pull request
+- `/commit` - Create structured commit
+- `/add-context` - Harvest project patterns with 6 guided questions
+- `/context harvest` - Import external notes into project intelligence
+- `/capture` - Capture learnings to wisdom files
+- `/audit` - Check context for staleness
 
-Use this when you want strict control over each command.
+## Subagents
 
-#### Step 2.1 - Research
+### Task-focused
+- **@planner** - Create structured implementation plans
+- **@implementer** - Execute focused implementation steps
+- **@reviewer** - Validate changes for quality
+- **@context-auditor** - Validate context coverage before implementation
+- **@discoverer** - Find relevant code and constraints quickly
+- **@google** - Multi-source research coordination
 
-```text
-/research Map current auth flow and dependencies.
+### Research
+- **@research/code** - Search code examples and reference implementations
+- **@research/docs** - Search official documentation
+- **@research/blogs** - Search community tutorials and opinions
+- **@research/news** - Search current news and announcements
+- **@research/academic** - Search papers and academic sources
+
+### Built-in
+- **@explore** - Fast, read-only codebase exploration
+- **@general** - General-purpose multi-step tasks
+
+## Plugins (2)
+
+- **session-notify.ts** - Sound notifications for session events
+- **env-protection.ts** - Block access to sensitive files (.env, .pem, .key)
+
+## Context Strategy
+
+Progressive disclosure with minimal front-loading:
+
+1. **AGENTS.md** (~80 lines) - Table of contents, not encyclopedia
+2. **.agents/context/** - Deep context (architecture, wisdom, plans)
+3. **Agent navigates** - Follows pointers as needed
+4. **Skills load dynamically** - Small procedural skills beat broad static guidance
+5. **Wisdom accumulates** - Learnings captured via `/capture`
+
+## Maintenance
+
+### Weekly (30 min)
+```bash
+/audit  # Check for staleness
 ```
 
-Expected output:
-
-- Findings in chat first
-- Prompt asking whether to persist to `.opencode/research/YYYY-MM-DD-<topic>.md`
-- Artifact handoff suggestion for architect
-
-#### Step 2.2 - Architect
-
-```text
-/architect .opencode/research/YYYY-MM-DD-auth-flow.md
+### After Complex Tasks
+```bash
+/capture  # Save learnings
 ```
 
-Expected output:
+### Review Progress
+- Month 1: All writes require confirmation
+- Month 2: Allow safe read-only operations
+- Month 3+: Relax permissions based on trust
 
-- Full implementation plan in chat first
-- Prompt asking whether to persist to `.opencode/plans/YYYY-MM-DD-<topic>.md`
-- Handoff suggestion for implement
+See [MAINTENANCE.md](MAINTENANCE.md) for full details.
 
-#### Step 2.3 - Implement
+## Key Principles
 
-```text
-/implement .opencode/plans/YYYY-MM-DD-auth-improvement.md
-```
+1. **AGENTS.md is a table of contents** - Points to deeper docs, doesn't duplicate
+2. **2-3 focused skills** - Better than many generic ones
+3. **Skills stay procedural** - Use focused workflows, not encyclopedic skill docs
+4. **Enforce via tooling** - Linters > instructions
+5. **Progressive disclosure** - Start small, navigate to what's needed
+6. **Read is free, write is gated** - Zero friction for discovery
+7. **Config-first** - Markdown/config before TypeScript plugins
+8. **Repository is source of truth** - All knowledge versioned
+9. **Measure before optimizing** - Token usage, duration, success rate
+10. **Targeted MCP usage** - Context7 enabled for docs lookup only
 
-Expected output:
+## Research Backing
 
-- Exactly one plan phase executed
-- Verification run after phase
-- Manual verification instructions and pause
+Based on findings from:
+- SkillsBench (Li et al., 2026)
+- Evaluating AGENTS.md (Gloaguen et al., 2026)
+- OpenAI Harness Engineering (Lopopolo, 2026)
+- Theo's Context Management (2026)
+- 12 Factor Agents (HumanLayer)
+- Agentic Context Engineering (Stanford/SambaNova, ICLR 2026)
 
-### 3) Isolated Execution Flow (Forced Child Tasks)
+## Harness Review Outcomes
 
-Use this when you want isolation boundaries between stages.
+- **Primary agents** - Keep `scout` + `engineer` as the active primary pair and keep `auto` as an explicit experiment; see `agents/scout.md` and `agents/engineer.md`
+- **Planning guidance** - Use concrete, validation-aware phased plans in `commands/plan.md` and `agents/subagents/planner.md`
+- **Plan/implement handoff** - Keep per-phase fields stable so `commands/plan.md` and `commands/implement.md` stay mechanically aligned on validation and checkpoint gates
+- **Agent prompts** - Keep `scout` ask-oriented and `engineer` implementation-oriented; see `agents/scout.md` and `agents/engineer.md`
+- **Memory model** - Split durable context across `AGENTS.md`, `.agents/context/project-intelligence.md`, `plans/`, `wisdom/`, and `decisions/`; see `MAINTENANCE.md`
+- **AGENTS.md strategy** - Keep `AGENTS.md` lean, pointer-based, and free of procedural bulk; see `AGENTS.md`
+- **Skill loading** - Keep skills focused, procedural, and metadata-first; see `.agents/skills/skill-creator/SKILL.md` and `MAINTENANCE.md`
+- **New skills** - Add a new skill only for recurring workflows with a clear boundary, not for one-off procedures; see `MAINTENANCE.md`
 
-Commands:
+## File Manifest
 
-- `/research-task <topic>`
-- `/architect-task <args-or-research-path>`
-- `/implement-task <plan-path>`
+All files created across 9 phases:
 
-When to prefer this mode:
+| Phase | File | Purpose |
+|-------|------|---------|
+| 1 | opencode.jsonc | Global config |
+| 1 | AGENTS.md | Global preferences |
+| 1 | agents/scout.md | Light Q&A agent |
+| 1 | agents/engineer.md | Primary dev agent |
+| 2 | agents/subagents/planner.md | Planning subagent |
+| 2 | agents/subagents/implementer.md | Implementation subagent |
+| 2 | agents/subagents/reviewer.md | Review subagent |
+| 3 | docs/prompt_best_practices.md | Prompt authoring guide |
+| 3 | .agents/context/ | Harness context structure |
+| 4 | .agents/skills/skill-creator/SKILL.md | Skill creation procedures |
+| 5 | commands/plan.md | Planning command |
+| 5 | commands/implement.md | Implementation command |
+| 5 | commands/review.md | Review command |
+| 5 | commands/commit.md | Commit command |
+| 5 | commands/add-context.md | Context harvesting intake |
+| 5 | commands/context.md | Context harvest/map/validate |
+| 6 | commands/capture.md | Wisdom capture |
+| 6 | commands/review-pr.md | Pull request review command |
+| 7 | plugins/session-notify.ts | Session notifications |
+| 7 | plugins/env-protection.ts | File protection |
+| 8 | agents/auto.md | Autonomous agent |
+| 8 | .agents/skills/skill-creator/ | Skill management system |
+| 9 | commands/audit.md | Staleness check |
+| 9 | MAINTENANCE.md | Maintenance guide |
 
-- You want cleaner separation of stage context
-- You are testing prompt leakage or stage independence
-- You want to compare results vs same-session behavior
+## Success Criteria Checklist
 
-### 4) Optional Commands in the Workflow
+- [x] Scout is default agent
+- [x] Tab switches between agents
+- [x] Scout uses cheap model, engineer uses capable model
+- [x] Both agents ask confirmation before writes
+- [x] Scout escalates complex tasks
+- [x] Engineer delegates to subagents
+- [x] AGENTS.md under 100 lines
+- [x] Context in .agents/context/ (not docs/)
+- [x] Global skills in ~/.agents/skills/ plus local skills in .agents/skills/
+- [x] 10 custom commands
+- [x] 2 lightweight plugins
+- [x] Wisdom accumulation system
+- [x] Maintenance rhythm documented
 
-#### 4.1 Review gates
+## Next Steps
 
-- `/review-diff` for current staged/unstaged changes
-- `/review <target>` for scoped reviews
-- `/review-pr <context>` for PR-style review context
+1. **Try it out**: Start OpenCode in a project
+2. **Switch agents**: Use Tab to try scout vs engineer
+3. **Use commands**: Try `/plan`, `/add-context`, `/context harvest`, `/review`, `/commit`
+4. **Capture learnings**: Run `/capture` after complex tasks
+5. **Audit weekly**: Run `/audit` to check context
+6. **Progress autonomy**: Relax permissions as trust builds
 
-Recommended insertion points:
+## Getting Help
 
-1. After architect, before implement (plan sanity check)
-2. After each major implement phase (regression checks)
+- OpenCode docs: https://opencode.ai/docs
+- Agent system: https://opencode.ai/docs/agents
+- Skills: https://opencode.ai/docs/skills
+- Commands: https://opencode.ai/docs/commands
+- Plugins: https://opencode.ai/docs/plugins
 
-#### 4.2 Web research coordinator
+---
 
-```text
-/google latest best practices for SQLAlchemy 2 migration safety
-```
-
-Expected behavior:
-
-- Simple query: handled directly by web tools
-- Moderate/complex query: delegated to specialized subagents (`research/docs`, `research/code`, `research/news`, etc.)
-
-### 5) What "Good" Stage Output Looks Like
-
-Use this as a quick acceptance checklist.
-
-#### Research
-
-- Includes scope scan + skill loading report
-- Uses file:line references
-- Avoids suggestions/critiques
-- Asks before writing file
-
-#### Architect
-
-- Includes boundaries ("what not doing")
-- Uses phase-based plan with verifiable criteria
-- References AGENTS success-criteria format
-- Asks before writing plan file
-
-#### Implement
-
-- Shows required handshake with execution mode
-- Executes one phase only
-- Runs AGENTS-defined verification
-- Stops for explicit human confirmation
-
-### 6) Automated + Manual Testing Pattern
-
-For reliability testing, use `.agent_improvement/tests/catalog.yaml`:
-
-1. Pick a test id (small tests run once, medium run three times).
-2. Use the linked fixture prompt.
-3. Run target agent for the configured run count.
-4. Record each run using `.agent_improvement/schemas/run_record.schema.json`.
-5. Compare mandatory checks and rubric stability.
-
-Suggested starting sequence:
-
-1. `small-1-research-skill-loading`
-2. `small-2-architect-policy-dedup`
-3. `medium-1-research-paraphrase-robustness`
-4. `medium-2-architect-multisource-synthesis`
-
-## Minimal-Context Operating Principles
-
-- Keep `AGENTS.md` thin; put detailed guidance in skills
-- Load skills on demand; avoid bulk-loading policy text
-- Prefer explicit artifact handoffs (`.opencode/research/...`, `.opencode/plans/...`)
-- Use same-session commands by default; use `-task` variants for isolation when needed
-- Treat prompt/config files as living docs and prune stale rules regularly
-
-## Setup
-
-1. Copy `global_scope/` contents to `~/.config/opencode/`
-2. Copy `project_scope/.opencode/` into each project that should use this workflow
-3. Update project `.opencode/AGENTS.md` verification commands and skill-loading policy
-4. Optional: install `opencode-sync` for repeatable push/pull/status syncs (`opencode/sync_cli/README.md`)
-
-## Supporting Workdirs
-
-- `opencode/.agent_harness_development/` contains planning artifacts and transcript context used to evolve this setup
-- `opencode/.agent_improvement/` contains behavior test fixtures, rubrics, and schemas
-
-See each directory's local README for operational details.
-
-## References
-
-- [OpenCode Docs](https://opencode.ai/docs)
-- [Dex Context Engineering talk](https://www.youtube.com/watch?v=rmvDxxNubIg)
-- [humanlayer/humanlayer](https://github.com/humanlayer/humanlayer)
+**Status**: All 9 phases complete ✓
