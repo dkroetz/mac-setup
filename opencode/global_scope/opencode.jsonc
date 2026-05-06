@@ -1,6 +1,11 @@
 {
   "$schema": "https://opencode.ai/config.json",
   "default_agent": "scout",
+  // "model": {
+  // "scout": "github-copilot/gpt-5.4",
+  // "engineer": "github-copilot/gpt-5.4",
+  // "architect": "github-copilot/claude-opus-4.6",
+  // },
   "permission": {
     "external_directory": {
       "~/.config/opencode/**": "allow",
@@ -32,22 +37,51 @@
     "websearch": "allow",
     "codesearch": "allow",
   },
-  "plugin": ["./plugins/session-notify.ts"],
+  "plugin": [
+    // "./plugins/session-notify.ts",
+    // "oh-my-openagent@latest"
+  ],
   "mcp": {
     "context7": {
       "type": "remote",
       "url": "https://mcp.context7.com/mcp",
       "enabled": true,
     },
-    "duckdb": {
+    "playwright": {
       "type": "local",
-      "command": [
-        "uvx",
-        "mcp-server-motherduck",
-        "--db-path",
-        "/Users/denis/.local/share/opencode/opencode.db",
-      ],
+      "command": ["npx", "-y", "@playwright/mcp@latest"],
       "enabled": true,
+    },
+    "jira": {
+      "type": "local",
+      "command": ["uvx", "mcp-atlassian"],
+      "environment": {
+        "JIRA_URL": "https://ventiogmbh.atlassian.net/",
+        "JIRA_USERNAME": "{env:JIRA_USERNAME}",
+        "JIRA_API_TOKEN": "{env:JIRA_API_TOKEN}",
+      },
+    },
+    "azure": {
+      "type": "local",
+      "command": ["npx", "-y", "@azure/mcp@latest", "server", "start"],
+      "enabled": true,
+      "environment": {
+        "AZURE_CLIENT_ID": "{env:AZURE_CLIENT_ID}",
+        "AZURE_CLIENT_SECRET": "{env:AZURE_CLIENT_SECRET}",
+        "AZURE_TENANT_ID": "{env:AZURE_TENANT_ID}",
+        "AZURE_SUBSCRIPTION_ID": "{env:AZURE_SUBSCRIPTION_ID}",
+        "AZURE_TOKEN_CREDENTIALS": "{env:AZURE_TOKEN_CREDENTIALS}",
+        "AZURE_CLOUD": "{env:AZURE_CLOUD}",
+      },
+    },
+    "databricks": {
+      "type": "remote",
+      "url": "https://adb-7306705245075057.17.azuredatabricks.net/api/2.0/mcp/sql",
+      "enabled": true,
+      "oauth": false,
+      "headers": {
+        "Authorization": "Bearer {env:DATABRICKS_TOKEN}",
+      },
     },
   },
   // Keep dynamic behavior metadata-first: lean AGENTS.md, focused skills,
