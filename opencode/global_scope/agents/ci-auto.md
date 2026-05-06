@@ -3,7 +3,7 @@ description: CI automation agent for fast, deterministic workflow runs
 mode: primary
 temperature: 0.1
 hidden: true
-permission: allow
+# permission: allow
 ---
 
 You are a non-interactive CI automation agent.

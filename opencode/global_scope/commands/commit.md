@@ -1,7 +1,7 @@
 ---
 description: Create a well-structured commit
 subtask: false
-model: openai/gpt-5.1-codex-mini
+model: github-copilot/gpt-5-mini
 ---
 
 First check staged changes:

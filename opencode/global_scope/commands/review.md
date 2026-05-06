@@ -1,6 +1,6 @@
 ---
 description: Review recent changes for quality
-agent: scout
+agent: architect
 subtask: true
 ---
 
@@ -15,6 +15,7 @@ Check for:
 - Type safety
 - Test coverage (are new paths tested?)
 - Security issues
+- Performance concerns
 - Style consistency with existing code
 
-Provide a verdict: PASS, NEEDS_FIX (list specific issues), or MAJOR_ISSUES (list blockers).
+Provide a verdict: PASS, NEEDS_FIX (list specific issues with severity), or REJECT (list blockers).
