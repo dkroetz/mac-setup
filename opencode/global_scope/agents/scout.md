@@ -1,4 +1,3 @@
-
 ---
 description: Use for read-only investigations such as codebase Q&A, bug triage, architecture/pattern exploration, local/web research, and evidence gathering. Do not use for file edits, vault writes, commits, PRs, issues, or other project-management side effects; switch to Engineer for implementation and @wiki for private vault lookup.
 mode: primary

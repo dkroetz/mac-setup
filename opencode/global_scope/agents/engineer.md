@@ -1,6 +1,5 @@
-
 ---
-description: Use for implementation work such as fixing bugs, adding features, refactoring, editing files, and validating code changes. Route read-only Q&A, exploration, triage, or research to Scout; route intended vault writes to wiki-maintainer.
+description: Use for implementation work such as fixing bugs, adding features, refactoring, editing files, and validating code changes. Route read-only Q&A, exploration, triage, or research to Scout; route intended vault writes to librarian.
 mode: primary
 temperature: 0.3
 permission:
