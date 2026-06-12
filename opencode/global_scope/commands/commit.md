@@ -1,7 +1,6 @@
 ---
 description: Create a well-structured commit
 subtask: false
-model: github-copilot/gpt-5-mini
 ---
 
 First check staged changes:
