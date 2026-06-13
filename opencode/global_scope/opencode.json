@@ -1,0 +1,132 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "default_agent": "scout",
+  "disabled_providers": [
+    "xai",
+    "togetherai",
+    "openrouter",
+    "kilo",
+    "inception"
+  ],
+  "provider": {
+    "opencode": {
+      "whitelist": ["north-mini-code-free", "opencode/nemotron-3-ultra-free"]
+    },
+    "opencode-go": {
+      "blacklist": [
+        "kimi-k2.5",
+        "kimi-k2.6",
+        "glm-5",
+        "mimo-v2.5-pro",
+        "qwen3.6-plus",
+        "qwen3.7-max",
+        "minimax-m2.5",
+        "minimax-m2.7",
+        "deepseek-v4-flash",
+        "deepseek-v4-pro"
+      ]
+    },
+    "openai": {
+      "whitelist": ["gpt-5.4-mini", "gpt-5.4", "gpt-5.5"]
+    },
+    "nvidia": {
+      "whitelist": ["nemotron-3-ultra-550b-a55b"]
+    },
+    "google": {
+      "whitelist": ["gemma-4-31b-it", "gemini-3.5-flash"]
+    },
+    "cursor-acp": {
+      "name": "Cursor",
+      "npm": "@ai-sdk/openai-compatible",
+      "options": {
+        "baseURL": "http://127.0.0.1:32124/v1"
+      },
+      "models": {
+        "composer-2.5": {
+          "name": "Composer 2.5",
+          "cost": {
+            "input": 1.25,
+            "output": 6,
+            "cache_read": 0.25,
+            "cache_write": 1.25
+          }
+        },
+        "gpt-5.3-codex": {
+          "name": "GPT-5.3 Codex",
+          "cost": {
+            "input": 1.75,
+            "output": 14,
+            "cache_read": 0.175,
+            "cache_write": 1.75
+          }
+        },
+        "claude-opus-4-8": {
+          "name": "Claude Opus 4.8",
+          "cost": {
+            "input": 5,
+            "output": 25,
+            "cache_read": 0.5,
+            "cache_write": 6.25
+          }
+        },
+        "grok-build-0.1": {
+          "name": "Grok Build 0.1"
+        }
+      }
+    }
+  },
+  "permission": {
+    "external_directory": {
+      "~/.config/opencode/**": "allow",
+      "**/.opencode/**": "allow",
+      "**/.agents/**": "allow",
+      "**/.cursor/**": "allow"
+    }
+  },
+  "plugin": [
+    "cursor-acp"
+    // "./plugins/model-prompt/model-prompt.ts",
+  ],
+  "mcp": {
+    "linear": {
+      "enabled": true,
+      "type": "remote",
+      "url": "https://mcp.linear.app/mcp"
+    },
+    "playwright": {
+      "type": "local",
+      "command": [
+        "npx",
+        "-y",
+        "@playwright/mcp@latest",
+        "--snapshot-mode=none"
+      ],
+      "enabled": false
+    },
+    "xmcp": {
+      "enabled": false,
+      "type": "local",
+      "command": [
+        "/Users/denis/.config/opencode/xmcp/.venv/bin/python",
+        "/Users/denis/.config/opencode/xmcp/server.py"
+      ],
+      "timeout": 300000,
+      "environment": {
+        "MCP_TRANSPORT": "stdio",
+        "X_BEARER_TOKEN": "{env:X_BEARER_TOKEN}",
+        "X_OAUTH_CONSUMER_KEY": "{env:X_OAUTH_CONSUMER_KEY}",
+        "X_OAUTH_CONSUMER_SECRET": "{env:X_OAUTH_CONSUMER_SECRET}"
+      }
+    }
+  },
+  "agent": {
+    "plan": {
+      "disable": false,
+      "hidden": true
+    },
+    "build": {
+      "disable": false,
+      "hidden": true
+    }
+  }
+}

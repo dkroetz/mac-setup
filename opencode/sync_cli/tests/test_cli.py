@@ -15,9 +15,7 @@ def test_sync_manifest_covers_expected_entries() -> None:
         ("agents", "dir", Path("global_scope/agents")),
         ("commands", "dir", Path("global_scope/commands")),
         ("skills", "dir", Path("global_scope/skills")),
-        ("opencode-config", "file", Path("global_scope/opencode.jsonc")),
-        ("global-agents-guide", "file", Path("global_scope/AGENTS.md")),
-        ("agent-skills", "dir", Path("global_scope/.agents/skills")),
+        ("opencode-config", "file", Path("global_scope/opencode.json")),
     }
     actual = {(entry.name, entry.source_kind, entry.repo_relative_path) for entry in cli.SYNC_ENTRIES}
     assert actual == expected
@@ -54,7 +52,21 @@ def test_run_rsync_uses_directory_trailing_slashes(monkeypatch) -> None:
     result = cli.run_rsync(Path("/src"), Path("/dst"), "dir", delete=True, dry_run=True)
 
     assert result == 0
-    assert recorded == [["rsync", "-a", "--itemize-changes", "--dry-run", "--delete", "/src/", "/dst/"]]
+    assert recorded == [
+        [
+            "rsync",
+            "-a",
+            "--itemize-changes",
+            "--exclude",
+            "target/",
+            "--exclude",
+            ".DS_Store",
+            "--dry-run",
+            "--delete",
+            "/src/",
+            "/dst/",
+        ]
+    ]
 
 
 def test_run_rsync_omits_delete_for_files(monkeypatch) -> None:
@@ -69,7 +81,19 @@ def test_run_rsync_omits_delete_for_files(monkeypatch) -> None:
     result = cli.run_rsync(Path("/src/file.txt"), Path("/dst/file.txt"), "file", delete=True, dry_run=False)
 
     assert result == 0
-    assert recorded == [["rsync", "-a", "--itemize-changes", "/src/file.txt", "/dst/file.txt"]]
+    assert recorded == [
+        [
+            "rsync",
+            "-a",
+            "--itemize-changes",
+            "--exclude",
+            "target/",
+            "--exclude",
+            ".DS_Store",
+            "/src/file.txt",
+            "/dst/file.txt",
+        ]
+    ]
 
 
 def test_resolve_entry_paths_switches_direction(tmp_path: Path) -> None:
@@ -77,17 +101,17 @@ def test_resolve_entry_paths_switches_direction(tmp_path: Path) -> None:
     entry = cli.SyncEntry(
         name="config",
         source_kind="file",
-        home_path=Path("/home/user/.config/opencode/opencode.jsonc"),
-        repo_relative_path=Path("global_scope/opencode.jsonc"),
+        home_path=Path("/home/user/.config/opencode/opencode.json"),
+        repo_relative_path=Path("global_scope/opencode.json"),
     )
 
     assert cli.resolve_entry_paths(entry, repo_root, "push") == (
-        repo_root / "global_scope/opencode.jsonc",
-        Path("/home/user/.config/opencode/opencode.jsonc"),
+        repo_root / "global_scope/opencode.json",
+        Path("/home/user/.config/opencode/opencode.json"),
     )
     assert cli.resolve_entry_paths(entry, repo_root, "pull") == (
-        Path("/home/user/.config/opencode/opencode.jsonc"),
-        repo_root / "global_scope/opencode.jsonc",
+        Path("/home/user/.config/opencode/opencode.json"),
+        repo_root / "global_scope/opencode.json",
     )
 
 
@@ -141,7 +165,7 @@ def test_pull_fails_when_repo_target_is_not_already_in_global_scope(tmp_path: Pa
         name="config",
         source_kind="file",
         home_path=home_file,
-        repo_relative_path=Path("global_scope/opencode.jsonc"),
+        repo_relative_path=Path("global_scope/opencode.json"),
     )
 
     result = cli.sync_entry(entry, repo_root, "pull", delete=False, dry_run=False)

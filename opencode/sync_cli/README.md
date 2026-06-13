@@ -1,6 +1,8 @@
 # opencode-sync
 
-Small CLI for syncing OpenCode runtime data between this repository, `~/.config/opencode`, and `~/.agents`.
+Small CLI for syncing OpenCode runtime data between this repository and `~/.config/opencode` / `~/.agents/skills`.
+
+The machine-specific `~/.config/opencode/plugin/` symlink is intentionally skipped.
 
 ## Setup (development)
 
@@ -48,10 +50,8 @@ The CLI syncs these paths as one explicit manifest:
 | `~/.config/opencode/plugins` | `global_scope/plugins` |
 | `~/.config/opencode/agents` | `global_scope/agents` |
 | `~/.config/opencode/commands` | `global_scope/commands` |
-| `~/.config/opencode/skills` | `global_scope/skills` |
-| `~/.config/opencode/opencode.jsonc` | `global_scope/opencode.jsonc` |
-| `~/.config/opencode/AGENTS.md` | `global_scope/AGENTS.md` |
-| `~/.agents/skills` | `global_scope/.agents/skills` |
+| `~/.agents/skills` | `global_scope/skills` |
+| `~/.config/opencode/opencode.json` | `global_scope/opencode.json` |
 
 Every synced repo path must already exist under `global_scope`, so pull operations cannot recreate stray top-level folders outside the curated mirror.
 

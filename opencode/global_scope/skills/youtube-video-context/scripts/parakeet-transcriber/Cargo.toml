@@ -1,0 +1,8 @@
+[package]
+name = "parakeet-transcriber"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+hound = "3"
+parakeet-rs = { version = "0.3", features = ["sortformer"] }

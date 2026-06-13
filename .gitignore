@@ -8,4 +8,7 @@ opencode/global_scope/.vscode/settings.json
 
 .DS_Store
 __pycache__/
+.pytest_cache/
+.pdm-build/
 **.pyc
+/opencode/sync_cli/tests/__pycache__

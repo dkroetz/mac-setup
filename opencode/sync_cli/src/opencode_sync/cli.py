@@ -45,26 +45,14 @@ SYNC_ENTRIES = (
     SyncEntry(
         name="skills",
         source_kind="dir",
-        home_path=HOME_SCOPE / "skills",
+        home_path=HOME_AGENTS / "skills",
         repo_relative_path=GLOBAL_SCOPE_DIR / "skills",
     ),
     SyncEntry(
         name="opencode-config",
         source_kind="file",
-        home_path=HOME_SCOPE / "opencode.jsonc",
-        repo_relative_path=GLOBAL_SCOPE_DIR / "opencode.jsonc",
-    ),
-    SyncEntry(
-        name="global-agents-guide",
-        source_kind="file",
-        home_path=HOME_SCOPE / "AGENTS.md",
-        repo_relative_path=GLOBAL_SCOPE_DIR / "AGENTS.md",
-    ),
-    SyncEntry(
-        name="agent-skills",
-        source_kind="dir",
-        home_path=HOME_AGENTS / "skills",
-        repo_relative_path=GLOBAL_SCOPE_DIR / ".agents" / "skills",
+        home_path=HOME_SCOPE / "opencode.json",
+        repo_relative_path=GLOBAL_SCOPE_DIR / "opencode.json",
     ),
 )
 
@@ -133,7 +121,7 @@ def ensure_destination(path: Path, source_kind: Literal["dir", "file"], dry_run:
 
 
 def run_rsync(src: Path, dst: Path, source_kind: Literal["dir", "file"], delete: bool, dry_run: bool) -> int:
-    cmd = ["rsync", "-a", "--itemize-changes"]
+    cmd = ["rsync", "-a", "--itemize-changes", "--exclude", "target/", "--exclude", ".DS_Store"]
     if dry_run:
         cmd.append("--dry-run")
     if delete and source_kind == "dir":
