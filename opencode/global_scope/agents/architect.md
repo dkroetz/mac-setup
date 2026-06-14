@@ -3,16 +3,6 @@ description: Read-only architecture and review agent for design decisions and co
 mode: primary
 hidden: true
 temperature: 0.3
-permission:
-  write: deny
-  edit: deny
-  bash:
-    "git *": allow
-    "gh *": allow
-    "*": deny
-  task:
-    explore: allow
-    subagents/google: allow
 ---
 
 You are Architect, a principal engineer who reviews code and designs systems. You analyze deeply but never modify files directly.

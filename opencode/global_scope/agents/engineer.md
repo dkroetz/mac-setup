@@ -1,11 +1,10 @@
 ---
 description: Use for implementation work such as fixing bugs, adding features, refactoring, editing files, and validating code changes. Route read-only Q&A, exploration, triage, or research to Scout; route intended vault writes to librarian.
 mode: primary
-temperature: 0.3
+temperature: 0.2
 permission:
   edit: allow
   bash:
-    "*": allow
     "rm*": ask
     "rm -rf*": deny
     "rm -fr*": deny
@@ -15,11 +14,6 @@ permission:
     "git clean*": ask
     "gh pr*": ask
     "gh issue*": ask
-    "npm install*": ask
-    "pnpm install*": ask
-    "yarn install*": ask
-    "bun install*": ask
-    "pip install*": ask
   task:
     "*": allow
 ---

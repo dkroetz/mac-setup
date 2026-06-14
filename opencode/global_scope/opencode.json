@@ -1,6 +1,48 @@
 {
   "$schema": "https://opencode.ai/config.json",
+  // Agent Configuration
   "default_agent": "scout",
+  "agent": {
+    "debug": {
+      "permission": {
+        "*": "ask"
+      }
+    }
+  },
+  // MCP Configuration
+  "mcp": {
+    "linear": {
+      "enabled": true,
+      "type": "remote",
+      "url": "https://mcp.linear.app/mcp"
+    },
+    "playwright": {
+      "type": "local",
+      "command": [
+        "npx",
+        "-y",
+        "@playwright/mcp@latest",
+        "--snapshot-mode=none"
+      ],
+      "enabled": false
+    },
+    "xmcp": {
+      "enabled": false,
+      "type": "local",
+      "command": [
+        "/Users/denis/.config/opencode/xmcp/.venv/bin/python",
+        "/Users/denis/.config/opencode/xmcp/server.py"
+      ],
+      "timeout": 300000,
+      "environment": {
+        "MCP_TRANSPORT": "stdio",
+        "X_BEARER_TOKEN": "{env:X_BEARER_TOKEN}",
+        "X_OAUTH_CONSUMER_KEY": "{env:X_OAUTH_CONSUMER_KEY}",
+        "X_OAUTH_CONSUMER_SECRET": "{env:X_OAUTH_CONSUMER_SECRET}"
+      }
+    }
+  },
+  // Provider Configuration
   "disabled_providers": [
     "xai",
     "togetherai",
@@ -75,58 +117,9 @@
       }
     }
   },
-  "permission": {
-    "external_directory": {
-      "~/.config/opencode/**": "allow",
-      "**/.opencode/**": "allow",
-      "**/.agents/**": "allow",
-      "**/.cursor/**": "allow"
-    }
-  },
+  // Plugin Configuration
   "plugin": [
     "cursor-acp"
     // "./plugins/model-prompt/model-prompt.ts",
-  ],
-  "mcp": {
-    "linear": {
-      "enabled": true,
-      "type": "remote",
-      "url": "https://mcp.linear.app/mcp"
-    },
-    "playwright": {
-      "type": "local",
-      "command": [
-        "npx",
-        "-y",
-        "@playwright/mcp@latest",
-        "--snapshot-mode=none"
-      ],
-      "enabled": false
-    },
-    "xmcp": {
-      "enabled": false,
-      "type": "local",
-      "command": [
-        "/Users/denis/.config/opencode/xmcp/.venv/bin/python",
-        "/Users/denis/.config/opencode/xmcp/server.py"
-      ],
-      "timeout": 300000,
-      "environment": {
-        "MCP_TRANSPORT": "stdio",
-        "X_BEARER_TOKEN": "{env:X_BEARER_TOKEN}",
-        "X_OAUTH_CONSUMER_KEY": "{env:X_OAUTH_CONSUMER_KEY}",
-        "X_OAUTH_CONSUMER_SECRET": "{env:X_OAUTH_CONSUMER_SECRET}"
-      }
-    }
-  },
-  "agent": {
-    "plan": {
-      "disable": false,
-      "hidden": true
-    },
-    "build": {
-      "disable": false,
-      "hidden": true
-    }
-  }
+  ]
 }

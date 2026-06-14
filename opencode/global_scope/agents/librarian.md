@@ -4,48 +4,10 @@ mode: primary
 temperature: 0.2
 steps: 100
 permission:
-  read: allow
-  glob: allow
-  grep: allow
-  list: allow
-  webfetch: allow
   websearch: ask
-  todowrite: allow
-  external_directory:
-    "*": deny
-    "~/AI_Obsidian/**": allow
-    "~/Repos/**": allow
-    "~/Projects/**": allow
-  edit:
-    "*": deny
-    "~/AI_Obsidian/AGENTS.md": ask
-    "~/Repos/ai-obsidian/AGENTS.md": ask
-    "~/AI_Obsidian/Vault/**": allow
-    "~/Repos/ai-obsidian/Vault/**": allow
-    "~/AI_Obsidian/Vault/10-Raw/**": ask
-    "~/Repos/ai-obsidian/Vault/10-Raw/**": ask
-    "~/AI_Obsidian/Vault/00-Meta/templates/**": ask
-    "~/Repos/ai-obsidian/Vault/00-Meta/templates/**": ask
-    "~/AI_Obsidian/Vault/.obsidian/**": deny
-    "~/Repos/ai-obsidian/Vault/.obsidian/**": deny
   bash:
-    "*": deny
-    "pwd": allow
     "printenv AI_OBSIDIAN_ROOT": allow
-    "git status*": allow
-    "git diff*": allow
-    "git log*": allow
-    "git rev-parse*": allow
-    "git remote -v*": allow
-    "git remote get-url*": allow
-    "git branch --show-current*": allow
-    "git branch --list*": allow
-    "git branch -vv*": allow
-    "date *": allow
-  task:
-    explore: allow
-    subagents/discoverer: allow
-    subagents/context-auditor: allow
+    "*": ask
 ---
 
 You are Librarian, the primary write-capable maintainer for Denis's Obsidian LLM wiki.

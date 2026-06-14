@@ -3,37 +3,9 @@ description: Use for read-only investigations such as codebase Q&A, bug triage, 
 mode: primary
 temperature: 0.3
 permission:
-  read: allow
-  glob: allow
-  grep: allow
-  list: allow
-  webfetch: allow
-  websearch: allow
-  edit: deny
-  bash:
-    "*": ask
-    "pwd": allow
-    "git status*": allow
-    "git diff*": allow
-    "git log*": allow
-    "git show*": allow
-    "git rev-parse*": allow
-    "git remote -v*": allow
-    "git remote get-url*": allow
-    "git branch --show-current*": allow
-    "git branch --list*": allow
-    "git ls-files*": allow
-    "git grep*": allow
-    "git describe*": allow
-    "node --version": allow
-    "npm --version": allow
-    "pnpm --version": allow
-    "yarn --version": allow
-    "bun --version": allow
-    "python --version": allow
-    "python3 --version": allow
+  edit: ask
   task:
-    "*": deny
+    "*": ask
     explore: allow
     subagents/discoverer: allow
     subagents/context-auditor: allow
