@@ -7,11 +7,46 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "agent_servers": {
+    "cursor": {
+      "default_config_options": {
+        "mode": "ask",
+      },
+      "favorite_config_option_values": {
+        "mode": ["ask"],
+      },
+      "type": "registry",
+    },
+    "opencode": {
+      "default_config_options": {
+        "model": "opencode-go/kimi-k2.7-code",
+      },
+      "type": "registry",
+    },
+  },
+  "cli_default_open_behavior": "new_window",
+  "git_panel": {
+    "dock": "left",
+  },
   "edit_predictions": {
-    "provider": "",
+    "mode": "subtle",
+    "allow_data_collection": "no",
+    "provider": "zed",
   },
   "vim_mode": true,
-  "icon_theme": "Material Icon Theme",
+  "icon_theme": {
+    "mode": "dark",
+    "light": "Material Icon Theme",
+    "dark": "Material Icon Theme",
+  },
+  "agent": {
+    "dock": "left",
+    "default_profile": "ask",
+    "default_model": {
+      "provider": "copilot_chat",
+      "model": "gpt-5.1-codex-mini",
+    },
+  },
   "base_keymap": "VSCode",
   "relative_line_numbers": "enabled",
   "vim": {
@@ -25,13 +60,11 @@
   "buffer_line_height": "standard",
   "agent_ui_font_size": 16.0,
   "theme": {
-    "mode": "system",
+    "mode": "dark",
     "light": "One Light",
-    "dark": "Carbonfox - blurred",
+    "dark": "Carbonfox",
   },
   "title_bar": {
-    // Whether to show the branch icon beside branch switcher in the titlebar.
-    "show_branch_icon": true,
     // Whether to show the branch name button in the titlebar.
     "show_branch_name": true,
     // Whether to show user picture in the titlebar.
@@ -50,20 +83,12 @@
     "dock": "bottom",
   },
   "collaboration_panel": {
-    "button": false,
-  },
-  "notification_panel": {
+    "dock": "left",
     "button": false,
   },
   "languages": {
     "Python": {
-      "language_servers": [
-        "ruff",
-        "!pylsp",
-        "!python-refactoring",
-        "!basedpyright",
-        "!pyright",
-      ],
+      "language_servers": ["ruff", "basedpyright"],
       "format_on_save": "on",
       "formatter": [
         {
@@ -79,20 +104,13 @@
         },
       ],
     },
+    "YAML": {
+      "format_on_save": "off",
+    },
   },
   "jupyter": {
     "kernel_selections": {
       "python": ".venv",
     },
-  },
-  "experimental.theme_overrides": {
-    "background": "#161616ff",
-    "surface.background": "#1f1f1fff",
-    "editor.background": "#161616ff",
-    "title_bar.background": "#0d0d0dff",
-    "panel.background": "#1f1f1fff",
-    "status_bar.background": "#0d0d0dff",
-    "tab_bar.background": "#0d0d0dff",
-    "toolbar.background": "#161616ff",
   },
 }
