@@ -1,0 +1,562 @@
+{
+    "data": [
+        {
+            "created": 1773705600,
+            "id": "gpt-5.4-mini",
+            "object": "model",
+            "owned_by": "openai",
+            "name": "GPT-5.4 mini",
+            "limit": {
+                "context": 400000,
+                "output": 128000,
+                "input": 272000
+            },
+            "reasoning": true,
+            "tool_call": true,
+            "variants": {
+                "none": {
+                    "reasoningEffort": "none",
+                    "reasoningSummary": "auto",
+                    "include": [
+                        "reasoning.encrypted_content"
+                    ]
+                },
+                "minimal": {
+                    "reasoningEffort": "minimal",
+                    "reasoningSummary": "auto",
+                    "include": [
+                        "reasoning.encrypted_content"
+                    ]
+                },
+                "low": {
+                    "reasoningEffort": "low",
+                    "reasoningSummary": "auto",
+                    "include": [
+                        "reasoning.encrypted_content"
+                    ]
+                },
+                "medium": {
+                    "reasoningEffort": "medium",
+                    "reasoningSummary": "auto",
+                    "include": [
+                        "reasoning.encrypted_content"
+                    ]
+                },
+                "high": {
+                    "reasoningEffort": "high",
+                    "reasoningSummary": "auto",
+                    "include": [
+                        "reasoning.encrypted_content"
+                    ]
+                },
+                "xhigh": {
+                    "reasoningEffort": "xhigh",
+                    "reasoningSummary": "auto",
+                    "include": [
+                        "reasoning.encrypted_content"
+                    ]
+                }
+            },
+            "cost": {
+                "input": 0.75,
+                "output": 4.5,
+                "cache_read": 0.075,
+                "cache_write": 0,
+                "context_over_200k": {
+                    "input": 0,
+                    "output": 0,
+                    "cache_read": 0,
+                    "cache_write": 0
+                }
+            },
+            "attachment": true,
+            "temperature": false,
+            "modalities": {
+                "input": [
+                    "text",
+                    "image"
+                ],
+                "output": [
+                    "text"
+                ]
+            },
+            "family": "gpt-mini",
+            "release_date": "2026-03-17"
+        },
+        {
+            "created": 1779321600,
+            "id": "grok-build-0.1",
+            "object": "model",
+            "owned_by": "xai",
+            "name": "Grok Build 0.1",
+            "limit": {
+                "context": 256000,
+                "output": 256000,
+                "input": 256000
+            },
+            "reasoning": true,
+            "tool_call": true,
+            "variants": {},
+            "cost": {
+                "input": 1,
+                "output": 2,
+                "cache_read": 0.2,
+                "cache_write": 0,
+                "context_over_200k": {
+                    "input": 0,
+                    "output": 0,
+                    "cache_read": 0,
+                    "cache_write": 0
+                }
+            },
+            "attachment": true,
+            "temperature": true,
+            "modalities": {
+                "input": [
+                    "text",
+                    "image"
+                ],
+                "output": [
+                    "text"
+                ]
+            },
+            "family": "grok-build",
+            "release_date": "2026-05-20",
+            "interleaved": {
+                "field": "reasoning_content"
+            }
+        },
+        {
+            "created": 1740960000,
+            "id": "grok-composer-2.5-fast",
+            "object": "model",
+            "owned_by": "xai",
+            "name": "Composer 2.5 Fast",
+            "limit": {
+                "context": 256000,
+                "output": 256000,
+                "input": 256000
+            },
+            "reasoning": true,
+            "tool_call": true,
+            "variants": {},
+            "cost": {
+                "input": 0.5,
+                "output": 2.5,
+                "cache_read": 0.2,
+                "cache_write": 0,
+                "context_over_200k": {
+                    "input": 0,
+                    "output": 0,
+                    "cache_read": 0,
+                    "cache_write": 0
+                }
+            },
+            "attachment": true,
+            "temperature": true,
+            "modalities": {
+                "input": [
+                    "text",
+                    "image",
+                    "pdf"
+                ],
+                "output": [
+                    "text"
+                ]
+            },
+            "family": "grok-build",
+            "release_date": "2026-06-01",
+            "interleaved": {
+                "field": "reasoning_content"
+            }
+        },
+        {
+            "created": 1772668800,
+            "id": "gpt-5.4",
+            "object": "model",
+            "owned_by": "openai",
+            "name": "GPT-5.4",
+            "limit": {
+                "context": 400000,
+                "output": 128000,
+                "input": 272000
+            },
+            "reasoning": true,
+            "tool_call": true,
+            "variants": {
+                "none": {
+                    "reasoningEffort": "none",
+                    "reasoningSummary": "auto",
+                    "include": [
+                        "reasoning.encrypted_content"
+                    ]
+                },
+                "minimal": {
+                    "reasoningEffort": "minimal",
+                    "reasoningSummary": "auto",
+                    "include": [
+                        "reasoning.encrypted_content"
+                    ]
+                },
+                "low": {
+                    "reasoningEffort": "low",
+                    "reasoningSummary": "auto",
+                    "include": [
+                        "reasoning.encrypted_content"
+                    ]
+                },
+                "medium": {
+                    "reasoningEffort": "medium",
+                    "reasoningSummary": "auto",
+                    "include": [
+                        "reasoning.encrypted_content"
+                    ]
+                },
+                "high": {
+                    "reasoningEffort": "high",
+                    "reasoningSummary": "auto",
+                    "include": [
+                        "reasoning.encrypted_content"
+                    ]
+                },
+                "xhigh": {
+                    "reasoningEffort": "xhigh",
+                    "reasoningSummary": "auto",
+                    "include": [
+                        "reasoning.encrypted_content"
+                    ]
+                }
+            },
+            "cost": {
+                "input": 2.5,
+                "output": 15,
+                "cache_read": 0.25,
+                "cache_write": 0,
+                "context_over_200k": {
+                    "input": 5,
+                    "output": 22.5,
+                    "cache_read": 0.5
+                }
+            },
+            "attachment": true,
+            "temperature": false,
+            "modalities": {
+                "input": [
+                    "text",
+                    "image",
+                    "pdf"
+                ],
+                "output": [
+                    "text"
+                ]
+            },
+            "family": "gpt",
+            "release_date": "2026-03-05"
+        },
+        {
+            "created": 1776902400,
+            "id": "codex-auto-review",
+            "object": "model",
+            "owned_by": "openai",
+            "name": "Codex Auto Review",
+            "limit": {
+                "context": 400000,
+                "output": 128000,
+                "input": 272000
+            },
+            "reasoning": true,
+            "tool_call": true,
+            "variants": {
+                "low": {
+                    "reasoningEffort": "low",
+                    "reasoningSummary": "auto",
+                    "include": [
+                        "reasoning.encrypted_content"
+                    ]
+                },
+                "medium": {
+                    "reasoningEffort": "medium",
+                    "reasoningSummary": "auto",
+                    "include": [
+                        "reasoning.encrypted_content"
+                    ]
+                },
+                "high": {
+                    "reasoningEffort": "high",
+                    "reasoningSummary": "auto",
+                    "include": [
+                        "reasoning.encrypted_content"
+                    ]
+                }
+            },
+            "cost": {
+                "input": 2.5,
+                "output": 15,
+                "cache_read": 0.25,
+                "cache_write": 0,
+                "context_over_200k": {
+                    "input": 5,
+                    "output": 22.5,
+                    "cache_read": 0.5
+                }
+            },
+            "attachment": true,
+            "modalities": {
+                "input": [
+                    "text",
+                    "image",
+                    "pdf"
+                ],
+                "output": [
+                    "text"
+                ]
+            },
+            "family": "gpt",
+            "release_date": "2026-04-23"
+        },
+        {
+            "created": 1773014400,
+            "id": "grok-4.20-0309-non-reasoning",
+            "object": "model",
+            "owned_by": "xai",
+            "name": "Grok 4.20 (Non-Reasoning)",
+            "limit": {
+                "context": 1000000,
+                "output": 30000,
+                "input": 1000000
+            },
+            "reasoning": false,
+            "tool_call": true,
+            "variants": {},
+            "cost": {
+                "input": 1.25,
+                "output": 2.5,
+                "cache_read": 0.2,
+                "cache_write": 0,
+                "context_over_200k": {
+                    "input": 2.5,
+                    "output": 5,
+                    "cache_read": 0.4
+                }
+            },
+            "attachment": true,
+            "temperature": true,
+            "modalities": {
+                "input": [
+                    "text",
+                    "image",
+                    "pdf"
+                ],
+                "output": [
+                    "text"
+                ]
+            },
+            "family": "grok",
+            "release_date": "2026-03-09"
+        },
+        {
+            "created": 1775606400,
+            "id": "grok-4.3",
+            "object": "model",
+            "owned_by": "xai",
+            "name": "Grok 4.3",
+            "limit": {
+                "context": 1000000,
+                "output": 1000000,
+                "input": 1000000
+            },
+            "reasoning": true,
+            "tool_call": true,
+            "variants": {},
+            "cost": {
+                "input": 1.25,
+                "output": 2.5,
+                "cache_read": 0.2,
+                "cache_write": 0,
+                "context_over_200k": {
+                    "input": 2.5,
+                    "output": 5,
+                    "cache_read": 0.4
+                }
+            },
+            "attachment": true,
+            "temperature": true,
+            "modalities": {
+                "input": [
+                    "text",
+                    "image"
+                ],
+                "output": [
+                    "text"
+                ]
+            },
+            "family": "grok",
+            "release_date": "2026-05-01",
+            "interleaved": {
+                "field": "reasoning_content"
+            }
+        },
+        {
+            "created": 1740960000,
+            "id": "grok-3-mini",
+            "object": "model",
+            "owned_by": "xai",
+            "name": "xAI Grok 3 Mini",
+            "limit": {
+                "context": 131072,
+                "output": 131072,
+                "input": 131072
+            },
+            "reasoning": false,
+            "tool_call": true,
+            "variants": {},
+            "cost": {
+                "input": 0.3,
+                "output": 0.5,
+                "cache_read": 0.075,
+                "cache_write": 0,
+                "context_over_200k": {
+                    "input": 0,
+                    "output": 0,
+                    "cache_read": 0,
+                    "cache_write": 0
+                }
+            },
+            "attachment": false,
+            "temperature": true,
+            "modalities": {
+                "input": [
+                    "text"
+                ],
+                "output": [
+                    "text"
+                ]
+            },
+            "family": "grok",
+            "release_date": "2024-06-01"
+        },
+        {
+            "created": 1776902400,
+            "id": "gpt-5.5",
+            "object": "model",
+            "owned_by": "openai",
+            "name": "GPT-5.5",
+            "limit": {
+                "context": 400000,
+                "output": 128000,
+                "input": 272000
+            },
+            "reasoning": true,
+            "tool_call": true,
+            "variants": {
+                "none": {
+                    "reasoningEffort": "none",
+                    "reasoningSummary": "auto",
+                    "include": [
+                        "reasoning.encrypted_content"
+                    ]
+                },
+                "minimal": {
+                    "reasoningEffort": "minimal",
+                    "reasoningSummary": "auto",
+                    "include": [
+                        "reasoning.encrypted_content"
+                    ]
+                },
+                "low": {
+                    "reasoningEffort": "low",
+                    "reasoningSummary": "auto",
+                    "include": [
+                        "reasoning.encrypted_content"
+                    ]
+                },
+                "medium": {
+                    "reasoningEffort": "medium",
+                    "reasoningSummary": "auto",
+                    "include": [
+                        "reasoning.encrypted_content"
+                    ]
+                },
+                "high": {
+                    "reasoningEffort": "high",
+                    "reasoningSummary": "auto",
+                    "include": [
+                        "reasoning.encrypted_content"
+                    ]
+                },
+                "xhigh": {
+                    "reasoningEffort": "xhigh",
+                    "reasoningSummary": "auto",
+                    "include": [
+                        "reasoning.encrypted_content"
+                    ]
+                }
+            },
+            "cost": {
+                "input": 5,
+                "output": 30,
+                "cache_read": 0.5,
+                "cache_write": 0,
+                "context_over_200k": {
+                    "input": 10,
+                    "output": 45,
+                    "cache_read": 1
+                }
+            },
+            "attachment": true,
+            "temperature": false,
+            "modalities": {
+                "input": [
+                    "text",
+                    "image",
+                    "pdf"
+                ],
+                "output": [
+                    "text"
+                ]
+            },
+            "family": "gpt",
+            "release_date": "2026-04-23"
+        },
+        {
+            "created": 1740960000,
+            "id": "grok-3-mini-fast",
+            "object": "model",
+            "owned_by": "xai",
+            "name": "Grok 3 Mini Fast",
+            "limit": {
+                "context": 131072,
+                "output": 131072,
+                "input": 131072
+            },
+            "reasoning": true,
+            "tool_call": true,
+            "variants": {},
+            "cost": {
+                "input": 0.3,
+                "output": 0.5,
+                "cache_read": 0.075,
+                "cache_write": 0,
+                "context_over_200k": {
+                    "input": 0,
+                    "output": 0,
+                    "cache_read": 0,
+                    "cache_write": 0
+                }
+            },
+            "attachment": false,
+            "temperature": true,
+            "modalities": {
+                "input": [
+                    "text"
+                ],
+                "output": [
+                    "text"
+                ]
+            },
+            "family": "grok",
+            "release_date": "2025-02-17"
+        }
+    ],
+    "object": "list"
+}
