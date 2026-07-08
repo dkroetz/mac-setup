@@ -397,6 +397,90 @@
             }
         },
         {
+            "created": 1783526400,
+            "id": "grok-4.5",
+            "object": "model",
+            "owned_by": "xai",
+            "name": "Grok 4.5",
+            "limit": {
+                "context": 500000,
+                "output": 500000,
+                "input": 500000
+            },
+            "reasoning": true,
+            "tool_call": true,
+            "variants": {},
+            "cost": {
+                "input": 2,
+                "output": 6,
+                "cache_read": 0.5,
+                "cache_write": 0,
+                "context_over_200k": {
+                    "input": 4,
+                    "output": 12,
+                    "cache_read": 1
+                }
+            },
+            "attachment": true,
+            "temperature": true,
+            "modalities": {
+                "input": [
+                    "text",
+                    "image"
+                ],
+                "output": [
+                    "text"
+                ]
+            },
+            "family": "grok",
+            "release_date": "2026-07-08",
+            "interleaved": {
+                "field": "reasoning_content"
+            }
+        },
+        {
+            "created": 1783526400,
+            "id": "fut-grok-4.5",
+            "object": "model",
+            "owned_by": "xai",
+            "name": "FUT Grok 4.5",
+            "limit": {
+                "context": 500000,
+                "output": 500000,
+                "input": 500000
+            },
+            "reasoning": true,
+            "tool_call": true,
+            "variants": {},
+            "cost": {
+                "input": 2,
+                "output": 6,
+                "cache_read": 0.5,
+                "cache_write": 0,
+                "context_over_200k": {
+                    "input": 4,
+                    "output": 12,
+                    "cache_read": 1
+                }
+            },
+            "attachment": true,
+            "temperature": true,
+            "modalities": {
+                "input": [
+                    "text",
+                    "image"
+                ],
+                "output": [
+                    "text"
+                ]
+            },
+            "family": "grok",
+            "release_date": "2026-07-08",
+            "interleaved": {
+                "field": "reasoning_content"
+            }
+        },
+        {
             "created": 1740960000,
             "id": "grok-3-mini",
             "object": "model",
