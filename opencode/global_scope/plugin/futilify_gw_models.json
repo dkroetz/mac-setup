@@ -607,7 +607,6 @@
             },
             "reasoning": true,
             "tool_call": true,
-            "variants": {},
             "cost": {
                 "input": 2.5,
                 "output": 7.5,
@@ -631,7 +630,21 @@
                 ]
             },
             "family": "qwen",
-            "release_date": "2026-05-21"
+            "release_date": "2026-05-21",
+            "interleaved": {
+                "field": "reasoning_content"
+            },
+            "variants": {
+                "low": {
+                    "reasoningEffort": "low"
+                },
+                "medium": {
+                    "reasoningEffort": "medium"
+                },
+                "xhigh": {
+                    "reasoningEffort": "xhigh"
+                }
+            }
         },
         {
             "created": 1781222400,
@@ -690,7 +703,6 @@
             },
             "reasoning": true,
             "tool_call": true,
-            "variants": {},
             "cost": {
                 "input": 2.5,
                 "output": 7.5,
@@ -714,7 +726,21 @@
                 ]
             },
             "family": "qwen",
-            "release_date": "2026-07-01"
+            "release_date": "2026-05-21",
+            "interleaved": {
+                "field": "reasoning_content"
+            },
+            "variants": {
+                "low": {
+                    "reasoningEffort": "low"
+                },
+                "medium": {
+                    "reasoningEffort": "medium"
+                },
+                "xhigh": {
+                    "reasoningEffort": "xhigh"
+                }
+            }
         },
         {
             "created": 1780358400,
@@ -729,7 +755,6 @@
             },
             "reasoning": true,
             "tool_call": true,
-            "variants": {},
             "cost": {
                 "input": 0,
                 "output": 0,
@@ -754,7 +779,21 @@
                 ]
             },
             "family": "qwen",
-            "release_date": "2026-06-02"
+            "release_date": "2026-06-02",
+            "interleaved": {
+                "field": "reasoning_content"
+            },
+            "variants": {
+                "low": {
+                    "reasoningEffort": "low"
+                },
+                "medium": {
+                    "reasoningEffort": "medium"
+                },
+                "xhigh": {
+                    "reasoningEffort": "xhigh"
+                }
+            }
         },
         {
             "created": 1779321600,
@@ -769,7 +808,6 @@
             },
             "reasoning": true,
             "tool_call": true,
-            "variants": {},
             "cost": {
                 "input": 2.5,
                 "output": 7.5,
@@ -793,7 +831,21 @@
                 ]
             },
             "family": "qwen",
-            "release_date": "2026-05-21"
+            "release_date": "2026-05-21",
+            "interleaved": {
+                "field": "reasoning_content"
+            },
+            "variants": {
+                "low": {
+                    "reasoningEffort": "low"
+                },
+                "medium": {
+                    "reasoningEffort": "medium"
+                },
+                "xhigh": {
+                    "reasoningEffort": "xhigh"
+                }
+            }
         },
         {
             "created": 1777248000,
@@ -808,7 +860,6 @@
             },
             "reasoning": true,
             "tool_call": true,
-            "variants": {},
             "cost": {
                 "input": 0.1875,
                 "output": 1.125,
@@ -834,7 +885,21 @@
                 ]
             },
             "family": "qwen3.6",
-            "release_date": "2026-04-27"
+            "release_date": "2026-04-27",
+            "interleaved": {
+                "field": "reasoning_content"
+            },
+            "variants": {
+                "low": {
+                    "reasoningEffort": "low"
+                },
+                "medium": {
+                    "reasoningEffort": "medium"
+                },
+                "xhigh": {
+                    "reasoningEffort": "xhigh"
+                }
+            }
         },
         {
             "created": 1781308800,
