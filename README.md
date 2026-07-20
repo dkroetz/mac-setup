@@ -16,6 +16,14 @@ cp .aliases ~/.aliases
 brew install neovim
 ```
 
+## herdr
+terminal agent multiplexer (tmux on steroids)
+[herdr](https://herdr.dev/)
+```sh
+brew install herdr
+cp herdr/config.toml ~/.config/herdr/config.toml
+```
+
 ## fish
 fish is a smart and user-friendly command line shell for Linux, macOS, and the rest of the family.
 [fish](https://fishshell.com/)
