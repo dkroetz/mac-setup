@@ -1,66 +1,149 @@
 {
     "data": [
         {
-            "created": 1773705600,
-            "id": "gpt-5.4-mini",
+            "created": 1776988800,
+            "id": "opencode-go1/deepseek-v4-flash",
             "object": "model",
-            "owned_by": "openai",
-            "name": "GPT-5.4 mini",
+            "owned_by": "deepseek",
+            "name": "DeepSeek V4 Flash (OpenCode Go 1)",
             "limit": {
-                "context": 400000,
-                "output": 128000,
-                "input": 272000
+                "context": 1000000,
+                "output": 384000,
+                "input": 1000000
             },
             "reasoning": true,
             "tool_call": true,
-            "variants": {
-                "none": {
-                    "reasoningEffort": "none",
-                    "reasoningSummary": "auto",
-                    "include": [
-                        "reasoning.encrypted_content"
-                    ]
-                },
-                "minimal": {
-                    "reasoningEffort": "minimal",
-                    "reasoningSummary": "auto",
-                    "include": [
-                        "reasoning.encrypted_content"
-                    ]
-                },
-                "low": {
-                    "reasoningEffort": "low",
-                    "reasoningSummary": "auto",
-                    "include": [
-                        "reasoning.encrypted_content"
-                    ]
-                },
-                "medium": {
-                    "reasoningEffort": "medium",
-                    "reasoningSummary": "auto",
-                    "include": [
-                        "reasoning.encrypted_content"
-                    ]
-                },
-                "high": {
-                    "reasoningEffort": "high",
-                    "reasoningSummary": "auto",
-                    "include": [
-                        "reasoning.encrypted_content"
-                    ]
-                },
-                "xhigh": {
-                    "reasoningEffort": "xhigh",
-                    "reasoningSummary": "auto",
-                    "include": [
-                        "reasoning.encrypted_content"
-                    ]
+            "variants": {},
+            "cost": {
+                "input": 0.14,
+                "output": 0.28,
+                "cache_read": 0.0028,
+                "cache_write": 0,
+                "context_over_200k": {
+                    "input": 0,
+                    "output": 0,
+                    "cache_read": 0,
+                    "cache_write": 0
                 }
             },
+            "attachment": false,
+            "temperature": true,
+            "modalities": {
+                "input": [
+                    "text"
+                ],
+                "output": [
+                    "text"
+                ]
+            },
+            "family": "deepseek-flash",
+            "release_date": "2026-04-24",
+            "interleaved": {
+                "field": "reasoning_content"
+            }
+        },
+        {
+            "created": 1776988800,
+            "id": "opencode-go1/deepseek-v4-pro",
+            "object": "model",
+            "owned_by": "deepseek",
+            "name": "DeepSeek V4 Pro (OpenCode Go 1)",
+            "limit": {
+                "context": 1000000,
+                "output": 384000,
+                "input": 1000000
+            },
+            "reasoning": true,
+            "tool_call": true,
+            "variants": {},
             "cost": {
-                "input": 0.75,
-                "output": 4.5,
-                "cache_read": 0.075,
+                "input": 0.435,
+                "output": 0.87,
+                "cache_read": 0.003625,
+                "cache_write": 0,
+                "context_over_200k": {
+                    "input": 0,
+                    "output": 0,
+                    "cache_read": 0,
+                    "cache_write": 0
+                }
+            },
+            "attachment": false,
+            "temperature": true,
+            "modalities": {
+                "input": [
+                    "text"
+                ],
+                "output": [
+                    "text"
+                ]
+            },
+            "family": "deepseek-thinking",
+            "release_date": "2026-04-24",
+            "interleaved": {
+                "field": "reasoning_content"
+            }
+        },
+        {
+            "created": 1781308800,
+            "id": "opencode-go1/glm-5.2",
+            "object": "model",
+            "owned_by": "zai",
+            "name": "GLM-5.2 (OpenCode Go 1)",
+            "limit": {
+                "context": 1000000,
+                "output": 131072,
+                "input": 1000000
+            },
+            "reasoning": true,
+            "tool_call": true,
+            "variants": {},
+            "cost": {
+                "input": 1.4,
+                "output": 4.4,
+                "cache_read": 0.26,
+                "cache_write": 0,
+                "context_over_200k": {
+                    "input": 0,
+                    "output": 0,
+                    "cache_read": 0,
+                    "cache_write": 0
+                }
+            },
+            "attachment": false,
+            "temperature": true,
+            "modalities": {
+                "input": [
+                    "text"
+                ],
+                "output": [
+                    "text"
+                ]
+            },
+            "family": "glm",
+            "release_date": "2026-06-13",
+            "interleaved": {
+                "field": "reasoning_content"
+            }
+        },
+        {
+            "created": 1784160000,
+            "id": "opencode-go1/kimi-k3",
+            "object": "model",
+            "owned_by": "moonshotai",
+            "name": "Kimi K3 (OpenCode Go 1)",
+            "limit": {
+                "context": 1048576,
+                "output": 131072,
+                "input": 1048576
+            },
+            "reasoning": true,
+            "tool_call": true,
+            "variants": {},
+            "cost": {
+                "input": 3,
+                "output": 15,
+                "cache_read": 0.3,
                 "cache_write": 0,
                 "context_over_200k": {
                     "input": 0,
@@ -74,21 +157,819 @@
             "modalities": {
                 "input": [
                     "text",
+                    "image",
+                    "video"
+                ],
+                "output": [
+                    "text"
+                ]
+            },
+            "family": "kimi-k3",
+            "release_date": "2026-07-16",
+            "interleaved": {
+                "field": "reasoning_content"
+            }
+        },
+        {
+            "created": 1781222400,
+            "id": "opencode-go1/kimi-k2.7-code",
+            "object": "model",
+            "owned_by": "moonshotai",
+            "name": "Kimi K2.7 Code (OpenCode Go 1)",
+            "limit": {
+                "context": 262144,
+                "output": 262144,
+                "input": 262144
+            },
+            "reasoning": true,
+            "tool_call": true,
+            "variants": {},
+            "cost": {
+                "input": 0.95,
+                "output": 4,
+                "cache_read": 0.19,
+                "cache_write": 0,
+                "context_over_200k": {
+                    "input": 0,
+                    "output": 0,
+                    "cache_read": 0,
+                    "cache_write": 0
+                }
+            },
+            "attachment": true,
+            "temperature": false,
+            "modalities": {
+                "input": [
+                    "text",
+                    "image",
+                    "video"
+                ],
+                "output": [
+                    "text"
+                ]
+            },
+            "family": "kimi-k2",
+            "release_date": "2026-06-12",
+            "interleaved": {
+                "field": "reasoning_content"
+            }
+        },
+        {
+            "created": 1776816000,
+            "id": "opencode-go1/mimo-v2.5-pro",
+            "object": "model",
+            "owned_by": "xiaomi",
+            "name": "MiMo V2.5 Pro (OpenCode Go 1)",
+            "limit": {
+                "context": 1048576,
+                "output": 128000,
+                "input": 1048576
+            },
+            "reasoning": true,
+            "tool_call": true,
+            "variants": {},
+            "cost": {
+                "input": 0.435,
+                "output": 0.87,
+                "cache_read": 0.003625,
+                "cache_write": 0,
+                "context_over_200k": {
+                    "input": 0,
+                    "output": 0,
+                    "cache_read": 0,
+                    "cache_write": 0
+                }
+            },
+            "attachment": true,
+            "temperature": true,
+            "modalities": {
+                "input": [
+                    "text"
+                ],
+                "output": [
+                    "text"
+                ]
+            },
+            "family": "mimo-v2.5-pro",
+            "release_date": "2026-04-22",
+            "interleaved": {
+                "field": "reasoning_content"
+            }
+        },
+        {
+            "created": 1780185600,
+            "id": "opencode-go1/minimax-m3",
+            "object": "model",
+            "owned_by": "minimax",
+            "name": "MiniMax-M3 (OpenCode Go 1)",
+            "limit": {
+                "context": 1000000,
+                "output": 131072,
+                "input": 1000000
+            },
+            "reasoning": true,
+            "tool_call": true,
+            "variants": {},
+            "cost": {
+                "input": 0.3,
+                "output": 1.2,
+                "cache_read": 0.06,
+                "cache_write": 0,
+                "context_over_200k": {
+                    "input": 0.6,
+                    "output": 2.4,
+                    "cache_read": 0.12,
+                    "cache_write": 0
+                }
+            },
+            "attachment": false,
+            "temperature": true,
+            "modalities": {
+                "input": [
+                    "text",
+                    "image",
+                    "video"
+                ],
+                "output": [
+                    "text"
+                ]
+            },
+            "family": "minimax-m3",
+            "release_date": "2026-05-31"
+        },
+        {
+            "created": 1776988800,
+            "id": "opencode-go2/deepseek-v4-flash",
+            "object": "model",
+            "owned_by": "deepseek",
+            "name": "DeepSeek V4 Flash (OpenCode Go 2)",
+            "limit": {
+                "context": 1000000,
+                "output": 384000,
+                "input": 1000000
+            },
+            "reasoning": true,
+            "tool_call": true,
+            "variants": {},
+            "cost": {
+                "input": 0.14,
+                "output": 0.28,
+                "cache_read": 0.0028,
+                "cache_write": 0,
+                "context_over_200k": {
+                    "input": 0,
+                    "output": 0,
+                    "cache_read": 0,
+                    "cache_write": 0
+                }
+            },
+            "attachment": false,
+            "temperature": true,
+            "modalities": {
+                "input": [
+                    "text"
+                ],
+                "output": [
+                    "text"
+                ]
+            },
+            "family": "deepseek-flash",
+            "release_date": "2026-04-24",
+            "interleaved": {
+                "field": "reasoning_content"
+            }
+        },
+        {
+            "created": 1776988800,
+            "id": "opencode-go2/deepseek-v4-pro",
+            "object": "model",
+            "owned_by": "deepseek",
+            "name": "DeepSeek V4 Pro (OpenCode Go 2)",
+            "limit": {
+                "context": 1000000,
+                "output": 384000,
+                "input": 1000000
+            },
+            "reasoning": true,
+            "tool_call": true,
+            "variants": {},
+            "cost": {
+                "input": 0.435,
+                "output": 0.87,
+                "cache_read": 0.003625,
+                "cache_write": 0,
+                "context_over_200k": {
+                    "input": 0,
+                    "output": 0,
+                    "cache_read": 0,
+                    "cache_write": 0
+                }
+            },
+            "attachment": false,
+            "temperature": true,
+            "modalities": {
+                "input": [
+                    "text"
+                ],
+                "output": [
+                    "text"
+                ]
+            },
+            "family": "deepseek-thinking",
+            "release_date": "2026-04-24",
+            "interleaved": {
+                "field": "reasoning_content"
+            }
+        },
+        {
+            "created": 1781308800,
+            "id": "opencode-go2/glm-5.2",
+            "object": "model",
+            "owned_by": "zai",
+            "name": "GLM-5.2 (OpenCode Go 2)",
+            "limit": {
+                "context": 1000000,
+                "output": 131072,
+                "input": 1000000
+            },
+            "reasoning": true,
+            "tool_call": true,
+            "variants": {},
+            "cost": {
+                "input": 1.4,
+                "output": 4.4,
+                "cache_read": 0.26,
+                "cache_write": 0,
+                "context_over_200k": {
+                    "input": 0,
+                    "output": 0,
+                    "cache_read": 0,
+                    "cache_write": 0
+                }
+            },
+            "attachment": false,
+            "temperature": true,
+            "modalities": {
+                "input": [
+                    "text"
+                ],
+                "output": [
+                    "text"
+                ]
+            },
+            "family": "glm",
+            "release_date": "2026-06-13",
+            "interleaved": {
+                "field": "reasoning_content"
+            }
+        },
+        {
+            "created": 1784160000,
+            "id": "opencode-go2/kimi-k3",
+            "object": "model",
+            "owned_by": "moonshotai",
+            "name": "Kimi K3 (OpenCode Go 2)",
+            "limit": {
+                "context": 1048576,
+                "output": 131072,
+                "input": 1048576
+            },
+            "reasoning": true,
+            "tool_call": true,
+            "variants": {},
+            "cost": {
+                "input": 3,
+                "output": 15,
+                "cache_read": 0.3,
+                "cache_write": 0,
+                "context_over_200k": {
+                    "input": 0,
+                    "output": 0,
+                    "cache_read": 0,
+                    "cache_write": 0
+                }
+            },
+            "attachment": true,
+            "temperature": false,
+            "modalities": {
+                "input": [
+                    "text",
+                    "image",
+                    "video"
+                ],
+                "output": [
+                    "text"
+                ]
+            },
+            "family": "kimi-k3",
+            "release_date": "2026-07-16",
+            "interleaved": {
+                "field": "reasoning_content"
+            }
+        },
+        {
+            "created": 1781222400,
+            "id": "opencode-go2/kimi-k2.7-code",
+            "object": "model",
+            "owned_by": "moonshotai",
+            "name": "Kimi K2.7 Code (OpenCode Go 2)",
+            "limit": {
+                "context": 262144,
+                "output": 262144,
+                "input": 262144
+            },
+            "reasoning": true,
+            "tool_call": true,
+            "variants": {},
+            "cost": {
+                "input": 0.95,
+                "output": 4,
+                "cache_read": 0.19,
+                "cache_write": 0,
+                "context_over_200k": {
+                    "input": 0,
+                    "output": 0,
+                    "cache_read": 0,
+                    "cache_write": 0
+                }
+            },
+            "attachment": true,
+            "temperature": false,
+            "modalities": {
+                "input": [
+                    "text",
+                    "image",
+                    "video"
+                ],
+                "output": [
+                    "text"
+                ]
+            },
+            "family": "kimi-k2",
+            "release_date": "2026-06-12",
+            "interleaved": {
+                "field": "reasoning_content"
+            }
+        },
+        {
+            "created": 1776816000,
+            "id": "opencode-go2/mimo-v2.5-pro",
+            "object": "model",
+            "owned_by": "xiaomi",
+            "name": "MiMo V2.5 Pro (OpenCode Go 2)",
+            "limit": {
+                "context": 1048576,
+                "output": 128000,
+                "input": 1048576
+            },
+            "reasoning": true,
+            "tool_call": true,
+            "variants": {},
+            "cost": {
+                "input": 0.435,
+                "output": 0.87,
+                "cache_read": 0.003625,
+                "cache_write": 0,
+                "context_over_200k": {
+                    "input": 0,
+                    "output": 0,
+                    "cache_read": 0,
+                    "cache_write": 0
+                }
+            },
+            "attachment": true,
+            "temperature": true,
+            "modalities": {
+                "input": [
+                    "text"
+                ],
+                "output": [
+                    "text"
+                ]
+            },
+            "family": "mimo-v2.5-pro",
+            "release_date": "2026-04-22",
+            "interleaved": {
+                "field": "reasoning_content"
+            }
+        },
+        {
+            "created": 1780185600,
+            "id": "opencode-go2/minimax-m3",
+            "object": "model",
+            "owned_by": "minimax",
+            "name": "MiniMax-M3 (OpenCode Go 2)",
+            "limit": {
+                "context": 1000000,
+                "output": 131072,
+                "input": 1000000
+            },
+            "reasoning": true,
+            "tool_call": true,
+            "variants": {},
+            "cost": {
+                "input": 0.3,
+                "output": 1.2,
+                "cache_read": 0.06,
+                "cache_write": 0,
+                "context_over_200k": {
+                    "input": 0.6,
+                    "output": 2.4,
+                    "cache_read": 0.12,
+                    "cache_write": 0
+                }
+            },
+            "attachment": false,
+            "temperature": true,
+            "modalities": {
+                "input": [
+                    "text",
+                    "image",
+                    "video"
+                ],
+                "output": [
+                    "text"
+                ]
+            },
+            "family": "minimax-m3",
+            "release_date": "2026-05-31"
+        },
+        {
+            "created": 1779321600,
+            "id": "alibaba-cloud/qwen3.7-max",
+            "object": "model",
+            "owned_by": "alibaba",
+            "name": "Qwen3.7 Max (Alibaba Cloud)",
+            "limit": {
+                "context": 1000000,
+                "output": 65536,
+                "input": 1000000
+            },
+            "reasoning": true,
+            "tool_call": true,
+            "variants": {},
+            "cost": {
+                "input": 2.5,
+                "output": 7.5,
+                "cache_read": 0.5,
+                "cache_write": 3.125,
+                "context_over_200k": {
+                    "input": 0,
+                    "output": 0,
+                    "cache_read": 0,
+                    "cache_write": 0
+                }
+            },
+            "attachment": false,
+            "temperature": true,
+            "modalities": {
+                "input": [
+                    "text"
+                ],
+                "output": [
+                    "text"
+                ]
+            },
+            "family": "qwen",
+            "release_date": "2026-05-21"
+        },
+        {
+            "created": 1781222400,
+            "id": "alibaba-cloud/kimi-k2.7-code",
+            "object": "model",
+            "owned_by": "moonshotai",
+            "name": "Kimi K2.7 Code (Alibaba Cloud)",
+            "limit": {
+                "context": 262144,
+                "output": 262144,
+                "input": 262144
+            },
+            "reasoning": true,
+            "tool_call": true,
+            "variants": {},
+            "cost": {
+                "input": 0.95,
+                "output": 4,
+                "cache_read": 0.19,
+                "cache_write": 0,
+                "context_over_200k": {
+                    "input": 0,
+                    "output": 0,
+                    "cache_read": 0,
+                    "cache_write": 0
+                }
+            },
+            "attachment": true,
+            "temperature": false,
+            "modalities": {
+                "input": [
+                    "text",
+                    "image",
+                    "video"
+                ],
+                "output": [
+                    "text"
+                ]
+            },
+            "family": "kimi-k2",
+            "release_date": "2026-06-12",
+            "interleaved": {
+                "field": "reasoning_content"
+            }
+        },
+        {
+            "created": 1782864000,
+            "id": "alibaba-coding-plan/qwen3.8-max-preview",
+            "object": "model",
+            "owned_by": "alibaba",
+            "name": "Qwen3.8 Max Preview (Alibaba Coding Plan)",
+            "limit": {
+                "context": 1000000,
+                "output": 65536,
+                "input": 1000000
+            },
+            "reasoning": true,
+            "tool_call": true,
+            "variants": {},
+            "cost": {
+                "input": 2.5,
+                "output": 7.5,
+                "cache_read": 0.5,
+                "cache_write": 3.125,
+                "context_over_200k": {
+                    "input": 0,
+                    "output": 0,
+                    "cache_read": 0,
+                    "cache_write": 0
+                }
+            },
+            "attachment": false,
+            "temperature": true,
+            "modalities": {
+                "input": [
+                    "text"
+                ],
+                "output": [
+                    "text"
+                ]
+            },
+            "family": "qwen",
+            "release_date": "2026-07-01"
+        },
+        {
+            "created": 1780358400,
+            "id": "alibaba-coding-plan/qwen3.7-plus",
+            "object": "model",
+            "owned_by": "alibaba",
+            "name": "Qwen3.7 Plus (Alibaba Coding Plan)",
+            "limit": {
+                "context": 1000000,
+                "output": 64000,
+                "input": 1000000
+            },
+            "reasoning": true,
+            "tool_call": true,
+            "variants": {},
+            "cost": {
+                "input": 0,
+                "output": 0,
+                "cache_read": 0,
+                "cache_write": 0,
+                "context_over_200k": {
+                    "input": 0,
+                    "output": 0,
+                    "cache_read": 0,
+                    "cache_write": 0
+                }
+            },
+            "attachment": false,
+            "temperature": true,
+            "modalities": {
+                "input": [
+                    "text",
                     "image"
                 ],
                 "output": [
                     "text"
                 ]
             },
-            "family": "gpt-mini",
-            "release_date": "2026-03-17"
+            "family": "qwen",
+            "release_date": "2026-06-02"
         },
         {
             "created": 1779321600,
-            "id": "grok-build-0.1",
+            "id": "alibaba-coding-plan/qwen3.7-max",
+            "object": "model",
+            "owned_by": "alibaba",
+            "name": "Qwen3.7 Max (Alibaba Coding Plan)",
+            "limit": {
+                "context": 1000000,
+                "output": 65536,
+                "input": 1000000
+            },
+            "reasoning": true,
+            "tool_call": true,
+            "variants": {},
+            "cost": {
+                "input": 2.5,
+                "output": 7.5,
+                "cache_read": 0.5,
+                "cache_write": 3.125,
+                "context_over_200k": {
+                    "input": 0,
+                    "output": 0,
+                    "cache_read": 0,
+                    "cache_write": 0
+                }
+            },
+            "attachment": false,
+            "temperature": true,
+            "modalities": {
+                "input": [
+                    "text"
+                ],
+                "output": [
+                    "text"
+                ]
+            },
+            "family": "qwen",
+            "release_date": "2026-05-21"
+        },
+        {
+            "created": 1777248000,
+            "id": "alibaba-coding-plan/qwen3.6-flash",
+            "object": "model",
+            "owned_by": "alibaba",
+            "name": "Qwen3.6 Flash (Alibaba Coding Plan)",
+            "limit": {
+                "context": 1000000,
+                "output": 65536,
+                "input": 1000000
+            },
+            "reasoning": true,
+            "tool_call": true,
+            "variants": {},
+            "cost": {
+                "input": 0.1875,
+                "output": 1.125,
+                "cache_read": 0,
+                "cache_write": 0.234375,
+                "context_over_200k": {
+                    "input": 0,
+                    "output": 0,
+                    "cache_read": 0,
+                    "cache_write": 0
+                }
+            },
+            "attachment": true,
+            "temperature": true,
+            "modalities": {
+                "input": [
+                    "text",
+                    "image",
+                    "video"
+                ],
+                "output": [
+                    "text"
+                ]
+            },
+            "family": "qwen3.6",
+            "release_date": "2026-04-27"
+        },
+        {
+            "created": 1781308800,
+            "id": "alibaba-coding-plan/glm-5.2",
+            "object": "model",
+            "owned_by": "zai",
+            "name": "GLM-5.2 (Alibaba Coding Plan)",
+            "limit": {
+                "context": 1000000,
+                "output": 131072,
+                "input": 1000000
+            },
+            "reasoning": true,
+            "tool_call": true,
+            "variants": {},
+            "cost": {
+                "input": 1.4,
+                "output": 4.4,
+                "cache_read": 0.26,
+                "cache_write": 0,
+                "context_over_200k": {
+                    "input": 0,
+                    "output": 0,
+                    "cache_read": 0,
+                    "cache_write": 0
+                }
+            },
+            "attachment": false,
+            "temperature": true,
+            "modalities": {
+                "input": [
+                    "text"
+                ],
+                "output": [
+                    "text"
+                ]
+            },
+            "family": "glm",
+            "release_date": "2026-06-13",
+            "interleaved": {
+                "field": "reasoning_content"
+            }
+        },
+        {
+            "created": 1776988800,
+            "id": "alibaba-coding-plan/deepseek-v4-pro",
+            "object": "model",
+            "owned_by": "deepseek",
+            "name": "DeepSeek V4 Pro (Alibaba Coding Plan)",
+            "limit": {
+                "context": 1000000,
+                "output": 384000,
+                "input": 1000000
+            },
+            "reasoning": true,
+            "tool_call": true,
+            "variants": {},
+            "cost": {
+                "input": 0.435,
+                "output": 0.87,
+                "cache_read": 0.003625,
+                "cache_write": 0,
+                "context_over_200k": {
+                    "input": 0,
+                    "output": 0,
+                    "cache_read": 0,
+                    "cache_write": 0
+                }
+            },
+            "attachment": false,
+            "temperature": true,
+            "modalities": {
+                "input": [
+                    "text"
+                ],
+                "output": [
+                    "text"
+                ]
+            },
+            "family": "deepseek-thinking",
+            "release_date": "2026-04-24",
+            "interleaved": {
+                "field": "reasoning_content"
+            }
+        },
+        {
+            "created": 1783468800,
+            "id": "supergrok/grok-4.5",
             "object": "model",
             "owned_by": "xai",
-            "name": "Grok Build 0.1",
+            "name": "Grok 4.5 (SuperGrok)",
+            "limit": {
+                "context": 500000,
+                "output": 500000,
+                "input": 500000
+            },
+            "reasoning": true,
+            "tool_call": true,
+            "variants": {},
+            "cost": {
+                "input": 2,
+                "output": 6,
+                "cache_read": 0.3,
+                "cache_write": 0,
+                "context_over_200k": {
+                    "input": 4,
+                    "output": 12,
+                    "cache_read": 1,
+                    "cache_write": 0
+                }
+            },
+            "attachment": true,
+            "temperature": true,
+            "modalities": {
+                "input": [
+                    "text",
+                    "image",
+                    "pdf"
+                ],
+                "output": [
+                    "text"
+                ]
+            },
+            "family": "grok",
+            "release_date": "2026-07-08",
+            "interleaved": {
+                "field": "reasoning_content"
+            }
+        },
+        {
+            "created": 1776297600,
+            "id": "supergrok/grok-build-0.1",
+            "object": "model",
+            "owned_by": "xai",
+            "name": "Grok Build 0.1 (SuperGrok)",
             "limit": {
                 "context": 256000,
                 "output": 256000,
@@ -103,9 +984,9 @@
                 "cache_read": 0.2,
                 "cache_write": 0,
                 "context_over_200k": {
-                    "input": 0,
-                    "output": 0,
-                    "cache_read": 0,
+                    "input": 2,
+                    "output": 4,
+                    "cache_read": 0.4,
                     "cache_write": 0
                 }
             },
@@ -114,24 +995,25 @@
             "modalities": {
                 "input": [
                     "text",
-                    "image"
+                    "image",
+                    "pdf"
                 ],
                 "output": [
                     "text"
                 ]
             },
             "family": "grok-build",
-            "release_date": "2026-05-20",
+            "release_date": "2026-04-16",
             "interleaved": {
                 "field": "reasoning_content"
             }
         },
         {
-            "created": 1740960000,
-            "id": "grok-composer-2.5-fast",
+            "created": 1776297600,
+            "id": "supergrok/grok-build-0.1-websearch",
             "object": "model",
             "owned_by": "xai",
-            "name": "Composer 2.5 Fast",
+            "name": "Grok Build 0.1 (SuperGrok, Web Search)",
             "limit": {
                 "context": 256000,
                 "output": 256000,
@@ -141,14 +1023,14 @@
             "tool_call": true,
             "variants": {},
             "cost": {
-                "input": 0.5,
-                "output": 2.5,
+                "input": 1,
+                "output": 2,
                 "cache_read": 0.2,
                 "cache_write": 0,
                 "context_over_200k": {
-                    "input": 0,
-                    "output": 0,
-                    "cache_read": 0,
+                    "input": 2,
+                    "output": 4,
+                    "cache_read": 0.4,
                     "cache_write": 0
                 }
             },
@@ -165,243 +1047,17 @@
                 ]
             },
             "family": "grok-build",
-            "release_date": "2026-06-01",
+            "release_date": "2026-04-16",
             "interleaved": {
                 "field": "reasoning_content"
             }
         },
         {
-            "created": 1772668800,
-            "id": "gpt-5.4",
-            "object": "model",
-            "owned_by": "openai",
-            "name": "GPT-5.4",
-            "limit": {
-                "context": 400000,
-                "output": 128000,
-                "input": 272000
-            },
-            "reasoning": true,
-            "tool_call": true,
-            "variants": {
-                "none": {
-                    "reasoningEffort": "none",
-                    "reasoningSummary": "auto",
-                    "include": [
-                        "reasoning.encrypted_content"
-                    ]
-                },
-                "minimal": {
-                    "reasoningEffort": "minimal",
-                    "reasoningSummary": "auto",
-                    "include": [
-                        "reasoning.encrypted_content"
-                    ]
-                },
-                "low": {
-                    "reasoningEffort": "low",
-                    "reasoningSummary": "auto",
-                    "include": [
-                        "reasoning.encrypted_content"
-                    ]
-                },
-                "medium": {
-                    "reasoningEffort": "medium",
-                    "reasoningSummary": "auto",
-                    "include": [
-                        "reasoning.encrypted_content"
-                    ]
-                },
-                "high": {
-                    "reasoningEffort": "high",
-                    "reasoningSummary": "auto",
-                    "include": [
-                        "reasoning.encrypted_content"
-                    ]
-                },
-                "xhigh": {
-                    "reasoningEffort": "xhigh",
-                    "reasoningSummary": "auto",
-                    "include": [
-                        "reasoning.encrypted_content"
-                    ]
-                }
-            },
-            "cost": {
-                "input": 2.5,
-                "output": 15,
-                "cache_read": 0.25,
-                "cache_write": 0,
-                "context_over_200k": {
-                    "input": 5,
-                    "output": 22.5,
-                    "cache_read": 0.5
-                }
-            },
-            "attachment": true,
-            "temperature": false,
-            "modalities": {
-                "input": [
-                    "text",
-                    "image",
-                    "pdf"
-                ],
-                "output": [
-                    "text"
-                ]
-            },
-            "family": "gpt",
-            "release_date": "2026-03-05"
-        },
-        {
-            "created": 1776902400,
-            "id": "codex-auto-review",
-            "object": "model",
-            "owned_by": "openai",
-            "name": "Codex Auto Review",
-            "limit": {
-                "context": 400000,
-                "output": 128000,
-                "input": 272000
-            },
-            "reasoning": true,
-            "tool_call": true,
-            "variants": {
-                "low": {
-                    "reasoningEffort": "low",
-                    "reasoningSummary": "auto",
-                    "include": [
-                        "reasoning.encrypted_content"
-                    ]
-                },
-                "medium": {
-                    "reasoningEffort": "medium",
-                    "reasoningSummary": "auto",
-                    "include": [
-                        "reasoning.encrypted_content"
-                    ]
-                },
-                "high": {
-                    "reasoningEffort": "high",
-                    "reasoningSummary": "auto",
-                    "include": [
-                        "reasoning.encrypted_content"
-                    ]
-                }
-            },
-            "cost": {
-                "input": 2.5,
-                "output": 15,
-                "cache_read": 0.25,
-                "cache_write": 0,
-                "context_over_200k": {
-                    "input": 5,
-                    "output": 22.5,
-                    "cache_read": 0.5
-                }
-            },
-            "attachment": true,
-            "modalities": {
-                "input": [
-                    "text",
-                    "image",
-                    "pdf"
-                ],
-                "output": [
-                    "text"
-                ]
-            },
-            "family": "gpt",
-            "release_date": "2026-04-23"
-        },
-        {
-            "created": 1773014400,
-            "id": "grok-4.20-0309-non-reasoning",
+            "created": 1783468800,
+            "id": "supergrok/grok-4.5-websearch",
             "object": "model",
             "owned_by": "xai",
-            "name": "Grok 4.20 (Non-Reasoning)",
-            "limit": {
-                "context": 1000000,
-                "output": 30000,
-                "input": 1000000
-            },
-            "reasoning": false,
-            "tool_call": true,
-            "variants": {},
-            "cost": {
-                "input": 1.25,
-                "output": 2.5,
-                "cache_read": 0.2,
-                "cache_write": 0,
-                "context_over_200k": {
-                    "input": 2.5,
-                    "output": 5,
-                    "cache_read": 0.4
-                }
-            },
-            "attachment": true,
-            "temperature": true,
-            "modalities": {
-                "input": [
-                    "text",
-                    "image",
-                    "pdf"
-                ],
-                "output": [
-                    "text"
-                ]
-            },
-            "family": "grok",
-            "release_date": "2026-03-09"
-        },
-        {
-            "created": 1775606400,
-            "id": "grok-4.3",
-            "object": "model",
-            "owned_by": "xai",
-            "name": "Grok 4.3",
-            "limit": {
-                "context": 1000000,
-                "output": 1000000,
-                "input": 1000000
-            },
-            "reasoning": true,
-            "tool_call": true,
-            "variants": {},
-            "cost": {
-                "input": 1.25,
-                "output": 2.5,
-                "cache_read": 0.2,
-                "cache_write": 0,
-                "context_over_200k": {
-                    "input": 2.5,
-                    "output": 5,
-                    "cache_read": 0.4
-                }
-            },
-            "attachment": true,
-            "temperature": true,
-            "modalities": {
-                "input": [
-                    "text",
-                    "image"
-                ],
-                "output": [
-                    "text"
-                ]
-            },
-            "family": "grok",
-            "release_date": "2026-05-01",
-            "interleaved": {
-                "field": "reasoning_content"
-            }
-        },
-        {
-            "created": 1783526400,
-            "id": "grok-4.5",
-            "object": "model",
-            "owned_by": "xai",
-            "name": "Grok 4.5",
+            "name": "Grok 4.5 (SuperGrok, Web Search)",
             "limit": {
                 "context": 500000,
                 "output": 500000,
@@ -413,135 +1069,49 @@
             "cost": {
                 "input": 2,
                 "output": 6,
-                "cache_read": 0.5,
+                "cache_read": 0.3,
                 "cache_write": 0,
                 "context_over_200k": {
                     "input": 4,
                     "output": 12,
-                    "cache_read": 1
-                }
-            },
-            "attachment": true,
-            "temperature": true,
-            "modalities": {
-                "input": [
-                    "text",
-                    "image"
-                ],
-                "output": [
-                    "text"
-                ]
-            },
-            "family": "grok",
-            "release_date": "2026-07-08",
-            "interleaved": {
-                "field": "reasoning_content"
-            }
-        },
-        {
-            "created": 1783526400,
-            "id": "fut-grok-4.5",
-            "object": "model",
-            "owned_by": "xai",
-            "name": "FUT Grok 4.5",
-            "limit": {
-                "context": 500000,
-                "output": 500000,
-                "input": 500000
-            },
-            "reasoning": true,
-            "tool_call": true,
-            "variants": {},
-            "cost": {
-                "input": 2,
-                "output": 6,
-                "cache_read": 0.5,
-                "cache_write": 0,
-                "context_over_200k": {
-                    "input": 4,
-                    "output": 12,
-                    "cache_read": 1
-                }
-            },
-            "attachment": true,
-            "temperature": true,
-            "modalities": {
-                "input": [
-                    "text",
-                    "image"
-                ],
-                "output": [
-                    "text"
-                ]
-            },
-            "family": "grok",
-            "release_date": "2026-07-08",
-            "interleaved": {
-                "field": "reasoning_content"
-            }
-        },
-        {
-            "created": 1740960000,
-            "id": "grok-3-mini",
-            "object": "model",
-            "owned_by": "xai",
-            "name": "xAI Grok 3 Mini",
-            "limit": {
-                "context": 131072,
-                "output": 131072,
-                "input": 131072
-            },
-            "reasoning": false,
-            "tool_call": true,
-            "variants": {},
-            "cost": {
-                "input": 0.3,
-                "output": 0.5,
-                "cache_read": 0.075,
-                "cache_write": 0,
-                "context_over_200k": {
-                    "input": 0,
-                    "output": 0,
-                    "cache_read": 0,
+                    "cache_read": 1,
                     "cache_write": 0
                 }
             },
-            "attachment": false,
+            "attachment": true,
             "temperature": true,
             "modalities": {
                 "input": [
-                    "text"
+                    "text",
+                    "image",
+                    "pdf"
                 ],
                 "output": [
                     "text"
                 ]
             },
             "family": "grok",
-            "release_date": "2024-06-01"
+            "release_date": "2026-07-08",
+            "interleaved": {
+                "field": "reasoning_content"
+            }
         },
         {
-            "created": 1776902400,
-            "id": "gpt-5.5",
+            "created": 1783555200,
+            "id": "openai/gpt-5.6-sol",
             "object": "model",
             "owned_by": "openai",
-            "name": "GPT-5.5",
+            "name": "GPT-5.6 Sol (OpenAI)",
             "limit": {
-                "context": 400000,
+                "context": 1050000,
                 "output": 128000,
-                "input": 272000
+                "input": 922000
             },
             "reasoning": true,
             "tool_call": true,
             "variants": {
                 "none": {
                     "reasoningEffort": "none",
-                    "reasoningSummary": "auto",
-                    "include": [
-                        "reasoning.encrypted_content"
-                    ]
-                },
-                "minimal": {
-                    "reasoningEffort": "minimal",
                     "reasoningSummary": "auto",
                     "include": [
                         "reasoning.encrypted_content"
@@ -570,6 +1140,13 @@
                 },
                 "xhigh": {
                     "reasoningEffort": "xhigh",
+                    "reasoningSummary": "auto",
+                    "include": [
+                        "reasoning.encrypted_content"
+                    ]
+                },
+                "max": {
+                    "reasoningEffort": "max",
                     "reasoningSummary": "auto",
                     "include": [
                         "reasoning.encrypted_content"
@@ -580,11 +1157,12 @@
                 "input": 5,
                 "output": 30,
                 "cache_read": 0.5,
-                "cache_write": 0,
+                "cache_write": 6.25,
                 "context_over_200k": {
                     "input": 10,
                     "output": 45,
-                    "cache_read": 1
+                    "cache_read": 1,
+                    "cache_write": 12.5
                 }
             },
             "attachment": true,
@@ -599,47 +1177,344 @@
                     "text"
                 ]
             },
-            "family": "gpt",
-            "release_date": "2026-04-23"
+            "family": "gpt-sol",
+            "release_date": "2026-07-09"
         },
         {
-            "created": 1740960000,
-            "id": "grok-3-mini-fast",
+            "created": 1783555200,
+            "id": "openai/gpt-5.6-terra",
             "object": "model",
-            "owned_by": "xai",
-            "name": "Grok 3 Mini Fast",
+            "owned_by": "openai",
+            "name": "GPT-5.6 Terra (OpenAI)",
             "limit": {
-                "context": 131072,
-                "output": 131072,
-                "input": 131072
+                "context": 1050000,
+                "output": 128000,
+                "input": 922000
             },
             "reasoning": true,
             "tool_call": true,
-            "variants": {},
-            "cost": {
-                "input": 0.3,
-                "output": 0.5,
-                "cache_read": 0.075,
-                "cache_write": 0,
-                "context_over_200k": {
-                    "input": 0,
-                    "output": 0,
-                    "cache_read": 0,
-                    "cache_write": 0
+            "variants": {
+                "none": {
+                    "reasoningEffort": "none",
+                    "reasoningSummary": "auto",
+                    "include": [
+                        "reasoning.encrypted_content"
+                    ]
+                },
+                "low": {
+                    "reasoningEffort": "low",
+                    "reasoningSummary": "auto",
+                    "include": [
+                        "reasoning.encrypted_content"
+                    ]
+                },
+                "medium": {
+                    "reasoningEffort": "medium",
+                    "reasoningSummary": "auto",
+                    "include": [
+                        "reasoning.encrypted_content"
+                    ]
+                },
+                "high": {
+                    "reasoningEffort": "high",
+                    "reasoningSummary": "auto",
+                    "include": [
+                        "reasoning.encrypted_content"
+                    ]
+                },
+                "xhigh": {
+                    "reasoningEffort": "xhigh",
+                    "reasoningSummary": "auto",
+                    "include": [
+                        "reasoning.encrypted_content"
+                    ]
+                },
+                "max": {
+                    "reasoningEffort": "max",
+                    "reasoningSummary": "auto",
+                    "include": [
+                        "reasoning.encrypted_content"
+                    ]
                 }
             },
-            "attachment": false,
-            "temperature": true,
+            "cost": {
+                "input": 2.5,
+                "output": 15,
+                "cache_read": 0.25,
+                "cache_write": 3.125,
+                "context_over_200k": {
+                    "input": 5,
+                    "output": 22.5,
+                    "cache_read": 0.5,
+                    "cache_write": 6.25
+                }
+            },
+            "attachment": true,
+            "temperature": false,
             "modalities": {
                 "input": [
-                    "text"
+                    "text",
+                    "image",
+                    "pdf"
                 ],
                 "output": [
                     "text"
                 ]
             },
-            "family": "grok",
-            "release_date": "2025-02-17"
+            "family": "gpt-terra",
+            "release_date": "2026-07-09"
+        },
+        {
+            "created": 1783555200,
+            "id": "openai/gpt-5.6-luna",
+            "object": "model",
+            "owned_by": "openai",
+            "name": "GPT-5.6 Luna (OpenAI)",
+            "limit": {
+                "context": 1050000,
+                "output": 128000,
+                "input": 922000
+            },
+            "reasoning": true,
+            "tool_call": true,
+            "variants": {
+                "none": {
+                    "reasoningEffort": "none",
+                    "reasoningSummary": "auto",
+                    "include": [
+                        "reasoning.encrypted_content"
+                    ]
+                },
+                "low": {
+                    "reasoningEffort": "low",
+                    "reasoningSummary": "auto",
+                    "include": [
+                        "reasoning.encrypted_content"
+                    ]
+                },
+                "medium": {
+                    "reasoningEffort": "medium",
+                    "reasoningSummary": "auto",
+                    "include": [
+                        "reasoning.encrypted_content"
+                    ]
+                },
+                "high": {
+                    "reasoningEffort": "high",
+                    "reasoningSummary": "auto",
+                    "include": [
+                        "reasoning.encrypted_content"
+                    ]
+                },
+                "xhigh": {
+                    "reasoningEffort": "xhigh",
+                    "reasoningSummary": "auto",
+                    "include": [
+                        "reasoning.encrypted_content"
+                    ]
+                },
+                "max": {
+                    "reasoningEffort": "max",
+                    "reasoningSummary": "auto",
+                    "include": [
+                        "reasoning.encrypted_content"
+                    ]
+                }
+            },
+            "cost": {
+                "input": 1,
+                "output": 6,
+                "cache_read": 0.1,
+                "cache_write": 1.25,
+                "context_over_200k": {
+                    "input": 2,
+                    "output": 9,
+                    "cache_read": 0.2,
+                    "cache_write": 2.5
+                }
+            },
+            "attachment": true,
+            "temperature": false,
+            "modalities": {
+                "input": [
+                    "text",
+                    "image",
+                    "pdf"
+                ],
+                "output": [
+                    "text"
+                ]
+            },
+            "family": "gpt-luna",
+            "release_date": "2026-07-09"
+        },
+        {
+            "created": 1783555200,
+            "id": "openai/gpt-5.6-terra-websearch",
+            "object": "model",
+            "owned_by": "openai",
+            "name": "GPT-5.6 Terra (OpenAI, Web Search)",
+            "limit": {
+                "context": 1050000,
+                "output": 128000,
+                "input": 922000
+            },
+            "reasoning": true,
+            "tool_call": true,
+            "variants": {
+                "none": {
+                    "reasoningEffort": "none",
+                    "reasoningSummary": "auto",
+                    "include": [
+                        "reasoning.encrypted_content"
+                    ]
+                },
+                "low": {
+                    "reasoningEffort": "low",
+                    "reasoningSummary": "auto",
+                    "include": [
+                        "reasoning.encrypted_content"
+                    ]
+                },
+                "medium": {
+                    "reasoningEffort": "medium",
+                    "reasoningSummary": "auto",
+                    "include": [
+                        "reasoning.encrypted_content"
+                    ]
+                },
+                "high": {
+                    "reasoningEffort": "high",
+                    "reasoningSummary": "auto",
+                    "include": [
+                        "reasoning.encrypted_content"
+                    ]
+                },
+                "xhigh": {
+                    "reasoningEffort": "xhigh",
+                    "reasoningSummary": "auto",
+                    "include": [
+                        "reasoning.encrypted_content"
+                    ]
+                },
+                "max": {
+                    "reasoningEffort": "max",
+                    "reasoningSummary": "auto",
+                    "include": [
+                        "reasoning.encrypted_content"
+                    ]
+                }
+            },
+            "cost": {
+                "input": 2.5,
+                "output": 15,
+                "cache_read": 0.25,
+                "cache_write": 3.125,
+                "context_over_200k": {
+                    "input": 5,
+                    "output": 22.5,
+                    "cache_read": 0.5,
+                    "cache_write": 6.25
+                }
+            },
+            "attachment": true,
+            "temperature": false,
+            "modalities": {
+                "input": [
+                    "text",
+                    "image",
+                    "pdf"
+                ],
+                "output": [
+                    "text"
+                ]
+            },
+            "family": "gpt-terra",
+            "release_date": "2026-07-09"
+        },
+        {
+            "created": 1783555200,
+            "id": "openai/gpt-5.6-luna-websearch",
+            "object": "model",
+            "owned_by": "openai",
+            "name": "GPT-5.6 Luna (OpenAI, Web Search)",
+            "limit": {
+                "context": 1050000,
+                "output": 128000,
+                "input": 922000
+            },
+            "reasoning": true,
+            "tool_call": true,
+            "variants": {
+                "none": {
+                    "reasoningEffort": "none",
+                    "reasoningSummary": "auto",
+                    "include": [
+                        "reasoning.encrypted_content"
+                    ]
+                },
+                "low": {
+                    "reasoningEffort": "low",
+                    "reasoningSummary": "auto",
+                    "include": [
+                        "reasoning.encrypted_content"
+                    ]
+                },
+                "medium": {
+                    "reasoningEffort": "medium",
+                    "reasoningSummary": "auto",
+                    "include": [
+                        "reasoning.encrypted_content"
+                    ]
+                },
+                "high": {
+                    "reasoningEffort": "high",
+                    "reasoningSummary": "auto",
+                    "include": [
+                        "reasoning.encrypted_content"
+                    ]
+                },
+                "xhigh": {
+                    "reasoningEffort": "xhigh",
+                    "reasoningSummary": "auto",
+                    "include": [
+                        "reasoning.encrypted_content"
+                    ]
+                },
+                "max": {
+                    "reasoningEffort": "max",
+                    "reasoningSummary": "auto",
+                    "include": [
+                        "reasoning.encrypted_content"
+                    ]
+                }
+            },
+            "cost": {
+                "input": 1,
+                "output": 6,
+                "cache_read": 0.1,
+                "cache_write": 1.25,
+                "context_over_200k": {
+                    "input": 2,
+                    "output": 9,
+                    "cache_read": 0.2,
+                    "cache_write": 2.5
+                }
+            },
+            "attachment": true,
+            "temperature": false,
+            "modalities": {
+                "input": [
+                    "text",
+                    "image",
+                    "pdf"
+                ],
+                "output": [
+                    "text"
+                ]
+            },
+            "family": "gpt-luna",
+            "release_date": "2026-07-09"
         }
     ],
     "object": "list"

@@ -58,8 +58,11 @@ export default (async () => {
   return {
     /**
      * Runs before providers initialize. Merges model metadata from
-     * futilify_gateway.json into provider.gw-futilify.models so opencode.json
-     * can stay small. Entries in opencode.json still override per-model fields.
+     * plugin/futilify_gw_models.json (catalog of the v2 gateway,
+     * https://v2.futilify.com/v1) into provider.futilify-gw.models so
+     * opencode.json can stay small. Entries in opencode.json still override
+     * per-model fields. Catalog path can be overridden with
+     * FUTILIFY_GATEWAY_CATALOG.
      */
     config: async (cfg) => {
       const discovered = modelsFromGatewayCatalog(catalog);

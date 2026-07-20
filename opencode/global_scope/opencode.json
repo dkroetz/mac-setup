@@ -1,9 +1,17 @@
 {
   "$schema": "https://opencode.ai/config.json",
-  // Agent Configuration
-  "default_agent": "plan",
-  "agent": {},
-  // MCP Configuration
+  "shell": "fish",
+  "default_agent": "build",
+  "agent": {
+    "plan": {
+      "permission": {
+        "edit": {
+          ".scratch/**": "allow"
+        }
+      },
+      "options": {}
+    }
+  },
   "mcp": {
     "linear": {
       "enabled": true,
@@ -39,12 +47,12 @@
   // Provider Configuration
   "disabled_providers": ["togetherai", "openrouter", "kilo", "inception"],
   "provider": {
-    "gw-futilify": {
+    "futilify-gw": {
       "npm": "@ai-sdk/openai-compatible",
-      "name": "Futilify Gateway",
+      "name": "Futilify Gateway v2",
       "options": {
-        "baseURL": "https://gw.futilify.com/v1",
-        "apiKey": "{env:FUTILIFY_GW_API_KEY}"
+        "baseURL": "https://v2.futilify.com/v1",
+        "apiKey": "{env:FUTILIFY_GW_V2_API_KEY}"
       }
     },
     "opencode": {
@@ -71,16 +79,13 @@
         }
       }
     },
-    "openai": {
-      "whitelist": ["gpt-5.4-mini", "gpt-5.4", "gpt-5.5"]
-    },
-    "nvidia": {
-      "whitelist": ["nemotron-3-ultra-550b-a55b"]
-    },
+    "openai": {},
     "google": {
       "whitelist": ["gemma-4-31b-it", "gemini-3.5-flash"]
     }
   },
-  // Plugin Configuration
-  "plugin": ["./plugin/futilify-gateway-models.ts"]
+  "plugin": [
+    "./plugin/futilify-gw.ts",
+    "./plugin/browserless-url-fix.ts",
+  ]
 }
