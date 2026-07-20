@@ -16,7 +16,7 @@
   // UI Configuration
   "ui_font_size": 18.0,
   "ui_font_weight": 500.0,
-  "ui_font_family": "Hack Nerd Font",
+  "ui_font_family": "FiraMono Nerd Font",
   "theme": {
     "mode": "dark",
     "light": "One Light",
@@ -30,7 +30,7 @@
   // Buffer Settings
   "buffer_font_size": 17.0,
   "buffer_font_weight": 500,
-  "buffer_font_family": "Hack Nerd Font Mono",
+  "buffer_font_family": "FiraMono Nerd Font",
   "buffer_line_height": "standard",
   // AI Configuration
   "agent_ui_font_size": 14.5,
