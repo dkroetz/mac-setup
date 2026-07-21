@@ -1,5 +1,5 @@
-# Use Fish shell as default shell
-command = /opt/homebrew/bin/fish
+# Use zsh (macOS default) as default shell
+command = /bin/zsh
 
 # Keybinds
 ## Get terminal focus with `Ctrl + <` key
@@ -13,3 +13,6 @@ auto-update-channel = tip
 background-opacity = 1
 theme = Material Darker
 font-family = Sauce Code Pro Font Mono
+
+# SSH
+shell-integration-features = ssh-env,ssh-terminfo

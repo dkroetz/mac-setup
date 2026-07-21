@@ -12,3 +12,7 @@ __pycache__/
 .pdm-build/
 **.pyc
 /opencode/sync_cli/tests/__pycache__
+
+# Never commit real shell secrets (example file is tracked)
+.zshenv.local
+**/.zshenv.local

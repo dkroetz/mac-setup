@@ -1,0 +1,43 @@
+# Copy to ~/.zshenv.local and fill in real values.
+#   cp zsh/.zshenv.local.example ~/.zshenv.local
+#   chmod 600 ~/.zshenv.local
+#
+# NEVER commit ~/.zshenv.local or paste real secrets into this repo.
+
+# --- AI / LLM providers ---
+export OPENROUTER_API_KEY='replace-me'
+export KILO_API_KEY='replace-me'
+export TOGETHER_API_KEY='replace-me'
+export GOOGLE_GENERATIVE_AI_API_KEY='replace-me'
+# export XAI_API_KEY='replace-me'
+export OPENCODE_API_KEY='replace-me'
+export OPEN_CODE_GO_API_KEY='replace-me'
+export OPENCODE_GO_API_KEY2='replace-me'
+export INCEPTION_API_KEY='replace-me'
+export DEEPSEEK_API_KEY='replace-me'
+export CURSOR_API_KEY='replace-me'
+export FUTILIFY_GW_API_KEY='replace-me'
+export FUTILIFY_GW_V2_API_KEY='replace-me'
+export ALIBABA_TOKEN_PLAN_API_KEY='replace-me'
+export ALIBABA_CODING_PLAN_API_KEY="$ALIBABA_TOKEN_PLAN_API_KEY"
+export ALIBABA_CLOUD_MODELS_API_KEY='replace-me'
+# export HF_TOKEN='replace-me'
+
+# --- GitHub ---
+export GITHUB_CLAW_ISSUE_API_KEY='replace-me'
+export GITHUB_MCP_PAT='replace-me'
+# export GH_TOKEN='replace-me'
+
+# --- Project / SaaS ---
+export PLANE_API_KEY='replace-me'
+export LINEAR_API_KEY='replace-me'
+
+# --- X / Twitter OAuth ---
+export X_BEARER_TOKEN='replace-me'
+export X_OAUTH_CONSUMER_KEY='replace-me'
+export X_OAUTH_CONSUMER_SECRET='replace-me'
+export X_OAUTH_CLIENT_KEY='replace-me'
+export X_OAUTH_CLIENT_SECRET='replace-me'
+
+# --- Browserless (WebSocket URL includes a token — treat as secret) ---
+export BROWSERLESS_URL='ws://127.0.0.1:3000?token=replace-me'

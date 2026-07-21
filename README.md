@@ -11,10 +11,27 @@ Ghostty is a fast, feature-rich, and cross-platform terminal emulator that uses 
 [ghostty](https://ghostty.org/)
 ```sh
 brew install --cask ghostty
-cp .aliases ~/.aliases
-# Copy + Paste config into cmd + ,
+cp ghostty/config ~/Library/Application\ Support/com.mitchellh.ghostty/config
 brew install neovim
 ```
+
+## zsh (current)
+Plain macOS zsh + Homebrew plugins (migrated from fish). Full write-up: [`zsh/README.md`](zsh/README.md).
+
+```sh
+brew install zsh-autosuggestions zsh-syntax-highlighting zoxide starship fzf mise bat lazygit
+brew tap olets/tap && brew trust olets/tap && brew install zsh-abbr
+
+cp zsh/.zprofile ~/.zprofile
+cp zsh/.zshrc ~/.zshrc
+cp zsh/starship.toml ~/.config/starship.toml
+
+# Secrets stay out of git — fill locally only
+cp zsh/.zshenv.local.example ~/.zshenv.local
+chmod 600 ~/.zshenv.local
+```
+
+Ghostty is set to `command = /bin/zsh`. Login shell can stay fish until you run `chsh -s /bin/zsh`.
 
 ## herdr
 terminal agent multiplexer (tmux on steroids)
@@ -24,8 +41,9 @@ brew install herdr
 cp herdr/config.toml ~/.config/herdr/config.toml
 ```
 
-## fish
+## fish (previous)
 fish is a smart and user-friendly command line shell for Linux, macOS, and the rest of the family.
+Kept for reference / fallback — current interactive shell is zsh (see above).
 [fish](https://fishshell.com/)
 ```sh
 brew install fish
@@ -46,10 +64,10 @@ A Fish Shell plugin that automatically loads environment variables from a .env f
 fisher install SpaceShaman/autoenv.fish
 ```
 
-
 ## zoxide
 zoxide is a smarter cd command, inspired by z and autojump.
 It remembers which directories you use most frequently, so you can "jump" to them in just a few keystrokes.
+Included in the zsh setup above; still useful standalone.
 [GitHub - zoxide](https://github.com/ajeetdsouza/zoxide)
 ```sh
 brew install zoxide
@@ -61,7 +79,8 @@ The minimal, blazing-fast, and infinitely customizable prompt for any shell!
 [starship](https://starship.rs/)
 ```sh
 brew install starship
-cp fish/starship.toml ~/.config/
+cp zsh/starship.toml ~/.config/starship.toml
+# legacy fish path still works: cp fish/starship.toml ~/.config/
 ```
 
 ## lazygit
