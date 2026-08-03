@@ -1,6 +1,6 @@
 {
   "$schema": "https://opencode.ai/config.json",
-  "shell": "fish",
+  "shell": "zsh",
   "default_agent": "build",
   "agent": {
     "plan": {
@@ -44,8 +44,20 @@
       }
     }
   },
-  // Provider Configuration
-  "disabled_providers": ["togetherai", "openrouter", "kilo", "inception"],
+  "tools": {
+    "linear_*": false,
+    "linear_get_issue": true,
+    "linear_list_issues": true,
+    "linear_save_issue": true,
+    "linear_list_comments": true,
+    "linear_save_comment": true,
+    "linear_get_attachment": true,
+    "linear_extract_images": true,
+    "linear_get_project": true,
+    "linear_list_projects": true,
+    "linear_get_team": true,
+    "linear_get_user": true
+  },
   "provider": {
     "futilify-gw": {
       "npm": "@ai-sdk/openai-compatible",
@@ -55,8 +67,18 @@
         "apiKey": "{env:FUTILIFY_GW_V2_API_KEY}"
       }
     },
-    "opencode": {
-      "whitelist": ["north-mini-code-free", "opencode/nemotron-3-ultra-free"]
+    "bailian-token-plan": {
+      "npm": "@ai-sdk/openai-compatible",
+      "name": "Alibaba Coding Plan",
+      "options": {
+        "baseURL": "https://token-plan.ap-southeast-1.maas.aliyuncs.com/compatible-mode/v1",
+        "apiKey": "{env:ALIBABA_TOKEN_PLAN_API_KEY}"
+      },
+      "models": {
+        "qwen3.8-max-preview": {
+          "name": "Qwen3.8 Max Preview"
+        }
+      }
     },
     "opencode-go": {
       "blacklist": [
@@ -81,11 +103,16 @@
     },
     "openai": {},
     "google": {
-      "whitelist": ["gemma-4-31b-it", "gemini-3.5-flash"]
+      "whitelist": [
+        "gemma-4-31b-it",
+        "gemini-3.5-flash"
+      ]
     }
   },
   "plugin": [
     "./plugin/futilify-gw.ts",
     "./plugin/browserless-url-fix.ts",
+    "oc-browserless"
+    // "opencode-chrome-annotation@latest"
   ]
 }

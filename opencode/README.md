@@ -1,75 +1,35 @@
-# OpenCode Agent Harness
+# OpenCode Configuration
 
-This directory holds the versioned OpenCode configuration for this machine: agents, commands, skills, plugins, global config, and the sync tooling that keeps `~/.config/opencode` in sync with the repo.
+This directory is a direct mirror of the live OpenCode configuration on this machine: `~/.config/opencode` (global config, agents, commands, plugins) and `~/.agents/skills`.
 
 ## Layout
 
 ```
 opencode/
 ├── README.md              # This file
-├── global_scope/          # Canonical copy of ~/.config/opencode runtime files
-│   ├── opencode.json      # Global config, permissions, MCP servers
-│   ├── agents/            # Primary agents and subagents
-│   ├── commands/          # Custom slash commands
-│   ├── skills/            # Global skills (synced to ~/.agents/skills)
-│   ├── plugins/           # TypeScript plugins
-│   └── MAINTENANCE.md     # Harness maintenance guide
-├── sync_cli/              # opencode-sync CLI for repo ↔ home sync
-│   └── README.md
-└── docs/                  # Design docs and refinement reports
+├── AGENTS.md              # Global agent instructions (~/.config/opencode/AGENTS.md)
+├── opencode.json          # Global config, providers, MCP servers, plugins
+├── agents/                # Subagents (~/.config/opencode/agents)
+├── commands/              # Custom slash commands (~/.config/opencode/commands)
+├── plugin/                # TypeScript plugins (~/.config/opencode/plugin)
+├── plugins/               # Installed plugin files (~/.config/opencode/plugins)
+├── skills/                # Curated skills (subset of ~/.agents/skills)
+└── docs/                  # Reference docs
     ├── automation-setup.md
-    ├── prompt_best_practices.md
-    ├── RESEARCH-AGENT-PATTERNS.md
-    └── WIKI_REFINEMENT.md
+    └── prompt_best_practices.md
 ```
 
-`global_scope/` is the source of truth for what lives under `~/.config/opencode/`. The `opencode-sync` tool copies paths bidirectionally with an explicit manifest that also covers `~/.agents/skills` when that directory is populated.
+## Sync Model
 
-## Quick Start
+The repo mirrors the live config. There is no sync tooling — updates flow one of two ways:
 
-### Install the sync CLI
-
-```bash
-uv tool install ~/Repos/mac-setup/opencode/sync_cli
-```
-
-### Sync from repo to home
-
-```bash
-opencode-sync status
-opencode-sync push --dry-run
-opencode-sync push
-```
-
-### Sync from home back to repo after local tweaks
-
-```bash
-opencode-sync pull --dry-run
-opencode-sync pull
-```
-
-See [`sync_cli/README.md`](sync_cli/README.md) for the full sync manifest and options.
-
-## Primary Agents
-
-| Agent | Purpose |
-|-------|---------|
-| **scout** | Default ask-oriented agent for exploration, Q&A, triage, and research |
-| **engineer** | Primary implementation agent for multi-file changes, features, and validation |
-| **librarian** | Vault-writing agent for the AI Obsidian knowledge base |
-| **architect** | Architecture and design decisions |
-| **auto** | Disabled autonomous placeholder for explicit experiments |
-| **ci-auto** | Non-interactive CI agent for issue-refinement automation |
+- **Local change → repo**: after editing `~/.config/opencode`, copy the changed paths into this directory and commit.
+- **Fresh machine**: copy the contents of this directory to `~/.config/opencode` and `~/.agents/skills` (skills only), then restart OpenCode.
 
 ## Subagents
 
 | Subagent | Purpose |
 |----------|---------|
-| **@planner** | Structured implementation plans |
-| **@implementer** | Focused implementation steps |
-| **@reviewer** | Change quality review |
-| **@context-auditor** | Context coverage validation |
-| **@discoverer** | Find relevant code and constraints |
 | **@google** | Multi-source research coordination |
 | **@wiki** | Read-only private vault lookup |
 | **@research/code** | Code examples and reference implementations |
@@ -82,14 +42,6 @@ See [`sync_cli/README.md`](sync_cli/README.md) for the full sync manifest and op
 
 | Command | Description |
 |---------|-------------|
-| `/plan <task>` | Create a phased implementation plan |
-| `/implement <plan>` | Execute a plan with validation gates |
-| `/review` | Review unstaged changes |
-| `/review-pr` | Review a pull request |
-| `/commit` | Create a structured commit |
-| `/architect <task>` | Architecture/design work |
-| `/goal <task>` | Goal decomposition and tracking |
-| `/research <topic>` | Multi-source research |
 | `/wiki-capture` | Capture a note into the vault |
 | `/wiki-compile` | Compile source material into durable wiki pages |
 | `/wiki-extract` | Promote daily-note items into durable pages |
@@ -98,7 +50,7 @@ See [`sync_cli/README.md`](sync_cli/README.md) for the full sync manifest and op
 
 ## Skills
 
-Global skills in `global_scope/skills/`:
+Curated skills in `skills/` (a subset of the live `~/.agents/skills`):
 
 | Skill | Purpose |
 |-------|---------|
@@ -113,25 +65,19 @@ Global skills in `global_scope/skills/`:
 
 ## Plugins
 
+- **futilify-gw** — Futilify Gateway provider plugin
+- **browserless-url-fix** — Browserless URL handling fix
 - **model-prompt/** — model-specific prompt injection plugin
-
-## Documentation
-
-- [`global_scope/MAINTENANCE.md`](global_scope/MAINTENANCE.md) — maintenance rhythm, context strategy, and permission model
-- [`docs/automation-setup.md`](docs/automation-setup.md) — GitHub issue-refinement workflow setup
-- [`docs/prompt_best_practices.md`](docs/prompt_best_practices.md) — prompt authoring guide
-- [`docs/RESEARCH-AGENT-PATTERNS.md`](docs/RESEARCH-AGENT-PATTERNS.md) — research agent design patterns
-- [`docs/WIKI_REFINEMENT.md`](docs/WIKI_REFINEMENT.md) — wiki/librarian refinement report
+- **plugins/herdr-agent-state.js** — herdr agent-state integration (installed by herdr)
 
 ## Making Changes
 
-1. Edit files under `global_scope/` (or `sync_cli/`).
-2. Run `opencode-sync push` to install them locally.
-3. Restart OpenCode so agent/command changes are reloaded.
-4. Commit the repo changes.
+1. Edit files under this directory (or directly in `~/.config/opencode`).
+2. Copy changes to the other side and restart OpenCode so agent/command/plugin changes reload.
+3. Commit the repo changes.
 
 ## Notes
 
 - `opencode.json` is the live global config; adjust providers, models, and permissions to taste.
-- `global_scope/skills/` syncs to `~/.agents/skills/`, not `~/.config/opencode/skills/`.
-- The harness is intentionally versioned here so any machine can reproduce the same setup.
+- `skills/` maps to `~/.agents/skills/`, not `~/.config/opencode/skills/`.
+- The setup is intentionally versioned here so any machine can reproduce the same config.
