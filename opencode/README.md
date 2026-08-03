@@ -66,6 +66,7 @@ Curated skills in `skills/` (a subset of the live `~/.agents/skills`):
 ## Plugins
 
 - **futilify-gw** — Futilify Gateway provider plugin
+- **browserless-url-fix** — builds `BROWSERLESS_URL` from `BROWSERLESS_BASE_URL` + `BROWSERLESS_TOKEN` env vars
 - **model-prompt/** — model-specific prompt injection plugin
 - **plugins/herdr-agent-state.js** — herdr agent-state integration (installed by herdr)
 
