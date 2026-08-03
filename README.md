@@ -41,6 +41,15 @@ brew install herdr
 cp herdr/config.toml ~/.config/herdr/config.toml
 ```
 
+## pi
+terminal coding agent (pi-coding-agent).
+```sh
+npm install -g @earendil-works/pi-coding-agent
+cp pi/settings.json ~/.pi/agent/settings.json
+cp pi/mcp.json ~/.pi/agent/mcp.json
+cp pi/extensions/*.ts ~/.pi/agent/extensions/
+```
+
 ## fish (previous)
 fish is a smart and user-friendly command line shell for Linux, macOS, and the rest of the family.
 Kept for reference / fallback — current interactive shell is zsh (see above).
