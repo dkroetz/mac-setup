@@ -3,6 +3,9 @@ onboarding = false
 name = "catppuccin"
 
 auto_switch = false
+[worktrees]
+directory = "~/Repos/worktrees"
+
 [keys]
 prefix = "ctrl+space"
 focus_pane_left = "ctrl+h"

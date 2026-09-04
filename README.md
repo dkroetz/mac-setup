@@ -20,7 +20,6 @@ Plain macOS zsh + Homebrew plugins (migrated from fish). Full write-up: [`zsh/RE
 
 ```sh
 brew install zsh-autosuggestions zsh-syntax-highlighting zoxide starship fzf mise bat lazygit
-brew tap olets/tap && brew trust olets/tap && brew install zsh-abbr
 
 cp zsh/.zprofile ~/.zprofile
 cp zsh/.zshrc ~/.zshrc
