@@ -4,6 +4,9 @@
 #
 # NEVER commit ~/.zshenv.local or paste real secrets into this repo.
 
+# --- XDG directories ---
+export XDG_CONFIG_HOME="$HOME/.config"
+
 # --- AI / LLM providers ---
 export OPENROUTER_API_KEY='replace-me'
 export KILO_API_KEY='replace-me'
