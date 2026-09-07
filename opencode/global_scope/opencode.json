@@ -85,7 +85,7 @@
     }
   },
   "plugin": [
-    "./plugin/futilify-gw.ts",
-    "./plugin/browserless-url-fix.ts",
+    "./plugins/futilify-gw",
+    // "./plugin/browserless-url-fix.ts",
   ]
 }
