@@ -1,0 +1,15 @@
+{
+  "lastChangelogVersion": "0.83.0",
+  "theme": "dark",
+  "hideThinkingBlock": false,
+  "defaultProvider": "deepseek",
+  "defaultModel": "deepseek-v4-flash",
+  "defaultThinkingLevel": "high",
+  "warnings": {
+    "anthropicExtraUsage": false
+  },
+  "packages": [
+    "npm:pi-cursor-sdk",
+    "npm:pi-mcp-adapter"
+  ]
+}

@@ -14,13 +14,17 @@ setopt HIST_IGNORE_SPACE
 setopt HIST_REDUCE_BLANKS
 setopt HIST_VERIFY
 
-# Completions (Homebrew site-functions + zsh-abbr)
+# Completions (Homebrew site-functions)
 fpath=(
   /opt/homebrew/share/zsh/site-functions
-  /opt/homebrew/share/zsh-abbr
   $fpath
 )
-autoload -Uz compinit && compinit
+autoload -Uz compinit
+if [[ -n ${ZDOTDIR:-$HOME}/.zcompdump(#qN.mh+24) ]]; then
+  compinit
+else
+  compinit -C
+fi
 
 # Completion UX closer to fish's pager
 zstyle ':completion:*' menu select
@@ -73,7 +77,7 @@ if [[ -o interactive ]]; then
   source /opt/homebrew/Library/Homebrew/command-not-found/handler.sh
 
   # mise: fish gets this via brew vendor_conf.d; zsh needs an explicit activate
-  eval "$(mise activate zsh)"
+  (( $+commands[mise] )) && eval "$(mise activate zsh)"
 
   eval "$(zoxide init zsh)"
   eval "$(starship init zsh)"
@@ -83,20 +87,16 @@ if [[ -o interactive ]]; then
   [[ -f /opt/homebrew/opt/fzf/shell/key-bindings.zsh ]] && source /opt/homebrew/opt/fzf/shell/key-bindings.zsh
   [[ -f /opt/homebrew/opt/fzf/shell/completion.zsh ]] && source /opt/homebrew/opt/fzf/shell/completion.zsh
 
-  # Expand-on-space abbreviations (fish abbr parity); session-scoped from this file
-  source /opt/homebrew/share/zsh-abbr/zsh-abbr.zsh
-  abbr -S --quiet oc=opencode
-  abbr -S --quiet ocs='opencode-sync status'
-  abbr -S --quiet ocp='opencode-sync push'
-  abbr -S --quiet ocpd='opencode-sync push --dry-run'
-  abbr -S --quiet ocl='opencode-sync pull'
-  abbr -S --quiet ocld='opencode-sync pull --dry-run'
-  abbr -S -qq --force vim=nvim
-  abbr -S --quiet lg=lazygit
-  abbr -S --quiet clip=pbcopy
-  abbr -S -qq --force 'cat=bat -p'
+  # Lightweight command shortcuts. Avoid zsh-abbr's cross-shell startup lock.
+  alias oc=opencode
+  alias vim=nvim
+  alias lg=lazygit
+  alias clip=pbcopy
+  alias cat='bat -p'
 
-  source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+  [[ -f /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh ]] && source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
   # Must be last among widget-related plugins
-  source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+  [[ -f /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]] && source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 fi
+
+export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"

@@ -1,0 +1,30 @@
+{
+  "mcpServers": {
+    "websearch-deepseek": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "websearch-deepseek"
+      ],
+      "env": {
+        "DEEPSEEK_API_KEY": "${DEEPSEEK_API_KEY}"
+      },
+      "directTools": true
+    },
+    "linear": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "mcp-remote",
+        "https://mcp.linear.app/mcp"
+      ],
+      "directTools": false
+    },
+    "futilify-catalog": {
+      "url": "https://catalog-mcp-6egzdfc2hq-ew.a.run.app/mcp",
+      "auth": "bearer",
+      "bearerTokenEnv": "FUTILIFY_CATALOG_MCP_API_KEYS",
+      "directTools": true
+    }
+  }
+}

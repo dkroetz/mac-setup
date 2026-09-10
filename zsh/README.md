@@ -6,7 +6,6 @@ Plain macOS `/bin/zsh` + Homebrew plugins. Migrated from fish (see `../fish/`) â
 
 ```sh
 brew install zsh-autosuggestions zsh-syntax-highlighting zoxide starship fzf mise bat lazygit neovim
-brew tap olets/tap && brew trust olets/tap && brew install zsh-abbr
 ```
 
 Optional (already common on this machine): `bun`, `pnpm`, `node@22`, `opencode`, `grok`.
@@ -51,12 +50,12 @@ chsh -s /bin/zsh
 | Homebrew missing-cmd | `command-not-found/handler.sh` (loaded before mise) |
 | zoxide / starship | Same as fish |
 | fzf | Ctrl-R history, Ctrl-T files, Alt-C cd |
-| zsh-abbr | Expand-on-space abbreviations (fish `abbr` parity) |
+| Aliases | Lightweight command shortcuts without plugin startup overhead |
 | Autosuggestions + syntax highlighting | Homebrew plugins (highlighting last) |
 
 ## Abbreviations
 
-Defined as **session** abbrs in `.zshrc` (expand on space):
+Defined as aliases in `.zshrc`:
 
 | Abbr | Expands to |
 |---|---|
@@ -92,10 +91,10 @@ rm -f ~/.zcompdump*
 
 ```sh
 # in a new Ghostty tab
-echo $SHELL          # /bin/zsh (Ghostty) or still fish if login shell unchanged
+echo $SHELL          # /bin/zsh
 which zoxide starship mise bat
-abbr list
-oc<space>            # should expand to opencode
+alias oc
+oc --version
 ll                   # colored long listing
 ```
 

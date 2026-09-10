@@ -110,9 +110,7 @@
     }
   },
   "plugin": [
-    "./plugin/futilify-gw.ts",
-    "./plugin/browserless-url-fix.ts",
-    "oc-browserless"
-    // "opencode-chrome-annotation@latest"
+    "./plugins/futilify-gw",
+    // "./plugin/browserless-url-fix.ts",
   ]
 }
