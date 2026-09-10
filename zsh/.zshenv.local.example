@@ -42,5 +42,6 @@ export X_OAUTH_CONSUMER_SECRET='replace-me'
 export X_OAUTH_CLIENT_KEY='replace-me'
 export X_OAUTH_CLIENT_SECRET='replace-me'
 
-# --- Browserless (WebSocket URL includes a token — treat as secret) ---
-export BROWSERLESS_URL='ws://127.0.0.1:3000?token=replace-me'
+# --- Browserless (base URL + token are secrets; the url-fix plugin builds BROWSERLESS_URL from them) ---
+export BROWSERLESS_BASE_URL='ws://replace-me:3000'
+export BROWSERLESS_TOKEN='replace-me'
