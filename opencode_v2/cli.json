@@ -1,0 +1,42 @@
+{
+  "theme": {
+    "name": "cursor",
+    "mode": "system"
+  },
+  "diffs": {
+    "wrap": "word"
+  },
+  "session": {
+    "sidebar": "hide",
+    "scrollbar": true,
+    "thinking": "hide",
+    "markdown": "rendered",
+    "grouping": "auto",
+    "image_preview": false,
+    "new_location": "launch",
+    "permissions": "autoaccept"
+  },
+  "animations": true,
+  "tabs": {
+    "layout": "horizontal",
+    "enabled": false
+  },
+  "debug": {
+    "turn_tokens": false
+  },
+  "attention": {
+    "sound": false,
+    "notifications": false
+  },
+  "terminal": {
+    "copy": "select",
+    "title": true
+  },
+  "$schema": "https://opencode.ai/v2/cli.json",
+  "plugins": [
+    "./herdr-tui-session.js"
+  ],
+  "prompt": {
+    "image_preview": true
+  }
+}

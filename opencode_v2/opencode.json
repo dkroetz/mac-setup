@@ -1,0 +1,67 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "shell": "zsh",
+  "default_agent": "build",
+  "model": "opencode-go/muse-spark-1.3-contributor",
+  "permissions": [
+    {
+      "action": "external_directory",
+      "resource": "~/.config/opencode/**",
+      "effect": "allow"
+    }
+  ],
+  "plugins": ["./plugins/futilify-gw"],
+  "mcp": {
+    "servers": {
+      "openobserve_local": {
+        "type": "remote",
+        "url": "http://localhost:5080/api/default/mcp",
+        "oauth": false,
+        "headers": {
+          "Authorization": "Basic {env:OPENOBSERVE_MCP_TOKEN}"
+        },
+        "disabled": false
+      },
+      "openobserve_prod": {
+        "type": "remote",
+        "url": "http://openobserve.agentmachine.home/api/default/mcp",
+        "oauth": false,
+        "headers": {
+          "Authorization": "Basic {env:OPENOBSERVE_PROD_MCP_TOKEN}"
+        },
+        "disabled": true
+      },
+      "linear": {
+        "type": "remote",
+        "url": "https://mcp.linear.app/mcp"
+      },
+      "agent-browser": {
+        "type": "local",
+        "command": ["agent-browser", "mcp", "--tools", "core,state,tabs"],
+        "environment": {
+          "AGENT_BROWSER_SESSION": "opencode-browser",
+          "AGENT_BROWSER_PROFILE": "Profile 5",
+          "AGENT_BROWSER_EXECUTABLE_PATH": "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
+        }
+      },
+      "dokploy": {
+        "type": "local",
+        "command": ["npx", "-y", "@dokploy/mcp@latest"],
+        "environment": {
+          "DOKPLOY_URL": "{env:DOKPLOY_URL}",
+          "DOKPLOY_API_KEY": "{env:DOKPLOY_API_KEY}"
+        }
+      }
+    }
+  },
+  "providers": {
+    "futilify-gw": {
+      "name": "Futilify Gateway v2",
+      "package": "aisdk:@ai-sdk/openai-compatible",
+      "settings": {
+        "baseURL": "https://v2.futilify.com/v1",
+        "apiKey": "{env:FUTILIFY_GW_V2_API_KEY}"
+      }
+    }
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "name": "futilify-gw",
+  "private": true,
+  "dependencies": {
+    "@opencode-ai/plugin": "1.18.29"
+  },
+  "devDependencies": {
+    "@types/node": "24.12.0"
+  }
+}
