@@ -1,8 +1,7 @@
 .venv/
 .env
-opencode/global_scope/.github/
-opencode/global_scope/.vscode/settings.json
 .opencode/
+node_modules/
 .agents/context/plans/
 
 
@@ -11,7 +10,6 @@ __pycache__/
 .pytest_cache/
 .pdm-build/
 **.pyc
-/opencode/sync_cli/tests/__pycache__
 
 # Never commit real shell secrets (example file is tracked)
 .zshenv.local

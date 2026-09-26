@@ -56,10 +56,10 @@
   },
   "providers": {
     "futilify-gw": {
-      "name": "Futilify Gateway v2",
+      "name": "Futilify Gateway v3",
       "package": "aisdk:@ai-sdk/openai-compatible",
       "settings": {
-        "baseURL": "https://v2.futilify.com/v1",
+        "baseURL": "https://gw-v3.futilify.com/v1",
         "apiKey": "{env:FUTILIFY_GW_V2_API_KEY}"
       }
     }
